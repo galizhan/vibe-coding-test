@@ -24,19 +24,21 @@ Decimal phases appear between their surrounding integers in numeric order.
 ## Phase Details
 
 ### Phase 1: Foundation & Pipeline Setup
-**Goal**: User can invoke CLI to parse markdown documents and generate valid JSON output with strict schema compliance
+**Goal**: Users can ingest a markdown document, extract structured use cases and policies with evidence traceability, and see validated JSON output via the CLI
 **Depends on**: Nothing (first phase)
-**Requirements**: PIPE-01, DATA-01, DATA-02, DATA-03, DATA-04, DATA-05, DATA-06, DATA-07, DATA-08, CLI-01, CLI-02, CLI-03, CLI-04, REPR-01, REPR-02, DLVR-03
+**Requirements**: PIPE-01, PIPE-02, PIPE-03, PIPE-06, DATA-01, DATA-02, DATA-03, DATA-04, DATA-05, DATA-06, CONTRACT-01, CONTRACT-02, CONTRACT-03, CLI-01, CLI-02, CLI-03, CLI-04, CLI-05, CLI-07, GEN-05, REPR-01, REPR-02
 **Success Criteria** (what must be TRUE):
-  1. User can invoke `python -m dataset_generator generate --input <file> --out <dir> --seed <N>` and receive valid JSON output
-  2. All output files conform to strict JSON schemas with correct ID prefixes (uc_, pol_, tc_, ex_)
-  3. Evidence entries contain exact line ranges (1-based) that match source text character-for-character
-  4. Same input + seed produces structurally consistent output (stable IDs, coverage, validity)
-  5. API keys loaded from environment variables, never hardcoded or committed
-**Plans**: TBD
+  1. User can run CLI with --input pointing to a markdown file and see use_cases.json + policies.json in --out directory
+  2. Evidence fields (line_start, line_end, quote) match actual source document text
+  3. All output passes Pydantic validation with correct ID prefixes (uc_, pol_) and mandatory fields
+  4. Running with --seed produces structurally consistent extraction results
+  5. CLI reads OPENAI_API_KEY from env and supports --model switching
+**Plans:** 3 plans
 
 Plans:
-- [ ] TBD
+- [ ] 01-01-PLAN.md — Project structure, dependencies, Pydantic data contracts, CLI skeleton
+- [ ] 01-02-PLAN.md — Markdown parser, LLM client, use case and policy extractors
+- [ ] 01-03-PLAN.md — Pipeline orchestrator, CLI wiring, end-to-end verification
 
 ### Phase 2: Core Extraction
 **Goal**: User can extract structured use cases and policies from unstructured markdown with complete evidence traceability
@@ -72,7 +74,7 @@ Plans:
 **Requirements**: SUPP-01, SUPP-02, SUPP-03, SUPP-04, SUPP-05, SUPP-06, SUPP-07, SUPP-08, SUPP-09
 **Success Criteria** (what must be TRUE):
   1. System extracts minimum 5 use cases and 5 policies (2+ types) from support bot input
-  2. Policies include "no account access → escalate" and "tone-of-voice on aggression" constraints
+  2. Policies include "no account access -> escalate" and "tone-of-voice on aggression" constraints
   3. Dataset includes ticket examples (1 user message, constrained response), FAQ paraphrases (rephrased question + answer), and corner cases (garbage/profanity/injection with safe responses)
   4. All examples use `single_turn_qa` format with `case = support_bot`
   5. Examples have correct `metadata.source` values (tickets, faq_paraphrase, corner)
@@ -88,8 +90,8 @@ Plans:
 **Success Criteria** (what must be TRUE):
   1. System extracts minimum 5 use cases and 5 policies (2+ types) from operator quality input
   2. Policies include "fix punctuation/typos", "no caps/!!!", "preserve medical terms", "no personal doctor phone", "escalate on complaint"
-  3. Dataset includes single_utterance_correction examples (1 operator message → corrected version)
-  4. Dataset includes dialog_last_turn_correction examples (multi-message dialog → corrected last operator reply)
+  3. Dataset includes single_utterance_correction examples (1 operator message -> corrected version)
+  4. Dataset includes dialog_last_turn_correction examples (multi-message dialog -> corrected last operator reply)
   5. For dialog corrections, target_message_index points to last message with role=operator
 **Plans**: TBD
 
@@ -144,11 +146,11 @@ Plans:
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
+Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Pipeline Setup | 0/TBD | Not started | - |
+| 1. Foundation & Pipeline Setup | 0/3 | Planning complete | - |
 | 2. Core Extraction | 0/TBD | Not started | - |
 | 3. Test & Dataset Generation | 0/TBD | Not started | - |
 | 4. Support Bot Case | 0/TBD | Not started | - |
