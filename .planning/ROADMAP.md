@@ -46,10 +46,11 @@ Plans:
   2. System extracts policies with correct type classification (must, must_not, escalate, style, format)
   3. Every extracted use case and policy has evidence with verbatim quote matching source lines
   4. System works on unseen inputs (not hardcoded to specific filenames or directory structures)
-**Plans**: TBD
+**Plans:** 2 plans
 
 Plans:
-- [ ] TBD
+- [ ] 02-01-PLAN.md — Enhanced extraction prompts with structured examples and policy decision tree
+- [ ] 02-02-PLAN.md — RapidFuzz fuzzy matching integration and anti-hardcoding verification
 
 ### Phase 3: Test & Dataset Generation
 **Goal**: User can generate test cases and dataset examples using DeepEval Synthesizer, Ragas, and Giskard Hub with OpenAI function-calling orchestration
@@ -120,7 +121,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation & Pipeline Setup | 3/3 | Complete | 2026-02-16 |
-| 2. Core Extraction | 0/TBD | Context captured | - |
+| 2. Core Extraction | 0/2 | Planned | - |
 | 3. Test & Dataset Generation | 0/TBD | Context captured | - |
 | 4. All Use Cases | 0/TBD | Not started | - |
 | 5. Validation & Delivery | 0/TBD | Not started | - |
