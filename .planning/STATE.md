@@ -38,6 +38,7 @@ Progress: [████████░░] 78%
 - Trend: Phase 5 in progress - validation and integration implementation
 
 *Updated after each plan completion*
+| Phase 05 P01 | 327 | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -88,6 +89,8 @@ Recent decisions affecting current work:
 - [Phase 04]: Pairwise combinatorial testing for parameter variations (04-03) — avoids exponential explosion while covering all 2-way interactions
 - [Phase 05]: Lazy import pattern for optional dependencies - langfuse imported inside function to allow core without package
 - [Phase 05]: Separate upload command from validate - different purposes and dependencies
+- [Phase 05-01]: Validator stores loaded models as instance attributes for potential reuse by Langfuse upload
+- [Phase 05-01]: Referential integrity now validates policy_ids against ACTUAL loaded policies, not just prefix format
 
 ### Pending Todos
 
