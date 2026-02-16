@@ -13,6 +13,7 @@ dependencies = [
     "typer[all]>=0.12",
     "python-dotenv>=1.0",
     "tenacity>=8.0",
+    "rapidfuzz>=3.0",
 ]
 
 [project.optional-dependencies]
