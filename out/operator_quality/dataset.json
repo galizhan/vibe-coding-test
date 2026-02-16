@@ -1,0 +1,2640 @@
+{
+  "examples": [
+    {
+      "id": "ex_001_single_utterance_correction_001_0d6a2003",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_001",
+      "test_case_id": "tc_001_single_utterance_correction_001",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! Я отменил вашу запись на 15 марта, но не помню ФИО!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на 15 марта, но не помню ваше ФИО. Пожалуйста, уточните его, чтобы подтвердить отмену.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correctness of spelling and punctuation",
+        "Adherence to cancellation policy"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_001_single_utterance_correction_002_859afa3c",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_001",
+      "test_case_id": "tc_001_single_utterance_correction_002",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! Я вижу что вы хотите отменить запись к врачу, напишите пожалуйста ФИО и дату, чтобы я мог это сделать, и не забудьте, что у нас есть много врачей, если что-то не так, пишите!!! 😊"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я вижу, что вы хотите отменить запись к врачу. Пожалуйста, напишите ваше ФИО и дату, чтобы я мог это сделать. Если у вас есть какие-либо вопросы, не стесняйтесь писать.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correct punctuation and spacing",
+        "Clarity and professionalism"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_001_single_utterance_correction_003_5938774d",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_001",
+      "test_case_id": "tc_001_single_utterance_correction_003",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! Я вижу что вы хотите отменить запись на прием к врачу, напишите пожалуйста ФИО и дату, чтобы я мог это сделать, и не забудьте, что у нас есть много других специалистов, если вам нужно!!!😄😄😄"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я вижу, что вы хотите отменить запись на прием к врачу. Пожалуйста, напишите ваше ФИО и дату, чтобы я мог это сделать. Не забудьте, что у нас есть много других специалистов, если вам нужно.",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения (политика pol_001)",
+        "Правильное использование пунктуации (политика pol_003)",
+        "Отсутствие неформального языка и эмодзи (политика pol_002)"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_001_single_utterance_correction_004_4353ad27",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_001",
+      "test_case_id": "tc_001_single_utterance_correction_004",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте, я вижу что вы хотите отменить запись на прием к врачу, напишите пожалуйста ФИО и дату, чтобы я мог это сделать!!! Спасибо за понимание!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте, я вижу, что вы хотите отменить запись на прием к врачу. Напишите, пожалуйста, ФИО и дату, чтобы я мог это сделать. Спасибо за понимание.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correct punctuation and spacing",
+        "Clarity and conciseness of the message"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_001_single_utterance_correction_005_2d8ab273",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_001",
+      "test_case_id": "tc_001_single_utterance_correction_005",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Привет!!! Я отменил вашу запись на 15:00, но не помню, как вас зовут??? 😅😅😅"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на 15:00, но не могли бы вы напомнить ваше имя?",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correctness of punctuation",
+        "Clarity of the request"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_001_single_utterance_correction_006_be8fdf75",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_001",
+      "test_case_id": "tc_001_single_utterance_correction_006",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Привет! Я отменил вашу запись на 15 марта, но не помню время, напомните пожалуйста!!!😅"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на 15 марта, но не помню время. Напомните, пожалуйста.",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Правильное использование пунктуации",
+        "Отсутствие сленга и эмодзи"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_004"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_001_single_utterance_correction_007_7b4561bc",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_001",
+      "test_case_id": "tc_001_single_utterance_correction_007",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Привет!!! Я тут, чтобы помочь вам с вашей записью!!! 😄😄😄 Какой номер врача вам нужен??? Я не могу дать его, но могу записать вас на прием к врачу!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я здесь, чтобы помочь вам с вашей записью. Какой врач вас интересует? Я не могу предоставить личный номер, но могу записать вас на прием к врачу.",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Отсутствие капслока и избыточных восклицательных знаков",
+        "Правильная пунктуация и отсутствие опечаток"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_005"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_001_single_utterance_correction_008_dae90ec4",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_001",
+      "test_case_id": "tc_001_single_utterance_correction_008",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Привет!!! Я отменил вашу запись на 15 марта, но не помню ФИО, напомните мне, плиз!!!😅"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на 15 марта, но не помню ФИО. Пожалуйста, напомните мне.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correct punctuation and spacing",
+        "Clarity and professionalism"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_001_single_utterance_correction_009_ea398c65",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_001",
+      "test_case_id": "tc_001_single_utterance_correction_009",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте, я отменил вашу запись на 15 марта 2023 года в 14:00, если вам нужно что-то еще, дайте знать!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте, я отменил вашу запись на 15 марта 2023 года в 14:00. Если вам нужно что-то еще, дайте знать.",
+      "evaluation_criteria": [
+        "Проверка вежливости и корректности стиля (pol_001)",
+        "Проверка на отсутствие капслока и восклицательных знаков (pol_002)",
+        "Проверка на правильность пунктуации и опечаток (pol_003)"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_001_single_utterance_correction_010_426b8cb5",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_001",
+      "test_case_id": "tc_001_single_utterance_correction_010",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте! Я вижу что вы хотите отменить запись на прием к врачу, но мне нужно уточнить ваши данные, например ФИО, дату и время записи, чтобы я мог это сделать!!! Пожалуйста, напишите мне это как можно скорее, чтобы я мог помочь вам!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я вижу, что вы хотите отменить запись на прием к врачу, но мне нужно уточнить ваши данные, например, ФИО, дату и время записи, чтобы я мог это сделать. Пожалуйста, напишите мне это как можно скорее, чтобы я мог помочь вам.",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Правильное использование пунктуации",
+        "Соблюдение правил отмены записи"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_001_single_utterance_correction_011_92626eac",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_001",
+      "test_case_id": "tc_001_single_utterance_correction_011",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! Я не могу найти номер врача, но вы можете записаться на прием к доктору!!! Он работает в ХИРУРГИЧЕСКОМ ОТДЕЛЕНИИ, приходите в любое время!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я не могу предоставить номер врача, но вы можете записаться на прием к доктору. Он работает в хирургическом отделении, приходите в любое время.",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Отсутствие капслока и восклицательных знаков",
+        "Правильная пунктуация и отсутствие опечаток"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_005"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_001_single_utterance_correction_012_9b4b0621",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_001",
+      "test_case_id": "tc_001_single_utterance_correction_012",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! У вас запись на 15 марта в 14:00, если хотите отменить, дайте знать!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! У вас запись на 15 марта в 14:00. Если хотите отменить, дайте знать.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correctness of punctuation",
+        "Clarity of information"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_002_single_utterance_correction_001_e0903883",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_002",
+      "test_case_id": "tc_002_single_utterance_correction_001",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! Я отменил вашу запись на 15 марта, но не помню ФИО!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на 15 марта. Пожалуйста, подтвердите ваше ФИО для завершения отмены.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correctness of spelling and punctuation",
+        "Clarity of the information provided"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_002_single_utterance_correction_002_bc98aa38",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_002",
+      "test_case_id": "tc_002_single_utterance_correction_002",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! Я вижу что вы хотите отменить запись к врачу, напишите пожалуйста ФИО и дату, чтобы я мог это сделать, спасибо!!!😃"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я вижу, что вы хотите отменить запись к врачу. Пожалуйста, напишите ваше ФИО и дату, чтобы я мог это сделать. Спасибо!",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correct punctuation and spacing",
+        "Clarity of the request for information"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_002_single_utterance_correction_003_4c82a4c9",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_002",
+      "test_case_id": "tc_002_single_utterance_correction_003",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! Я вижу что вы хотите отменить запись на прием к врачу, напишите пожалуйста ФИО и дату, чтобы я мог это сделать, а то у нас тут много записей и я не могу найти вашу!!!😅😅😅"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я вижу, что вы хотите отменить запись на прием к врачу. Пожалуйста, напишите ваше ФИО и дату, чтобы я мог это сделать, так как у нас много записей, и я не могу найти вашу.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correct punctuation and spacing",
+        "Clarity and professionalism of the response"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_002_single_utterance_correction_004_de1244dc",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_002",
+      "test_case_id": "tc_002_single_utterance_correction_004",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте, я вижу что вы хотите отменить запись на прием к врачу, напишите пожалуйста ФИО и дату, чтобы я мог это сделать!!! Спасибо!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я вижу, что вы хотите отменить запись на прием к врачу. Пожалуйста, напишите ваше ФИО и дату, чтобы я мог это сделать. Спасибо!",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correct punctuation and spacing",
+        "Clarity of the request for information"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_002_single_utterance_correction_005_912737d4",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_002",
+      "test_case_id": "tc_002_single_utterance_correction_005",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Привет!!! Я отменил вашу запись на 15:00, но не помню, как вас зовут??? 😅😅😅"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на 15:00, но не могли бы вы напомнить ваше имя?",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Отсутствие опечаток и пунктуационных ошибок",
+        "Соблюдение норм общения без излишнего использования восклицательных знаков"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_002_single_utterance_correction_006_dd541c57",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_002",
+      "test_case_id": "tc_002_single_utterance_correction_006",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Привет! Я отменил вашу запись на 15 марта, в 14:00, если что-то не так, дайте знать!!!😅"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на 15 марта в 14:00. Если что-то не так, дайте знать.",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Правильное использование пунктуации",
+        "Отсутствие неформального языка и эмодзи"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_004"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_002_single_utterance_correction_007_fa96a906",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_002",
+      "test_case_id": "tc_002_single_utterance_correction_007",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Привет!!! Я тут, чтобы помочь вам с вашей записью!!! 😄😄😄 Какой номер врача вам нужен??? Я не могу дать его, но могу записать вас на прием к врачу!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я здесь, чтобы помочь вам с вашей записью. Какой врач вас интересует? Я не могу предоставить личный номер, но могу записать вас на прием к врачу.",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Отсутствие капслока и избыточных восклицательных знаков",
+        "Правильная пунктуация и отсутствие опечаток"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_005"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_002_single_utterance_correction_008_87f9dc1c",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_002",
+      "test_case_id": "tc_002_single_utterance_correction_008",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Привет! Я отменил вашу запись на 15 марта 2023 года, вы уверены что хотите это сделать??!!😅"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на 15 марта 2023 года. Вы уверены, что хотите это сделать?",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correct punctuation and spacing",
+        "Clarity of the message"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_002_single_utterance_correction_009_4b8f5656",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_002",
+      "test_case_id": "tc_002_single_utterance_correction_009",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте! Я отменил вашу запись на 15 марта 2023 года, если вам нужно что-то еще, дайте знать!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на 15 марта 2023 года. Если вам нужно что-то еще, дайте знать.",
+      "evaluation_criteria": [
+        "Politeness and tone maintained",
+        "Correct punctuation and spacing",
+        "Clear communication of cancellation"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_002_single_utterance_correction_010_0731149c",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_002",
+      "test_case_id": "tc_002_single_utterance_correction_010",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте! Вы записаны на прием к врачу 15 марта в 14:00!!! Если хотите отменить запись, напишите мне ФИО и дату!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Вы записаны на прием к врачу 15 марта в 14:00. Если хотите отменить запись, пожалуйста, напишите мне ваше ФИО и дату записи.",
+      "evaluation_criteria": [
+        "Politeness of the message (pol_001)",
+        "Correct punctuation and spacing (pol_003)",
+        "Clarity and completeness of information (pol_007)"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_002_single_utterance_correction_011_f472add6",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_002",
+      "test_case_id": "tc_002_single_utterance_correction_011",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! Я не могу найти номер врача, но вы можете записаться на прием к доктору!!! Он работает в ХИРУРГИЧЕСКОМ ОТДЕЛЕНИИ, приходите в любое время!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я не могу предоставить личный номер врача, но вы можете записаться на прием к доктору. Он работает в хирургическом отделении, приходите в любое время.",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Отсутствие капслока и восклицательных знаков",
+        "Правильная пунктуация и отсутствие опечаток"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_005"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_002_single_utterance_correction_012_b14c61d2",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_002",
+      "test_case_id": "tc_002_single_utterance_correction_012",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! У вас запись на 15 марта в 14:00, если хотите отменить, дайте знать!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! У вас запись на 15 марта в 14:00. Если хотите отменить, пожалуйста, дайте знать.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correct punctuation and spelling",
+        "Clarity of the information provided"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_003_single_utterance_correction_001_5dd70ae7",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_003",
+      "test_case_id": "tc_003_single_utterance_correction_001",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! Я отменил вашу запись на 15 марта, но не помню ФИО!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на 15 марта, но не помню ваше ФИО. Пожалуйста, уточните его.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correctness of spelling and punctuation",
+        "Clarity of the request for information"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_003_single_utterance_correction_002_d4c1d360",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_003",
+      "test_case_id": "tc_003_single_utterance_correction_002",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! Я вижу что вы хотите отменить запись к врачу, напишите пожалуйста ФИО и дату, чтобы я мог это сделать, и не забудьте, что у нас есть много врачей в клинике!!!😃😃😃"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я вижу, что вы хотите отменить запись к врачу. Пожалуйста, напишите ваше ФИО и дату, чтобы я мог это сделать. Не забудьте, что у нас есть много врачей в клинике.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correct punctuation and spacing",
+        "Clarity and professionalism of the response"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_003_single_utterance_correction_003_27cf1a5e",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_003",
+      "test_case_id": "tc_003_single_utterance_correction_003",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! Я вижу что вы хотите отменить запись на прием к врачу, напишите пожалуйста ФИО и дату, чтобы я мог это сделать, и не забудьте, что у нас есть много врачей, например, кардиолог, терапевт и т.д. 😄😄😄"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я вижу, что вы хотите отменить запись на прием к врачу. Пожалуйста, напишите ваше ФИО и дату, чтобы я мог это сделать. Не забудьте, что у нас есть много врачей, например, кардиолог, терапевт и т.д.",
+      "evaluation_criteria": [
+        "Politeness and tone (pol_001)",
+        "Correct punctuation and spacing (pol_003)",
+        "Avoidance of slang and excessive emojis (pol_002)"
+      ],
+      "policy_ids": [
+        "pol_007",
+        "pol_001",
+        "pol_003"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_003_single_utterance_correction_004_e9373897",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_003",
+      "test_case_id": "tc_003_single_utterance_correction_004",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте! Я вижу что вы хотите отменить запись на прием к врачу, напишите пожалуйста ФИО и дату, время, чтобы я мог это сделать!!! Спасибо!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я вижу, что вы хотите отменить запись на прием к врачу. Напишите, пожалуйста, ФИО, дату и время, чтобы я мог это сделать. Спасибо!",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Правильное использование пунктуации",
+        "Четкость и ясность сообщения"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_003_single_utterance_correction_005_2dd0b7cb",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_003",
+      "test_case_id": "tc_003_single_utterance_correction_005",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Привет!!! Я отменил вашу запись на 15:00, но не помню, как вас зовут??? 😅😅😅"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на 15:00, но не могли бы вы напомнить ваше имя?",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Отсутствие избыточных восклицательных знаков",
+        "Правильное использование пунктуации"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_003_single_utterance_correction_006_856b391f",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_003",
+      "test_case_id": "tc_003_single_utterance_correction_006",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Привет! Я отменил вашу запись на 15 марта, но не помню время, напомните пожалуйста!!!😅"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на 15 марта, но не помню время. Пожалуйста, напомните.",
+      "evaluation_criteria": [
+        "Вежливость сообщения",
+        "Правильная пунктуация",
+        "Отсутствие сленга и эмодзи"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_004",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_003_single_utterance_correction_007_73942d7b",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_003",
+      "test_case_id": "tc_003_single_utterance_correction_007",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Привет!!! Я тут, чтобы помочь вам с вашей записью!!! 😄😄😄 Какой номер врача вам нужен??? Я не могу дать его, но могу записать вас на прием к врачу!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я здесь, чтобы помочь вам с вашей записью. Какой врач вас интересует? Я не могу предоставить личный номер, но могу записать вас на прием к врачу.",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Отсутствие капслока и избыточных восклицательных знаков",
+        "Правильная пунктуация и отсутствие опечаток"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_005"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_003_single_utterance_correction_008_4b5d5fce",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_003",
+      "test_case_id": "tc_003_single_utterance_correction_008",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Привет! Я отменил вашу запись на 15 марта, в 14:00, если что-то не так, дайте знать!!!😅"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на 15 марта в 14:00. Если что-то не так, дайте знать.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correct punctuation and spacing",
+        "Clarity of the information provided"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_003_single_utterance_correction_009_5d415909",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_003",
+      "test_case_id": "tc_003_single_utterance_correction_009",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте! Вы записаны на прием к врачу 15 марта в 14:00!!! Если хотите отменить запись, напишите ФИО и дату!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Вы записаны на прием к врачу 15 марта в 14:00. Если хотите отменить запись, пожалуйста, напишите ваше ФИО и дату записи.",
+      "evaluation_criteria": [
+        "Politeness of the message (pol_001)",
+        "Correct punctuation and spacing (pol_003)",
+        "Clarity of instructions for cancellation (pol_007)"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_003_single_utterance_correction_010_240a308a",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_003",
+      "test_case_id": "tc_003_single_utterance_correction_010",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте, я вижу что вы хотите отменить запись на прием к врачу, напомните пожалуйста ФИО и дату, время, чтобы я мог это сделать!!! Это очень важно!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте, я вижу, что вы хотите отменить запись на прием к врачу. Напомните, пожалуйста, ФИО, дату и время, чтобы я мог это сделать. Это очень важно.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correct punctuation and spacing",
+        "Clarity of the request for information"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_003_single_utterance_correction_011_13949ff9",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_003",
+      "test_case_id": "tc_003_single_utterance_correction_011",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! Я не могу найти номер врача, но вы можете записаться на прием к доктору в нашем медицинском центре. Если хотите отменить запись, напишите ФИО и дату!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я не могу предоставить номер врача, но вы можете записаться на прием к доктору в нашем медицинском центре. Если хотите отменить запись, пожалуйста, укажите ваше ФИО и дату записи.",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Отсутствие капслока и избыточных восклицательных знаков",
+        "Правильная пунктуация и отсутствие опечаток"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_005"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_003_single_utterance_correction_012_2e76420b",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_003",
+      "test_case_id": "tc_003_single_utterance_correction_012",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! Я отменил вашу запись на прием к ДОКТОРУ!!! Напомните, пожалуйста, ФИО и дату!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на прием к врачу. Пожалуйста, напомните ваше ФИО и дату записи.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correctness of punctuation",
+        "Clarity of the request"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_004_single_utterance_correction_001_275c6790",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_004",
+      "test_case_id": "tc_004_single_utterance_correction_001",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! Я отменил вашу запись на 15 марта, но не помню ФИО!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на 15 марта. Пожалуйста, подтвердите ваше ФИО для завершения отмены.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correctness of spelling and punctuation",
+        "Clarity of the information provided"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_004_single_utterance_correction_002_c289cfa6",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_004",
+      "test_case_id": "tc_004_single_utterance_correction_002",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! Я вижу что вы хотите отменить запись к врачу, напишите пожалуйста ФИО и дату, чтобы я мог это сделать, а то не могу найти вашу запись😅😅😅"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я вижу, что вы хотите отменить запись к врачу. Пожалуйста, напишите ваше ФИО и дату, чтобы я мог это сделать, так как не могу найти вашу запись.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correct punctuation and spacing",
+        "Clarity and professionalism of the response"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_004_single_utterance_correction_003_728c93c1",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_004",
+      "test_case_id": "tc_004_single_utterance_correction_003",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! Я вижу что вы хотите отменить запись к врачу, напишите пожалуйста ФИО и дату, чтобы я мог это сделать, а то не могу найти вашу запись, и вообще, как вы себя чувствуете??? 😕😕😕"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я вижу, что вы хотите отменить запись к врачу. Пожалуйста, напишите ваше ФИО и дату, чтобы я мог это сделать, так как не могу найти вашу запись. Как вы себя чувствуете?",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Правильное использование пунктуации",
+        "Отсутствие сленга и эмодзи"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_004_single_utterance_correction_004_1c54755d",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_004",
+      "test_case_id": "tc_004_single_utterance_correction_004",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте! Я вижу что вы хотите отменить запись на прием к врачу, напишите пожалуйста ФИО и дату, время, чтобы я мог это сделать!!! Спасибо!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я вижу, что вы хотите отменить запись на прием к врачу. Напишите, пожалуйста, ФИО, дату и время, чтобы я мог это сделать. Спасибо!",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Правильное использование пунктуации",
+        "Четкость и ясность сообщения"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_004_single_utterance_correction_005_d18c5423",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_004",
+      "test_case_id": "tc_004_single_utterance_correction_005",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Привет!!! Я отменил вашу запись на 15:00, но не помню, как вас зовут??? 😅😅😅"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на 15:00, но не могли бы вы напомнить ваше имя?",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Отсутствие излишних восклицательных знаков",
+        "Правильное использование пунктуации и формулировок"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_004_single_utterance_correction_006_77ec22d6",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_004",
+      "test_case_id": "tc_004_single_utterance_correction_006",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Привет! Я отменил вашу запись на 15 марта, в 14:00, все окей??!!😄"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на 15 марта в 14:00. Все в порядке?",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Правильное использование пунктуации",
+        "Отсутствие неформального языка и эмодзи"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_004"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_004_single_utterance_correction_007_6f71bc75",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_004",
+      "test_case_id": "tc_004_single_utterance_correction_007",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Привет!!! Я отменил вашу запись на прием к врачу, но не помню, как вас зовут, напомните, плиз??? 😅😅😅"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на прием к врачу, но не помню, как вас зовут. Пожалуйста, напомните мне ваши ФИО.",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Отсутствие опечаток и пунктуационных ошибок",
+        "Соблюдение правил общения с клиентами"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_004_single_utterance_correction_008_f83d84dc",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_004",
+      "test_case_id": "tc_004_single_utterance_correction_008",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Привет! Я отменил вашу запись на 15 марта 2023 года, но не помню ваше ФИО, напомните, плиз!!!😅"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на 15 марта 2023 года, но не помню ваше ФИО. Пожалуйста, напомните.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correct punctuation and spacing",
+        "Clarity and professionalism"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_004_single_utterance_correction_009_c5df624c",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_004",
+      "test_case_id": "tc_004_single_utterance_correction_009",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте! Я отменил вашу запись на прием к врачу, но не помню когда вы записывались, напомните пожалуйста!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на прием к врачу, но не помню, когда вы записывались. Напомните, пожалуйста.",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Правильное использование пунктуации",
+        "Отсутствие излишних восклицательных знаков"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_004_single_utterance_correction_010_b06279bd",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_004",
+      "test_case_id": "tc_004_single_utterance_correction_010",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте! Я вижу что вы хотите отменить запись на прием к врачу, напомните пожалуйста ФИО и дату, чтобы я мог это сделать!!! Это очень важно!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я вижу, что вы хотите отменить запись на прием к врачу. Напомните, пожалуйста, ФИО и дату, чтобы я мог это сделать. Это очень важно.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correct punctuation and spacing",
+        "Clarity of the request for information"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_004_single_utterance_correction_011_40d4be14",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_004",
+      "test_case_id": "tc_004_single_utterance_correction_011",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! Я не могу найти номер врача, но вы можете записаться на прием к доктору!!! Он принимает в терапевтическом отделении, если вам это нужно!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я не могу предоставить номер врача, но вы можете записаться на прием к доктору. Он принимает в терапевтическом отделении, если вам это нужно.",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Отсутствие капслока и избыточных восклицательных знаков",
+        "Правильная пунктуация и отсутствие опечаток"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_005"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_004_single_utterance_correction_012_d08c04d8",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_004",
+      "test_case_id": "tc_004_single_utterance_correction_012",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! Я отменил вашу запись на прием к ДОКТОРУ!!! Напомните, пожалуйста, ФИО и дату???"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на прием к врачу. Напомните, пожалуйста, ваше ФИО и дату записи.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correctness of punctuation",
+        "Clarity of the request"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_005_single_utterance_correction_001_e3b9a7a9",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_005",
+      "test_case_id": "tc_005_single_utterance_correction_001",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! Я отменил вашу запись на 15 марта, но не помню ФИО!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на 15 марта. Пожалуйста, подтвердите ваше ФИО для завершения отмены.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correctness of spelling and punctuation",
+        "Clarity of the information provided"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_005_single_utterance_correction_002_62a79244",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_005",
+      "test_case_id": "tc_005_single_utterance_correction_002",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! Я вижу что вы хотите отменить запись на прием к врачу, напишите пожалуйста ФИО и дату, чтобы я мог это сделать, спасибо!!!😃"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я вижу, что вы хотите отменить запись на прием к врачу. Пожалуйста, напишите ваше ФИО и дату, чтобы я мог это сделать. Спасибо!",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correctness of punctuation",
+        "Clarity of the request"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_005_single_utterance_correction_003_ba03be39",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_005",
+      "test_case_id": "tc_005_single_utterance_correction_003",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! Я вижу что вы хотите отменить запись к врачу, напишите пожалуйста ФИО и дату!!!😃😃😃"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я вижу, что вы хотите отменить запись к врачу. Пожалуйста, напишите ваше ФИО и дату записи.",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Правильное использование пунктуации",
+        "Отсутствие сленга и эмодзи"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_004"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_005_single_utterance_correction_004_0729c818",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_005",
+      "test_case_id": "tc_005_single_utterance_correction_004",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте, я вижу что вы хотите отменить запись на прием к врачу, напишите пожалуйста ФИО и дату, чтобы я мог это сделать!!! Спасибо за понимание!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я вижу, что вы хотите отменить запись на прием к врачу. Пожалуйста, напишите ваше ФИО и дату, чтобы я мог это сделать. Спасибо за понимание!",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Правильное использование пунктуации",
+        "Отсутствие избыточных восклицательных знаков"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_005_single_utterance_correction_005_0b5cbd0a",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_005",
+      "test_case_id": "tc_005_single_utterance_correction_005",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Привет!!! Я отменил вашу запись на 15:00, но не помню, как вас зовут??? 😅😅😅"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на 15:00, но не могли бы вы напомнить ваше имя?",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Отсутствие опечаток и правильная пунктуация",
+        "Соблюдение правил общения без использования сленга и эмодзи"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_004",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_005_single_utterance_correction_006_3d9c3435",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_005",
+      "test_case_id": "tc_005_single_utterance_correction_006",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Привет!!! Я отменил вашу запись на 15 марта 2023 года, если что-то не так, дайте знать!!!😄"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на 15 марта 2023 года. Если что-то не так, дайте знать.",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Правильное использование пунктуации",
+        "Отсутствие неформального языка и эмодзи"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_005_single_utterance_correction_007_d1f9d35e",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_005",
+      "test_case_id": "tc_005_single_utterance_correction_007",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Привет!!! Я тут, чтобы помочь вам с вашей записью!!! 😄😄😄 Какой номер врача вам нужен??? Я не могу дать его, но могу записать вас на прием к врачу!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я здесь, чтобы помочь вам с вашей записью. Какой врач вас интересует? Я не могу предоставить личный номер, но могу записать вас на прием к врачу.",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Отсутствие капслока и избыточных восклицательных знаков",
+        "Правильная пунктуация и отсутствие опечаток"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_005"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_005_single_utterance_correction_008_4880b359",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_005",
+      "test_case_id": "tc_005_single_utterance_correction_008",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Привет!!! Я отменил вашу запись на 15 марта, но не помню ФИО, напомните мне, плиз!!!😅"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на 15 марта, но не помню ваше ФИО. Пожалуйста, напомните мне.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correct punctuation and spacing",
+        "Clarity and professionalism"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_005_single_utterance_correction_009_84e72d32",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_005",
+      "test_case_id": "tc_005_single_utterance_correction_009",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте! Я отменил вашу запись на 15 марта 2023 года, но не забудьте, что если вам нужно будет записаться снова, просто позвоните нам!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на 15 марта 2023 года. Но не забудьте, что если вам нужно будет записаться снова, просто позвоните нам.",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Правильное использование пунктуации",
+        "Отсутствие избыточных восклицательных знаков"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_005_single_utterance_correction_010_c7230bda",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_005",
+      "test_case_id": "tc_005_single_utterance_correction_010",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте! Вы записаны на прием к врачу 15 марта в 14:00, если вам нужно отменить запись, напишите мне ФИО и дату, и я все сделаю!!! Не забудьте, что у нас есть много специалистов, например, кардиолог, терапевт и т.д.!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Вы записаны на прием к врачу 15 марта в 14:00. Если вам нужно отменить запись, напишите мне ваше ФИО и дату, и я все сделаю. Не забудьте, что у нас есть много специалистов, например, кардиолог, терапевт и т.д.",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Правильное использование пунктуации",
+        "Отсутствие избыточных восклицательных знаков"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_005_single_utterance_correction_011_066eb20e",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_005",
+      "test_case_id": "tc_005_single_utterance_correction_011",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! Я не могу найти номер врача, но вы можете записаться на прием к доктору!!! Он принимает в терапевтическом отделении, если вам это нужно!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я не могу предоставить номер врача, но вы можете записаться на прием к доктору. Он принимает в терапевтическом отделении, если вам это нужно.",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Отсутствие капслока и избыточных восклицательных знаков",
+        "Правильная пунктуация и отсутствие опечаток"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_005"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_005_single_utterance_correction_012_720b47a4",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_005",
+      "test_case_id": "tc_005_single_utterance_correction_012",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! У вас запись на 15 марта в 14:00, если хотите отменить, дайте знать!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте. У вас запись на 15 марта в 14:00. Если хотите отменить, пожалуйста, дайте знать.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correctness of punctuation",
+        "Clarity of information"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_006_single_utterance_correction_001_50ab70a4",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_006",
+      "test_case_id": "tc_006_single_utterance_correction_001",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! Я отменил вашу запись на 15 МАЯ в 14:00, если что-то не так, напишите мне!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на 15 мая в 14:00. Если что-то не так, пожалуйста, дайте знать.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correctness of punctuation",
+        "Clarity of information"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_006_single_utterance_correction_002_cf6d2876",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_006",
+      "test_case_id": "tc_006_single_utterance_correction_002",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте! Вы записаны на прием к врачу 25 марта в 15:00!!! Если хотите отменить запись, напишите мне ФИО и дату!!!😃😃😃"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Вы записаны на прием к врачу 25 марта в 15:00. Если хотите отменить запись, напишите мне ваше ФИО и дату.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correctness of punctuation",
+        "Clarity of instructions"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_006_single_utterance_correction_003_b071350d",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_006",
+      "test_case_id": "tc_006_single_utterance_correction_003",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! Я вижу что вы хотите отменить запись к врачу, напишите пожалуйста ФИО и дату, чтобы я мог это сделать, а то у меня тут много дел, и я не могу просто так отменить запись!!!😅😅😅"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я вижу, что вы хотите отменить запись к врачу. Пожалуйста, напишите ваше ФИО и дату, чтобы я мог это сделать.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correct punctuation and spacing",
+        "Clarity and conciseness of the response"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_006_single_utterance_correction_004_4a1642c3",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_006",
+      "test_case_id": "tc_006_single_utterance_correction_004",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте! Я вижу что вы хотите отменить запись на прием к врачу, но мне нужно уточнить ваши данные, например ФИО, дату и время записи, чтобы я мог это сделать!!! Пожалуйста, напишите мне это как можно скорее, чтобы я мог помочь вам!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я вижу, что вы хотите отменить запись на прием к врачу, но мне нужно уточнить ваши данные, например, ФИО, дату и время записи, чтобы я мог это сделать. Пожалуйста, напишите мне это как можно скорее, чтобы я мог помочь вам.",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Правильное использование пунктуации",
+        "Четкость и лаконичность сообщения"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_006_single_utterance_correction_005_8bc2129d",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_006",
+      "test_case_id": "tc_006_single_utterance_correction_005",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Привет!!! Я отменил твою запись, если что, пиши мне, я всегда на связи!!! 😄😜"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись. Если у вас есть вопросы, пожалуйста, обращайтесь в клинику.",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Отсутствие неуместных эмоций и сленга",
+        "Правильная пунктуация и грамматика"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_006_single_utterance_correction_006_5033c850",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_006",
+      "test_case_id": "tc_006_single_utterance_correction_006",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Привет! Я отменил вашу запись на 15 марта, но не помню время, напомните пожалуйста!!!😅"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на 15 марта, но не помню время. Напомните, пожалуйста.",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Правильное использование пунктуации",
+        "Отсутствие неформального языка и эмодзи"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_004"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_006_single_utterance_correction_007_f104275a",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_006",
+      "test_case_id": "tc_006_single_utterance_correction_007",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Привет!!! Я тут, чтобы помочь вам с вашей записью!!! 😄😄😄 Какой номер врача вам нужен??? Или вы хотите отменить запись???"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я здесь, чтобы помочь вам с вашей записью. Какой врач вас интересует? Если вы хотите отменить запись, пожалуйста, уточните ваши ФИО, дату и время записи.",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Отсутствие излишнего использования восклицательных знаков",
+        "Правильное оформление и пунктуация"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_005"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_006_single_utterance_correction_008_a9d5ecfa",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_006",
+      "test_case_id": "tc_006_single_utterance_correction_008",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Привет! Я отменил вашу запись на 15 марта, в 14:00, если что, напишите мне, я всегда на связи!!!😄😄😄"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на 15 марта в 14:00. Если у вас есть вопросы, пожалуйста, напишите мне.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correct punctuation and spacing",
+        "Appropriate use of language without slang"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_004"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_006_single_utterance_correction_009_7dfd2bf3",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_006",
+      "test_case_id": "tc_006_single_utterance_correction_009",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте, я отменил вашу запись на 15 марта 2023 года в 14:00, если вам нужно что-то еще, дайте знать!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте, я отменил вашу запись на 15 марта 2023 года в 14:00. Если вам нужно что-то еще, дайте знать.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correct punctuation and spacing",
+        "Clarity of information provided"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_006_single_utterance_correction_010_d0bfce60",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_006",
+      "test_case_id": "tc_006_single_utterance_correction_010",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте! Я вижу что вы хотите отменить запись на прием к врачу, напомните пожалуйста ФИО и дату, чтобы я мог это сделать!!! Это очень важно!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я вижу, что вы хотите отменить запись на прием к врачу. Напомните, пожалуйста, ФИО и дату, чтобы я мог это сделать. Это очень важно.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correct punctuation and spacing",
+        "Clarity and completeness of the request"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_006_single_utterance_correction_011_d19b13cd",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_006",
+      "test_case_id": "tc_006_single_utterance_correction_011",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! Я не могу найти номер врача, но вы можете записаться на прием к доктору в нашем медицинском центре. Если хотите отменить запись, напишите ФИО и дату!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я не могу предоставить номер врача, но вы можете записаться на прием к доктору в нашем медицинском центре. Если хотите отменить запись, пожалуйста, укажите ваше ФИО и дату записи.",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Отсутствие капслока и избыточных восклицательных знаков",
+        "Правильная пунктуация и отсутствие опечаток"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_005"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_006_single_utterance_correction_012_98dfdd03",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_006",
+      "test_case_id": "tc_006_single_utterance_correction_012",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! У вас запись на 15 марта в 14:00, если хотите отменить, дайте знать!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте. У вас запись на 15 марта в 14:00. Если хотите отменить, дайте знать.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correctness of punctuation",
+        "Clarity of information"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_007_single_utterance_correction_001_3b9e8ce4",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_007",
+      "test_case_id": "tc_007_single_utterance_correction_001",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! Я отменил вашу запись на 15 МАЯ в 14:00, если что-то не так, напишите мне!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на 15 мая в 14:00. Если что-то не так, пожалуйста, дайте знать.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correctness of punctuation",
+        "Clarity of information"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_007_single_utterance_correction_002_541366c3",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_007",
+      "test_case_id": "tc_007_single_utterance_correction_002",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте! Вы записаны на прием к врачу 15 марта в 14:00!!! Если хотите отменить запись, напишите мне ФИО и дату!!!😃😃😃"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Вы записаны на прием к врачу 15 марта в 14:00. Если хотите отменить запись, напишите мне ваше ФИО и дату.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correct punctuation and spacing",
+        "Clarity of the request for cancellation"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_007_single_utterance_correction_003_2ac6288f",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_007",
+      "test_case_id": "tc_007_single_utterance_correction_003",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! Я вижу что вы хотите отменить запись к врачу, напишите пожалуйста ФИО и дату!!!😃😃😃"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я вижу, что вы хотите отменить запись к врачу. Пожалуйста, напишите ваше ФИО и дату записи.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correct punctuation and spacing",
+        "Clarity and professionalism of the response"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_007_single_utterance_correction_004_6dc0837a",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_007",
+      "test_case_id": "tc_007_single_utterance_correction_004",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте! Я вижу что вы хотите отменить запись на прием к врачу, но мне нужно уточнить ваши данные, например ФИО, дату и время записи, чтобы я мог это сделать, не могли бы вы их предоставить??!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я вижу, что вы хотите отменить запись на прием к врачу, но мне нужно уточнить ваши данные, например, ФИО, дату и время записи, чтобы я мог это сделать. Не могли бы вы их предоставить?",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correct punctuation and spacing",
+        "Clarity and conciseness of the message"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_007_single_utterance_correction_005_4eef9d9e",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_007",
+      "test_case_id": "tc_007_single_utterance_correction_005",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Привет!!! Я отменил вашу запись на 15:00, но не помню, как вас зовут??? 😅😅😅"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на 15:00, но не могли бы вы напомнить ваше имя?",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correctness of punctuation",
+        "Clarity of the request"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_007_single_utterance_correction_006_9fab2cd9",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_007",
+      "test_case_id": "tc_007_single_utterance_correction_006",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Привет! Я отменил вашу запись на 15 марта, в 14:00, все окей??!!😄"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на 15 марта в 14:00. Все в порядке?",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Правильное использование пунктуации",
+        "Отсутствие неформального языка и эмодзи"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_004"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_007_single_utterance_correction_007_061b5db9",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_007",
+      "test_case_id": "tc_007_single_utterance_correction_007",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Привет!!! Я тут, чтобы помочь вам с вашей записью!!! 😄😄😄 Какой номер врача вам нужен??? Или вы хотите отменить запись???"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я здесь, чтобы помочь вам с вашей записью. Какой номер врача вам нужен? Или вы хотите отменить запись?",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Отсутствие избыточных восклицательных знаков",
+        "Правильное использование пунктуации и отсутствие сленга"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_007_single_utterance_correction_008_ac799ff9",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_007",
+      "test_case_id": "tc_007_single_utterance_correction_008",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Привет!!! Я отменил вашу запись на 15 марта, но не помню время, напомните мне, пжлст!!!😅"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я отменил вашу запись на 15 марта, но не помню время. Пожалуйста, напомните мне.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correct punctuation and spacing",
+        "Clarity and professionalism"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_007_single_utterance_correction_009_a8ac68af",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_007",
+      "test_case_id": "tc_007_single_utterance_correction_009",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте! Вы записаны на прием к врачу 15 марта в 14:00!!! Если хотите отменить запись, напишите ФИО и дату!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Вы записаны на прием к врачу 15 марта в 14:00. Если хотите отменить запись, напишите, пожалуйста, ваше ФИО и дату.",
+      "evaluation_criteria": [
+        "Politeness of the message",
+        "Correct punctuation and spacing",
+        "Clarity of instructions for cancellation"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_003",
+        "pol_007"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_007_single_utterance_correction_010_23fb3510",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_007",
+      "test_case_id": "tc_007_single_utterance_correction_010",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте! Вы записаны на прием к врачу 15 марта в 14:00, если вам нужно отменить запись, напишите мне ФИО и дату, и я все сделаю!!! Не забудьте, что у нас есть много специалистов, например, кардиолог, терапевт и т.д.!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Вы записаны на прием к врачу 15 марта в 14:00. Если вам нужно отменить запись, напишите мне ваше ФИО и дату, и я все сделаю. Не забудьте, что у нас есть много специалистов, например, кардиолог, терапевт и т.д.",
+      "evaluation_criteria": [
+        "Politeness and tone (pol_001)",
+        "Correct punctuation and spacing (pol_003)",
+        "Avoidance of excessive exclamations (pol_002)"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_007_single_utterance_correction_011_e3e2945e",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_007",
+      "test_case_id": "tc_007_single_utterance_correction_011",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! Я не могу найти номер врача, но вы можете записаться на прием к доктору в нашем медицинском центре. Если хотите отменить запись, напишите ФИО и дату!!!"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я не могу предоставить номер врача, но вы можете записаться на прием к доктору в нашем медицинском центре. Если вы хотите отменить запись, пожалуйста, укажите ваше ФИО и дату записи.",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Отсутствие капслока и избыточных восклицательных знаков",
+        "Правильная пунктуация и отсутствие опечаток"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_005"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "ex_007_single_utterance_correction_012_6af7c6bc",
+      "case": "operator_quality",
+      "format": "single_utterance_correction",
+      "use_case_id": "uc_007",
+      "test_case_id": "tc_007_single_utterance_correction_012",
+      "input": {
+        "messages": [
+          {
+            "role": "operator",
+            "content": "Здравствуйте!!! Я не могу найти номер врача, напишите его мне, пожалуйста!!! У вас есть запись на 15 марта в 14:00???"
+          }
+        ],
+        "target_message_index": 0
+      },
+      "expected_output": "Здравствуйте! Я не могу предоставить личный номер врача, но могу помочь с записью. У вас есть запись на 15 марта в 14:00?",
+      "evaluation_criteria": [
+        "Вежливость и корректность обращения",
+        "Отсутствие капслока и избыточных восклицательных знаков",
+        "Правильное оформление и пунктуация"
+      ],
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_005",
+        "pol_003"
+      ],
+      "metadata": {
+        "generator": "single_utterance_correction_adapter",
+        "model": "gpt-4o-mini"
+      }
+    }
+  ]
+}

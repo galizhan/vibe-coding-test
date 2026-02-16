@@ -1,0 +1,5275 @@
+{
+  "test_cases": [
+    {
+      "id": "tc_001_single_utterance_correction_001",
+      "use_case_id": "uc_001",
+      "name": "Проверка орфографии и пунктуации в сообщении оператора - single_utterance_correction - variation 1",
+      "description": "Test case for Проверка орфографии и пунктуации в сообщении оператора with parameters: {'phrase_length': 'short', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'none', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "phrase_length",
+        "punctuation_errors"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "none",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_001_single_utterance_correction_002",
+      "use_case_id": "uc_001",
+      "name": "Проверка орфографии и пунктуации в сообщении оператора - single_utterance_correction - variation 2",
+      "description": "Test case for Проверка орфографии и пунктуации в сообщении оператора with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "user_aggression",
+        "punctuation_errors",
+        "slang_profanity_emoji"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_001_single_utterance_correction_003",
+      "use_case_id": "uc_001",
+      "name": "Проверка орфографии и пунктуации в сообщении оператора - single_utterance_correction - variation 3",
+      "description": "Test case for Проверка орфографии и пунктуации в сообщении оператора with parameters: {'phrase_length': 'long', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'present', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "escalation_needed",
+        "user_aggression",
+        "punctuation_errors"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "present",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_001_single_utterance_correction_004",
+      "use_case_id": "uc_001",
+      "name": "Проверка орфографии и пунктуации в сообщении оператора - single_utterance_correction - variation 4",
+      "description": "Test case for Проверка орфографии и пунктуации в сообщении оператора with parameters: {'phrase_length': 'long', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'none', 'medical_terms': 'none', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "escalation_needed",
+        "user_aggression",
+        "punctuation_errors"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "none",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_001_single_utterance_correction_005",
+      "use_case_id": "uc_001",
+      "name": "Проверка орфографии и пунктуации в сообщении оператора - single_utterance_correction - variation 5",
+      "description": "Test case for Проверка орфографии и пунктуации в сообщении оператора with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'none', 'user_aggression': 'frustrated', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "slang_profanity_emoji",
+        "user_aggression",
+        "escalation_needed"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "none",
+        "user_aggression": "frustrated",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_001_single_utterance_correction_006",
+      "use_case_id": "uc_001",
+      "name": "Проверка орфографии и пунктуации в сообщении оператора - single_utterance_correction - variation 6",
+      "description": "Test case for Проверка орфографии и пунктуации в сообщении оператора with parameters: {'phrase_length': 'short', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'none', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "escalation_needed",
+        "user_aggression",
+        "punctuation_errors"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "none",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_001_single_utterance_correction_007",
+      "use_case_id": "uc_001",
+      "name": "Проверка орфографии и пунктуации в сообщении оператора - single_utterance_correction - variation 7",
+      "description": "Test case for Проверка орфографии и пунктуации в сообщении оператора with parameters: {'phrase_length': 'long', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "escalation_needed",
+        "slang_profanity_emoji",
+        "phrase_length"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_001_single_utterance_correction_008",
+      "use_case_id": "uc_001",
+      "name": "Проверка орфографии и пунктуации в сообщении оператора - single_utterance_correction - variation 8",
+      "description": "Test case for Проверка орфографии и пунктуации в сообщении оператора with parameters: {'phrase_length': 'short', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "punctuation_errors",
+        "slang_profanity_emoji",
+        "phrase_length"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_001_single_utterance_correction_009",
+      "use_case_id": "uc_001",
+      "name": "Проверка орфографии и пунктуации в сообщении оператора - single_utterance_correction - variation 9",
+      "description": "Test case for Проверка орфографии и пунктуации в сообщении оператора with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "punctuation_errors",
+        "medical_terms"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_001_single_utterance_correction_010",
+      "use_case_id": "uc_001",
+      "name": "Проверка орфографии и пунктуации в сообщении оператора - single_utterance_correction - variation 10",
+      "description": "Test case for Проверка орфографии и пунктуации в сообщении оператора with parameters: {'phrase_length': 'long', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "user_aggression",
+        "punctuation_errors",
+        "phrase_length"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_001_single_utterance_correction_011",
+      "use_case_id": "uc_001",
+      "name": "Проверка орфографии и пунктуации в сообщении оператора - single_utterance_correction - variation 11",
+      "description": "Test case for Проверка орфографии и пунктуации в сообщении оператора with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'angry', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "medical_terms",
+        "user_aggression"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "angry",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_001_single_utterance_correction_012",
+      "use_case_id": "uc_001",
+      "name": "Проверка орфографии и пунктуации в сообщении оператора - single_utterance_correction - variation 12",
+      "description": "Test case for Проверка орфографии и пунктуации в сообщении оператора with parameters: {'phrase_length': 'short', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "phrase_length",
+        "medical_terms",
+        "user_aggression"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_001_dialog_last_turn_correction_001",
+      "use_case_id": "uc_001",
+      "name": "Проверка орфографии и пунктуации в сообщении оператора - dialog_last_turn_correction - variation 1",
+      "description": "Test case for Проверка орфографии и пунктуации в сообщении оператора with parameters: {'phrase_length': 'short', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'none', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "none",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_001_dialog_last_turn_correction_002",
+      "use_case_id": "uc_001",
+      "name": "Проверка орфографии и пунктуации в сообщении оператора - dialog_last_turn_correction - variation 2",
+      "description": "Test case for Проверка орфографии и пунктуации в сообщении оператора with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_001_dialog_last_turn_correction_003",
+      "use_case_id": "uc_001",
+      "name": "Проверка орфографии и пунктуации в сообщении оператора - dialog_last_turn_correction - variation 3",
+      "description": "Test case for Проверка орфографии и пунктуации в сообщении оператора with parameters: {'phrase_length': 'long', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'present', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "present",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_001_dialog_last_turn_correction_004",
+      "use_case_id": "uc_001",
+      "name": "Проверка орфографии и пунктуации в сообщении оператора - dialog_last_turn_correction - variation 4",
+      "description": "Test case for Проверка орфографии и пунктуации в сообщении оператора with parameters: {'phrase_length': 'long', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'none', 'medical_terms': 'none', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "none",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_001_dialog_last_turn_correction_005",
+      "use_case_id": "uc_001",
+      "name": "Проверка орфографии и пунктуации в сообщении оператора - dialog_last_turn_correction - variation 5",
+      "description": "Test case for Проверка орфографии и пунктуации в сообщении оператора with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'none', 'user_aggression': 'frustrated', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "none",
+        "user_aggression": "frustrated",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_001_dialog_last_turn_correction_006",
+      "use_case_id": "uc_001",
+      "name": "Проверка орфографии и пунктуации в сообщении оператора - dialog_last_turn_correction - variation 6",
+      "description": "Test case for Проверка орфографии и пунктуации в сообщении оператора with parameters: {'phrase_length': 'short', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'none', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "none",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_001_dialog_last_turn_correction_007",
+      "use_case_id": "uc_001",
+      "name": "Проверка орфографии и пунктуации в сообщении оператора - dialog_last_turn_correction - variation 7",
+      "description": "Test case for Проверка орфографии и пунктуации в сообщении оператора with parameters: {'phrase_length': 'long', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_001_dialog_last_turn_correction_008",
+      "use_case_id": "uc_001",
+      "name": "Проверка орфографии и пунктуации в сообщении оператора - dialog_last_turn_correction - variation 8",
+      "description": "Test case for Проверка орфографии и пунктуации в сообщении оператора with parameters: {'phrase_length': 'short', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_001_dialog_last_turn_correction_009",
+      "use_case_id": "uc_001",
+      "name": "Проверка орфографии и пунктуации в сообщении оператора - dialog_last_turn_correction - variation 9",
+      "description": "Test case for Проверка орфографии и пунктуации в сообщении оператора with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_001_dialog_last_turn_correction_010",
+      "use_case_id": "uc_001",
+      "name": "Проверка орфографии и пунктуации в сообщении оператора - dialog_last_turn_correction - variation 10",
+      "description": "Test case for Проверка орфографии и пунктуации в сообщении оператора with parameters: {'phrase_length': 'long', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_001_dialog_last_turn_correction_011",
+      "use_case_id": "uc_001",
+      "name": "Проверка орфографии и пунктуации в сообщении оператора - dialog_last_turn_correction - variation 11",
+      "description": "Test case for Проверка орфографии и пунктуации в сообщении оператора with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'angry', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "angry",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_001_dialog_last_turn_correction_012",
+      "use_case_id": "uc_001",
+      "name": "Проверка орфографии и пунктуации в сообщении оператора - dialog_last_turn_correction - variation 12",
+      "description": "Test case for Проверка орфографии и пунктуации в сообщении оператора with parameters: {'phrase_length': 'short', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_002_single_utterance_correction_001",
+      "use_case_id": "uc_002",
+      "name": "Проверка корректности ответа оператора с учётом контекста - single_utterance_correction - variation 1",
+      "description": "Test case for Проверка корректности ответа оператора с учётом контекста with parameters: {'phrase_length': 'short', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'none', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "phrase_length",
+        "punctuation_errors"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "none",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_002_single_utterance_correction_002",
+      "use_case_id": "uc_002",
+      "name": "Проверка корректности ответа оператора с учётом контекста - single_utterance_correction - variation 2",
+      "description": "Test case for Проверка корректности ответа оператора с учётом контекста with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "user_aggression",
+        "punctuation_errors",
+        "slang_profanity_emoji"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_002_single_utterance_correction_003",
+      "use_case_id": "uc_002",
+      "name": "Проверка корректности ответа оператора с учётом контекста - single_utterance_correction - variation 3",
+      "description": "Test case for Проверка корректности ответа оператора с учётом контекста with parameters: {'phrase_length': 'long', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'present', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "escalation_needed",
+        "user_aggression",
+        "punctuation_errors"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "present",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_002_single_utterance_correction_004",
+      "use_case_id": "uc_002",
+      "name": "Проверка корректности ответа оператора с учётом контекста - single_utterance_correction - variation 4",
+      "description": "Test case for Проверка корректности ответа оператора с учётом контекста with parameters: {'phrase_length': 'long', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'none', 'medical_terms': 'none', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "escalation_needed",
+        "user_aggression",
+        "punctuation_errors"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "none",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_002_single_utterance_correction_005",
+      "use_case_id": "uc_002",
+      "name": "Проверка корректности ответа оператора с учётом контекста - single_utterance_correction - variation 5",
+      "description": "Test case for Проверка корректности ответа оператора с учётом контекста with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'none', 'user_aggression': 'frustrated', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "slang_profanity_emoji",
+        "user_aggression",
+        "escalation_needed"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "none",
+        "user_aggression": "frustrated",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_002_single_utterance_correction_006",
+      "use_case_id": "uc_002",
+      "name": "Проверка корректности ответа оператора с учётом контекста - single_utterance_correction - variation 6",
+      "description": "Test case for Проверка корректности ответа оператора с учётом контекста with parameters: {'phrase_length': 'short', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'none', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "escalation_needed",
+        "user_aggression",
+        "punctuation_errors"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "none",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_002_single_utterance_correction_007",
+      "use_case_id": "uc_002",
+      "name": "Проверка корректности ответа оператора с учётом контекста - single_utterance_correction - variation 7",
+      "description": "Test case for Проверка корректности ответа оператора с учётом контекста with parameters: {'phrase_length': 'long', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "escalation_needed",
+        "slang_profanity_emoji",
+        "phrase_length"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_002_single_utterance_correction_008",
+      "use_case_id": "uc_002",
+      "name": "Проверка корректности ответа оператора с учётом контекста - single_utterance_correction - variation 8",
+      "description": "Test case for Проверка корректности ответа оператора с учётом контекста with parameters: {'phrase_length': 'short', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "punctuation_errors",
+        "slang_profanity_emoji",
+        "phrase_length"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_002_single_utterance_correction_009",
+      "use_case_id": "uc_002",
+      "name": "Проверка корректности ответа оператора с учётом контекста - single_utterance_correction - variation 9",
+      "description": "Test case for Проверка корректности ответа оператора с учётом контекста with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "punctuation_errors",
+        "medical_terms"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_002_single_utterance_correction_010",
+      "use_case_id": "uc_002",
+      "name": "Проверка корректности ответа оператора с учётом контекста - single_utterance_correction - variation 10",
+      "description": "Test case for Проверка корректности ответа оператора с учётом контекста with parameters: {'phrase_length': 'long', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "user_aggression",
+        "punctuation_errors",
+        "phrase_length"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_002_single_utterance_correction_011",
+      "use_case_id": "uc_002",
+      "name": "Проверка корректности ответа оператора с учётом контекста - single_utterance_correction - variation 11",
+      "description": "Test case for Проверка корректности ответа оператора с учётом контекста with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'angry', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "medical_terms",
+        "user_aggression"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "angry",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_002_single_utterance_correction_012",
+      "use_case_id": "uc_002",
+      "name": "Проверка корректности ответа оператора с учётом контекста - single_utterance_correction - variation 12",
+      "description": "Test case for Проверка корректности ответа оператора с учётом контекста with parameters: {'phrase_length': 'short', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "phrase_length",
+        "medical_terms",
+        "user_aggression"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_002_dialog_last_turn_correction_001",
+      "use_case_id": "uc_002",
+      "name": "Проверка корректности ответа оператора с учётом контекста - dialog_last_turn_correction - variation 1",
+      "description": "Test case for Проверка корректности ответа оператора с учётом контекста with parameters: {'phrase_length': 'short', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'none', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "none",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_002_dialog_last_turn_correction_002",
+      "use_case_id": "uc_002",
+      "name": "Проверка корректности ответа оператора с учётом контекста - dialog_last_turn_correction - variation 2",
+      "description": "Test case for Проверка корректности ответа оператора с учётом контекста with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_002_dialog_last_turn_correction_003",
+      "use_case_id": "uc_002",
+      "name": "Проверка корректности ответа оператора с учётом контекста - dialog_last_turn_correction - variation 3",
+      "description": "Test case for Проверка корректности ответа оператора с учётом контекста with parameters: {'phrase_length': 'long', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'present', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "present",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_002_dialog_last_turn_correction_004",
+      "use_case_id": "uc_002",
+      "name": "Проверка корректности ответа оператора с учётом контекста - dialog_last_turn_correction - variation 4",
+      "description": "Test case for Проверка корректности ответа оператора с учётом контекста with parameters: {'phrase_length': 'long', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'none', 'medical_terms': 'none', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "none",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_002_dialog_last_turn_correction_005",
+      "use_case_id": "uc_002",
+      "name": "Проверка корректности ответа оператора с учётом контекста - dialog_last_turn_correction - variation 5",
+      "description": "Test case for Проверка корректности ответа оператора с учётом контекста with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'none', 'user_aggression': 'frustrated', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "none",
+        "user_aggression": "frustrated",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_002_dialog_last_turn_correction_006",
+      "use_case_id": "uc_002",
+      "name": "Проверка корректности ответа оператора с учётом контекста - dialog_last_turn_correction - variation 6",
+      "description": "Test case for Проверка корректности ответа оператора с учётом контекста with parameters: {'phrase_length': 'short', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'none', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "none",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_002_dialog_last_turn_correction_007",
+      "use_case_id": "uc_002",
+      "name": "Проверка корректности ответа оператора с учётом контекста - dialog_last_turn_correction - variation 7",
+      "description": "Test case for Проверка корректности ответа оператора с учётом контекста with parameters: {'phrase_length': 'long', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_002_dialog_last_turn_correction_008",
+      "use_case_id": "uc_002",
+      "name": "Проверка корректности ответа оператора с учётом контекста - dialog_last_turn_correction - variation 8",
+      "description": "Test case for Проверка корректности ответа оператора с учётом контекста with parameters: {'phrase_length': 'short', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_002_dialog_last_turn_correction_009",
+      "use_case_id": "uc_002",
+      "name": "Проверка корректности ответа оператора с учётом контекста - dialog_last_turn_correction - variation 9",
+      "description": "Test case for Проверка корректности ответа оператора с учётом контекста with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_002_dialog_last_turn_correction_010",
+      "use_case_id": "uc_002",
+      "name": "Проверка корректности ответа оператора с учётом контекста - dialog_last_turn_correction - variation 10",
+      "description": "Test case for Проверка корректности ответа оператора с учётом контекста with parameters: {'phrase_length': 'long', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_002_dialog_last_turn_correction_011",
+      "use_case_id": "uc_002",
+      "name": "Проверка корректности ответа оператора с учётом контекста - dialog_last_turn_correction - variation 11",
+      "description": "Test case for Проверка корректности ответа оператора с учётом контекста with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'angry', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "angry",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_002_dialog_last_turn_correction_012",
+      "use_case_id": "uc_002",
+      "name": "Проверка корректности ответа оператора с учётом контекста - dialog_last_turn_correction - variation 12",
+      "description": "Test case for Проверка корректности ответа оператора с учётом контекста with parameters: {'phrase_length': 'short', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_003_single_utterance_correction_001",
+      "use_case_id": "uc_003",
+      "name": "Проверка вежливости сообщения оператора - single_utterance_correction - variation 1",
+      "description": "Test case for Проверка вежливости сообщения оператора with parameters: {'phrase_length': 'short', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'none', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "phrase_length",
+        "punctuation_errors"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "none",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_003_single_utterance_correction_002",
+      "use_case_id": "uc_003",
+      "name": "Проверка вежливости сообщения оператора - single_utterance_correction - variation 2",
+      "description": "Test case for Проверка вежливости сообщения оператора with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "user_aggression",
+        "punctuation_errors",
+        "slang_profanity_emoji"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_003_single_utterance_correction_003",
+      "use_case_id": "uc_003",
+      "name": "Проверка вежливости сообщения оператора - single_utterance_correction - variation 3",
+      "description": "Test case for Проверка вежливости сообщения оператора with parameters: {'phrase_length': 'long', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'present', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "escalation_needed",
+        "user_aggression",
+        "punctuation_errors"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "present",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_003_single_utterance_correction_004",
+      "use_case_id": "uc_003",
+      "name": "Проверка вежливости сообщения оператора - single_utterance_correction - variation 4",
+      "description": "Test case for Проверка вежливости сообщения оператора with parameters: {'phrase_length': 'long', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'none', 'medical_terms': 'none', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "escalation_needed",
+        "user_aggression",
+        "punctuation_errors"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "none",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_003_single_utterance_correction_005",
+      "use_case_id": "uc_003",
+      "name": "Проверка вежливости сообщения оператора - single_utterance_correction - variation 5",
+      "description": "Test case for Проверка вежливости сообщения оператора with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'none', 'user_aggression': 'frustrated', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "slang_profanity_emoji",
+        "user_aggression",
+        "escalation_needed"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "none",
+        "user_aggression": "frustrated",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_003_single_utterance_correction_006",
+      "use_case_id": "uc_003",
+      "name": "Проверка вежливости сообщения оператора - single_utterance_correction - variation 6",
+      "description": "Test case for Проверка вежливости сообщения оператора with parameters: {'phrase_length': 'short', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'none', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "escalation_needed",
+        "user_aggression",
+        "punctuation_errors"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "none",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_003_single_utterance_correction_007",
+      "use_case_id": "uc_003",
+      "name": "Проверка вежливости сообщения оператора - single_utterance_correction - variation 7",
+      "description": "Test case for Проверка вежливости сообщения оператора with parameters: {'phrase_length': 'long', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "escalation_needed",
+        "slang_profanity_emoji",
+        "phrase_length"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_003_single_utterance_correction_008",
+      "use_case_id": "uc_003",
+      "name": "Проверка вежливости сообщения оператора - single_utterance_correction - variation 8",
+      "description": "Test case for Проверка вежливости сообщения оператора with parameters: {'phrase_length': 'short', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "punctuation_errors",
+        "slang_profanity_emoji",
+        "phrase_length"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_003_single_utterance_correction_009",
+      "use_case_id": "uc_003",
+      "name": "Проверка вежливости сообщения оператора - single_utterance_correction - variation 9",
+      "description": "Test case for Проверка вежливости сообщения оператора with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "punctuation_errors",
+        "medical_terms"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_003_single_utterance_correction_010",
+      "use_case_id": "uc_003",
+      "name": "Проверка вежливости сообщения оператора - single_utterance_correction - variation 10",
+      "description": "Test case for Проверка вежливости сообщения оператора with parameters: {'phrase_length': 'long', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "user_aggression",
+        "punctuation_errors",
+        "phrase_length"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_003_single_utterance_correction_011",
+      "use_case_id": "uc_003",
+      "name": "Проверка вежливости сообщения оператора - single_utterance_correction - variation 11",
+      "description": "Test case for Проверка вежливости сообщения оператора with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'angry', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "medical_terms",
+        "user_aggression"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "angry",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_003_single_utterance_correction_012",
+      "use_case_id": "uc_003",
+      "name": "Проверка вежливости сообщения оператора - single_utterance_correction - variation 12",
+      "description": "Test case for Проверка вежливости сообщения оператора with parameters: {'phrase_length': 'short', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "phrase_length",
+        "medical_terms",
+        "user_aggression"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_003_dialog_last_turn_correction_001",
+      "use_case_id": "uc_003",
+      "name": "Проверка вежливости сообщения оператора - dialog_last_turn_correction - variation 1",
+      "description": "Test case for Проверка вежливости сообщения оператора with parameters: {'phrase_length': 'short', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'none', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "none",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_003_dialog_last_turn_correction_002",
+      "use_case_id": "uc_003",
+      "name": "Проверка вежливости сообщения оператора - dialog_last_turn_correction - variation 2",
+      "description": "Test case for Проверка вежливости сообщения оператора with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_003_dialog_last_turn_correction_003",
+      "use_case_id": "uc_003",
+      "name": "Проверка вежливости сообщения оператора - dialog_last_turn_correction - variation 3",
+      "description": "Test case for Проверка вежливости сообщения оператора with parameters: {'phrase_length': 'long', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'present', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "present",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_003_dialog_last_turn_correction_004",
+      "use_case_id": "uc_003",
+      "name": "Проверка вежливости сообщения оператора - dialog_last_turn_correction - variation 4",
+      "description": "Test case for Проверка вежливости сообщения оператора with parameters: {'phrase_length': 'long', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'none', 'medical_terms': 'none', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "none",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_003_dialog_last_turn_correction_005",
+      "use_case_id": "uc_003",
+      "name": "Проверка вежливости сообщения оператора - dialog_last_turn_correction - variation 5",
+      "description": "Test case for Проверка вежливости сообщения оператора with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'none', 'user_aggression': 'frustrated', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "none",
+        "user_aggression": "frustrated",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_003_dialog_last_turn_correction_006",
+      "use_case_id": "uc_003",
+      "name": "Проверка вежливости сообщения оператора - dialog_last_turn_correction - variation 6",
+      "description": "Test case for Проверка вежливости сообщения оператора with parameters: {'phrase_length': 'short', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'none', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "none",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_003_dialog_last_turn_correction_007",
+      "use_case_id": "uc_003",
+      "name": "Проверка вежливости сообщения оператора - dialog_last_turn_correction - variation 7",
+      "description": "Test case for Проверка вежливости сообщения оператора with parameters: {'phrase_length': 'long', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_003_dialog_last_turn_correction_008",
+      "use_case_id": "uc_003",
+      "name": "Проверка вежливости сообщения оператора - dialog_last_turn_correction - variation 8",
+      "description": "Test case for Проверка вежливости сообщения оператора with parameters: {'phrase_length': 'short', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_003_dialog_last_turn_correction_009",
+      "use_case_id": "uc_003",
+      "name": "Проверка вежливости сообщения оператора - dialog_last_turn_correction - variation 9",
+      "description": "Test case for Проверка вежливости сообщения оператора with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_003_dialog_last_turn_correction_010",
+      "use_case_id": "uc_003",
+      "name": "Проверка вежливости сообщения оператора - dialog_last_turn_correction - variation 10",
+      "description": "Test case for Проверка вежливости сообщения оператора with parameters: {'phrase_length': 'long', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_003_dialog_last_turn_correction_011",
+      "use_case_id": "uc_003",
+      "name": "Проверка вежливости сообщения оператора - dialog_last_turn_correction - variation 11",
+      "description": "Test case for Проверка вежливости сообщения оператора with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'angry', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "angry",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_003_dialog_last_turn_correction_012",
+      "use_case_id": "uc_003",
+      "name": "Проверка вежливости сообщения оператора - dialog_last_turn_correction - variation 12",
+      "description": "Test case for Проверка вежливости сообщения оператора with parameters: {'phrase_length': 'short', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_004_single_utterance_correction_001",
+      "use_case_id": "uc_004",
+      "name": "Проверка использования капслока и восклицательных знаков - single_utterance_correction - variation 1",
+      "description": "Test case for Проверка использования капслока и восклицательных знаков with parameters: {'phrase_length': 'short', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'none', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "phrase_length",
+        "punctuation_errors"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "none",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_004_single_utterance_correction_002",
+      "use_case_id": "uc_004",
+      "name": "Проверка использования капслока и восклицательных знаков - single_utterance_correction - variation 2",
+      "description": "Test case for Проверка использования капслока и восклицательных знаков with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "user_aggression",
+        "punctuation_errors",
+        "slang_profanity_emoji"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_004_single_utterance_correction_003",
+      "use_case_id": "uc_004",
+      "name": "Проверка использования капслока и восклицательных знаков - single_utterance_correction - variation 3",
+      "description": "Test case for Проверка использования капслока и восклицательных знаков with parameters: {'phrase_length': 'long', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'present', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "escalation_needed",
+        "user_aggression",
+        "punctuation_errors"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "present",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_004_single_utterance_correction_004",
+      "use_case_id": "uc_004",
+      "name": "Проверка использования капслока и восклицательных знаков - single_utterance_correction - variation 4",
+      "description": "Test case for Проверка использования капслока и восклицательных знаков with parameters: {'phrase_length': 'long', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'none', 'medical_terms': 'none', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "escalation_needed",
+        "user_aggression",
+        "punctuation_errors"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "none",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_004_single_utterance_correction_005",
+      "use_case_id": "uc_004",
+      "name": "Проверка использования капслока и восклицательных знаков - single_utterance_correction - variation 5",
+      "description": "Test case for Проверка использования капслока и восклицательных знаков with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'none', 'user_aggression': 'frustrated', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "slang_profanity_emoji",
+        "user_aggression",
+        "escalation_needed"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "none",
+        "user_aggression": "frustrated",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_004_single_utterance_correction_006",
+      "use_case_id": "uc_004",
+      "name": "Проверка использования капслока и восклицательных знаков - single_utterance_correction - variation 6",
+      "description": "Test case for Проверка использования капслока и восклицательных знаков with parameters: {'phrase_length': 'short', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'none', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "escalation_needed",
+        "user_aggression",
+        "punctuation_errors"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "none",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_004_single_utterance_correction_007",
+      "use_case_id": "uc_004",
+      "name": "Проверка использования капслока и восклицательных знаков - single_utterance_correction - variation 7",
+      "description": "Test case for Проверка использования капслока и восклицательных знаков with parameters: {'phrase_length': 'long', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "escalation_needed",
+        "slang_profanity_emoji",
+        "phrase_length"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_004_single_utterance_correction_008",
+      "use_case_id": "uc_004",
+      "name": "Проверка использования капслока и восклицательных знаков - single_utterance_correction - variation 8",
+      "description": "Test case for Проверка использования капслока и восклицательных знаков with parameters: {'phrase_length': 'short', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "punctuation_errors",
+        "slang_profanity_emoji",
+        "phrase_length"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_004_single_utterance_correction_009",
+      "use_case_id": "uc_004",
+      "name": "Проверка использования капслока и восклицательных знаков - single_utterance_correction - variation 9",
+      "description": "Test case for Проверка использования капслока и восклицательных знаков with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "punctuation_errors",
+        "medical_terms"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_004_single_utterance_correction_010",
+      "use_case_id": "uc_004",
+      "name": "Проверка использования капслока и восклицательных знаков - single_utterance_correction - variation 10",
+      "description": "Test case for Проверка использования капслока и восклицательных знаков with parameters: {'phrase_length': 'long', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "user_aggression",
+        "punctuation_errors",
+        "phrase_length"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_004_single_utterance_correction_011",
+      "use_case_id": "uc_004",
+      "name": "Проверка использования капслока и восклицательных знаков - single_utterance_correction - variation 11",
+      "description": "Test case for Проверка использования капслока и восклицательных знаков with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'angry', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "medical_terms",
+        "user_aggression"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "angry",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_004_single_utterance_correction_012",
+      "use_case_id": "uc_004",
+      "name": "Проверка использования капслока и восклицательных знаков - single_utterance_correction - variation 12",
+      "description": "Test case for Проверка использования капслока и восклицательных знаков with parameters: {'phrase_length': 'short', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "phrase_length",
+        "medical_terms",
+        "user_aggression"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_004_dialog_last_turn_correction_001",
+      "use_case_id": "uc_004",
+      "name": "Проверка использования капслока и восклицательных знаков - dialog_last_turn_correction - variation 1",
+      "description": "Test case for Проверка использования капслока и восклицательных знаков with parameters: {'phrase_length': 'short', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'none', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "none",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_004_dialog_last_turn_correction_002",
+      "use_case_id": "uc_004",
+      "name": "Проверка использования капслока и восклицательных знаков - dialog_last_turn_correction - variation 2",
+      "description": "Test case for Проверка использования капслока и восклицательных знаков with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_004_dialog_last_turn_correction_003",
+      "use_case_id": "uc_004",
+      "name": "Проверка использования капслока и восклицательных знаков - dialog_last_turn_correction - variation 3",
+      "description": "Test case for Проверка использования капслока и восклицательных знаков with parameters: {'phrase_length': 'long', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'present', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "present",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_004_dialog_last_turn_correction_004",
+      "use_case_id": "uc_004",
+      "name": "Проверка использования капслока и восклицательных знаков - dialog_last_turn_correction - variation 4",
+      "description": "Test case for Проверка использования капслока и восклицательных знаков with parameters: {'phrase_length': 'long', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'none', 'medical_terms': 'none', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "none",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_004_dialog_last_turn_correction_005",
+      "use_case_id": "uc_004",
+      "name": "Проверка использования капслока и восклицательных знаков - dialog_last_turn_correction - variation 5",
+      "description": "Test case for Проверка использования капслока и восклицательных знаков with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'none', 'user_aggression': 'frustrated', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "none",
+        "user_aggression": "frustrated",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_004_dialog_last_turn_correction_006",
+      "use_case_id": "uc_004",
+      "name": "Проверка использования капслока и восклицательных знаков - dialog_last_turn_correction - variation 6",
+      "description": "Test case for Проверка использования капслока и восклицательных знаков with parameters: {'phrase_length': 'short', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'none', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "none",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_004_dialog_last_turn_correction_007",
+      "use_case_id": "uc_004",
+      "name": "Проверка использования капслока и восклицательных знаков - dialog_last_turn_correction - variation 7",
+      "description": "Test case for Проверка использования капслока и восклицательных знаков with parameters: {'phrase_length': 'long', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_004_dialog_last_turn_correction_008",
+      "use_case_id": "uc_004",
+      "name": "Проверка использования капслока и восклицательных знаков - dialog_last_turn_correction - variation 8",
+      "description": "Test case for Проверка использования капслока и восклицательных знаков with parameters: {'phrase_length': 'short', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_004_dialog_last_turn_correction_009",
+      "use_case_id": "uc_004",
+      "name": "Проверка использования капслока и восклицательных знаков - dialog_last_turn_correction - variation 9",
+      "description": "Test case for Проверка использования капслока и восклицательных знаков with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_004_dialog_last_turn_correction_010",
+      "use_case_id": "uc_004",
+      "name": "Проверка использования капслока и восклицательных знаков - dialog_last_turn_correction - variation 10",
+      "description": "Test case for Проверка использования капслока и восклицательных знаков with parameters: {'phrase_length': 'long', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_004_dialog_last_turn_correction_011",
+      "use_case_id": "uc_004",
+      "name": "Проверка использования капслока и восклицательных знаков - dialog_last_turn_correction - variation 11",
+      "description": "Test case for Проверка использования капслока и восклицательных знаков with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'angry', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "angry",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_004_dialog_last_turn_correction_012",
+      "use_case_id": "uc_004",
+      "name": "Проверка использования капслока и восклицательных знаков - dialog_last_turn_correction - variation 12",
+      "description": "Test case for Проверка использования капслока и восклицательных знаков with parameters: {'phrase_length': 'short', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_005_single_utterance_correction_001",
+      "use_case_id": "uc_005",
+      "name": "Проверка корректности медицинских терминов - single_utterance_correction - variation 1",
+      "description": "Test case for Проверка корректности медицинских терминов with parameters: {'phrase_length': 'short', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'none', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "phrase_length",
+        "punctuation_errors"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "none",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_005_single_utterance_correction_002",
+      "use_case_id": "uc_005",
+      "name": "Проверка корректности медицинских терминов - single_utterance_correction - variation 2",
+      "description": "Test case for Проверка корректности медицинских терминов with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "user_aggression",
+        "punctuation_errors",
+        "slang_profanity_emoji"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_005_single_utterance_correction_003",
+      "use_case_id": "uc_005",
+      "name": "Проверка корректности медицинских терминов - single_utterance_correction - variation 3",
+      "description": "Test case for Проверка корректности медицинских терминов with parameters: {'phrase_length': 'long', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'present', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "escalation_needed",
+        "user_aggression",
+        "punctuation_errors"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "present",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_005_single_utterance_correction_004",
+      "use_case_id": "uc_005",
+      "name": "Проверка корректности медицинских терминов - single_utterance_correction - variation 4",
+      "description": "Test case for Проверка корректности медицинских терминов with parameters: {'phrase_length': 'long', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'none', 'medical_terms': 'none', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "escalation_needed",
+        "user_aggression",
+        "punctuation_errors"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "none",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_005_single_utterance_correction_005",
+      "use_case_id": "uc_005",
+      "name": "Проверка корректности медицинских терминов - single_utterance_correction - variation 5",
+      "description": "Test case for Проверка корректности медицинских терминов with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'none', 'user_aggression': 'frustrated', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "slang_profanity_emoji",
+        "user_aggression",
+        "escalation_needed"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "none",
+        "user_aggression": "frustrated",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_005_single_utterance_correction_006",
+      "use_case_id": "uc_005",
+      "name": "Проверка корректности медицинских терминов - single_utterance_correction - variation 6",
+      "description": "Test case for Проверка корректности медицинских терминов with parameters: {'phrase_length': 'short', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'none', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "escalation_needed",
+        "user_aggression",
+        "punctuation_errors"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "none",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_005_single_utterance_correction_007",
+      "use_case_id": "uc_005",
+      "name": "Проверка корректности медицинских терминов - single_utterance_correction - variation 7",
+      "description": "Test case for Проверка корректности медицинских терминов with parameters: {'phrase_length': 'long', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "escalation_needed",
+        "slang_profanity_emoji",
+        "phrase_length"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_005_single_utterance_correction_008",
+      "use_case_id": "uc_005",
+      "name": "Проверка корректности медицинских терминов - single_utterance_correction - variation 8",
+      "description": "Test case for Проверка корректности медицинских терминов with parameters: {'phrase_length': 'short', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "punctuation_errors",
+        "slang_profanity_emoji",
+        "phrase_length"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_005_single_utterance_correction_009",
+      "use_case_id": "uc_005",
+      "name": "Проверка корректности медицинских терминов - single_utterance_correction - variation 9",
+      "description": "Test case for Проверка корректности медицинских терминов with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "punctuation_errors",
+        "medical_terms"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_005_single_utterance_correction_010",
+      "use_case_id": "uc_005",
+      "name": "Проверка корректности медицинских терминов - single_utterance_correction - variation 10",
+      "description": "Test case for Проверка корректности медицинских терминов with parameters: {'phrase_length': 'long', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "user_aggression",
+        "punctuation_errors",
+        "phrase_length"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_005_single_utterance_correction_011",
+      "use_case_id": "uc_005",
+      "name": "Проверка корректности медицинских терминов - single_utterance_correction - variation 11",
+      "description": "Test case for Проверка корректности медицинских терминов with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'angry', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "medical_terms",
+        "user_aggression"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "angry",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_005_single_utterance_correction_012",
+      "use_case_id": "uc_005",
+      "name": "Проверка корректности медицинских терминов - single_utterance_correction - variation 12",
+      "description": "Test case for Проверка корректности медицинских терминов with parameters: {'phrase_length': 'short', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "phrase_length",
+        "medical_terms",
+        "user_aggression"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_005_dialog_last_turn_correction_001",
+      "use_case_id": "uc_005",
+      "name": "Проверка корректности медицинских терминов - dialog_last_turn_correction - variation 1",
+      "description": "Test case for Проверка корректности медицинских терминов with parameters: {'phrase_length': 'short', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'none', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "none",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_005_dialog_last_turn_correction_002",
+      "use_case_id": "uc_005",
+      "name": "Проверка корректности медицинских терминов - dialog_last_turn_correction - variation 2",
+      "description": "Test case for Проверка корректности медицинских терминов with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_005_dialog_last_turn_correction_003",
+      "use_case_id": "uc_005",
+      "name": "Проверка корректности медицинских терминов - dialog_last_turn_correction - variation 3",
+      "description": "Test case for Проверка корректности медицинских терминов with parameters: {'phrase_length': 'long', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'present', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "present",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_005_dialog_last_turn_correction_004",
+      "use_case_id": "uc_005",
+      "name": "Проверка корректности медицинских терминов - dialog_last_turn_correction - variation 4",
+      "description": "Test case for Проверка корректности медицинских терминов with parameters: {'phrase_length': 'long', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'none', 'medical_terms': 'none', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "none",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_005_dialog_last_turn_correction_005",
+      "use_case_id": "uc_005",
+      "name": "Проверка корректности медицинских терминов - dialog_last_turn_correction - variation 5",
+      "description": "Test case for Проверка корректности медицинских терминов with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'none', 'user_aggression': 'frustrated', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "none",
+        "user_aggression": "frustrated",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_005_dialog_last_turn_correction_006",
+      "use_case_id": "uc_005",
+      "name": "Проверка корректности медицинских терминов - dialog_last_turn_correction - variation 6",
+      "description": "Test case for Проверка корректности медицинских терминов with parameters: {'phrase_length': 'short', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'none', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "none",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_005_dialog_last_turn_correction_007",
+      "use_case_id": "uc_005",
+      "name": "Проверка корректности медицинских терминов - dialog_last_turn_correction - variation 7",
+      "description": "Test case for Проверка корректности медицинских терминов with parameters: {'phrase_length': 'long', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_005_dialog_last_turn_correction_008",
+      "use_case_id": "uc_005",
+      "name": "Проверка корректности медицинских терминов - dialog_last_turn_correction - variation 8",
+      "description": "Test case for Проверка корректности медицинских терминов with parameters: {'phrase_length': 'short', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_005_dialog_last_turn_correction_009",
+      "use_case_id": "uc_005",
+      "name": "Проверка корректности медицинских терминов - dialog_last_turn_correction - variation 9",
+      "description": "Test case for Проверка корректности медицинских терминов with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_005_dialog_last_turn_correction_010",
+      "use_case_id": "uc_005",
+      "name": "Проверка корректности медицинских терминов - dialog_last_turn_correction - variation 10",
+      "description": "Test case for Проверка корректности медицинских терминов with parameters: {'phrase_length': 'long', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_005_dialog_last_turn_correction_011",
+      "use_case_id": "uc_005",
+      "name": "Проверка корректности медицинских терминов - dialog_last_turn_correction - variation 11",
+      "description": "Test case for Проверка корректности медицинских терминов with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'angry', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "angry",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_005_dialog_last_turn_correction_012",
+      "use_case_id": "uc_005",
+      "name": "Проверка корректности медицинских терминов - dialog_last_turn_correction - variation 12",
+      "description": "Test case for Проверка корректности медицинских терминов with parameters: {'phrase_length': 'short', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_006_single_utterance_correction_001",
+      "use_case_id": "uc_006",
+      "name": "Эскалация при жалобах пользователя - single_utterance_correction - variation 1",
+      "description": "Test case for Эскалация при жалобах пользователя with parameters: {'phrase_length': 'short', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'none', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "phrase_length",
+        "punctuation_errors"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "none",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_006_single_utterance_correction_002",
+      "use_case_id": "uc_006",
+      "name": "Эскалация при жалобах пользователя - single_utterance_correction - variation 2",
+      "description": "Test case for Эскалация при жалобах пользователя with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "user_aggression",
+        "punctuation_errors",
+        "slang_profanity_emoji"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_006_single_utterance_correction_003",
+      "use_case_id": "uc_006",
+      "name": "Эскалация при жалобах пользователя - single_utterance_correction - variation 3",
+      "description": "Test case for Эскалация при жалобах пользователя with parameters: {'phrase_length': 'long', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'present', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "escalation_needed",
+        "user_aggression",
+        "punctuation_errors"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "present",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_006_single_utterance_correction_004",
+      "use_case_id": "uc_006",
+      "name": "Эскалация при жалобах пользователя - single_utterance_correction - variation 4",
+      "description": "Test case for Эскалация при жалобах пользователя with parameters: {'phrase_length': 'long', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'none', 'medical_terms': 'none', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "escalation_needed",
+        "user_aggression",
+        "punctuation_errors"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "none",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_006_single_utterance_correction_005",
+      "use_case_id": "uc_006",
+      "name": "Эскалация при жалобах пользователя - single_utterance_correction - variation 5",
+      "description": "Test case for Эскалация при жалобах пользователя with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'none', 'user_aggression': 'frustrated', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "slang_profanity_emoji",
+        "user_aggression",
+        "escalation_needed"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "none",
+        "user_aggression": "frustrated",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_006_single_utterance_correction_006",
+      "use_case_id": "uc_006",
+      "name": "Эскалация при жалобах пользователя - single_utterance_correction - variation 6",
+      "description": "Test case for Эскалация при жалобах пользователя with parameters: {'phrase_length': 'short', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'none', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "escalation_needed",
+        "user_aggression",
+        "punctuation_errors"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "none",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_006_single_utterance_correction_007",
+      "use_case_id": "uc_006",
+      "name": "Эскалация при жалобах пользователя - single_utterance_correction - variation 7",
+      "description": "Test case for Эскалация при жалобах пользователя with parameters: {'phrase_length': 'long', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "escalation_needed",
+        "slang_profanity_emoji",
+        "phrase_length"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_006_single_utterance_correction_008",
+      "use_case_id": "uc_006",
+      "name": "Эскалация при жалобах пользователя - single_utterance_correction - variation 8",
+      "description": "Test case for Эскалация при жалобах пользователя with parameters: {'phrase_length': 'short', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "punctuation_errors",
+        "slang_profanity_emoji",
+        "phrase_length"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_006_single_utterance_correction_009",
+      "use_case_id": "uc_006",
+      "name": "Эскалация при жалобах пользователя - single_utterance_correction - variation 9",
+      "description": "Test case for Эскалация при жалобах пользователя with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "punctuation_errors",
+        "medical_terms"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_006_single_utterance_correction_010",
+      "use_case_id": "uc_006",
+      "name": "Эскалация при жалобах пользователя - single_utterance_correction - variation 10",
+      "description": "Test case for Эскалация при жалобах пользователя with parameters: {'phrase_length': 'long', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "user_aggression",
+        "punctuation_errors",
+        "phrase_length"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_006_single_utterance_correction_011",
+      "use_case_id": "uc_006",
+      "name": "Эскалация при жалобах пользователя - single_utterance_correction - variation 11",
+      "description": "Test case for Эскалация при жалобах пользователя with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'angry', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "medical_terms",
+        "user_aggression"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "angry",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_006_single_utterance_correction_012",
+      "use_case_id": "uc_006",
+      "name": "Эскалация при жалобах пользователя - single_utterance_correction - variation 12",
+      "description": "Test case for Эскалация при жалобах пользователя with parameters: {'phrase_length': 'short', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "phrase_length",
+        "medical_terms",
+        "user_aggression"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_006_dialog_last_turn_correction_001",
+      "use_case_id": "uc_006",
+      "name": "Эскалация при жалобах пользователя - dialog_last_turn_correction - variation 1",
+      "description": "Test case for Эскалация при жалобах пользователя with parameters: {'phrase_length': 'short', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'none', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "none",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_006_dialog_last_turn_correction_002",
+      "use_case_id": "uc_006",
+      "name": "Эскалация при жалобах пользователя - dialog_last_turn_correction - variation 2",
+      "description": "Test case for Эскалация при жалобах пользователя with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_006_dialog_last_turn_correction_003",
+      "use_case_id": "uc_006",
+      "name": "Эскалация при жалобах пользователя - dialog_last_turn_correction - variation 3",
+      "description": "Test case for Эскалация при жалобах пользователя with parameters: {'phrase_length': 'long', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'present', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "present",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_006_dialog_last_turn_correction_004",
+      "use_case_id": "uc_006",
+      "name": "Эскалация при жалобах пользователя - dialog_last_turn_correction - variation 4",
+      "description": "Test case for Эскалация при жалобах пользователя with parameters: {'phrase_length': 'long', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'none', 'medical_terms': 'none', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "none",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_006_dialog_last_turn_correction_005",
+      "use_case_id": "uc_006",
+      "name": "Эскалация при жалобах пользователя - dialog_last_turn_correction - variation 5",
+      "description": "Test case for Эскалация при жалобах пользователя with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'none', 'user_aggression': 'frustrated', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "none",
+        "user_aggression": "frustrated",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_006_dialog_last_turn_correction_006",
+      "use_case_id": "uc_006",
+      "name": "Эскалация при жалобах пользователя - dialog_last_turn_correction - variation 6",
+      "description": "Test case for Эскалация при жалобах пользователя with parameters: {'phrase_length': 'short', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'none', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "none",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_006_dialog_last_turn_correction_007",
+      "use_case_id": "uc_006",
+      "name": "Эскалация при жалобах пользователя - dialog_last_turn_correction - variation 7",
+      "description": "Test case for Эскалация при жалобах пользователя with parameters: {'phrase_length': 'long', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_006_dialog_last_turn_correction_008",
+      "use_case_id": "uc_006",
+      "name": "Эскалация при жалобах пользователя - dialog_last_turn_correction - variation 8",
+      "description": "Test case for Эскалация при жалобах пользователя with parameters: {'phrase_length': 'short', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_006_dialog_last_turn_correction_009",
+      "use_case_id": "uc_006",
+      "name": "Эскалация при жалобах пользователя - dialog_last_turn_correction - variation 9",
+      "description": "Test case for Эскалация при жалобах пользователя with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_006_dialog_last_turn_correction_010",
+      "use_case_id": "uc_006",
+      "name": "Эскалация при жалобах пользователя - dialog_last_turn_correction - variation 10",
+      "description": "Test case for Эскалация при жалобах пользователя with parameters: {'phrase_length': 'long', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_006_dialog_last_turn_correction_011",
+      "use_case_id": "uc_006",
+      "name": "Эскалация при жалобах пользователя - dialog_last_turn_correction - variation 11",
+      "description": "Test case for Эскалация при жалобах пользователя with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'angry', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "angry",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_006_dialog_last_turn_correction_012",
+      "use_case_id": "uc_006",
+      "name": "Эскалация при жалобах пользователя - dialog_last_turn_correction - variation 12",
+      "description": "Test case for Эскалация при жалобах пользователя with parameters: {'phrase_length': 'short', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_007_single_utterance_correction_001",
+      "use_case_id": "uc_007",
+      "name": "Подтверждение отмены записи - single_utterance_correction - variation 1",
+      "description": "Test case for Подтверждение отмены записи with parameters: {'phrase_length': 'short', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'none', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "phrase_length",
+        "punctuation_errors"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "none",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_007_single_utterance_correction_002",
+      "use_case_id": "uc_007",
+      "name": "Подтверждение отмены записи - single_utterance_correction - variation 2",
+      "description": "Test case for Подтверждение отмены записи with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "user_aggression",
+        "punctuation_errors",
+        "slang_profanity_emoji"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_007_single_utterance_correction_003",
+      "use_case_id": "uc_007",
+      "name": "Подтверждение отмены записи - single_utterance_correction - variation 3",
+      "description": "Test case for Подтверждение отмены записи with parameters: {'phrase_length': 'long', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'present', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "escalation_needed",
+        "user_aggression",
+        "punctuation_errors"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "present",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_007_single_utterance_correction_004",
+      "use_case_id": "uc_007",
+      "name": "Подтверждение отмены записи - single_utterance_correction - variation 4",
+      "description": "Test case for Подтверждение отмены записи with parameters: {'phrase_length': 'long', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'none', 'medical_terms': 'none', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "escalation_needed",
+        "user_aggression",
+        "punctuation_errors"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "none",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_007_single_utterance_correction_005",
+      "use_case_id": "uc_007",
+      "name": "Подтверждение отмены записи - single_utterance_correction - variation 5",
+      "description": "Test case for Подтверждение отмены записи with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'none', 'user_aggression': 'frustrated', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "slang_profanity_emoji",
+        "user_aggression",
+        "escalation_needed"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "none",
+        "user_aggression": "frustrated",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_007_single_utterance_correction_006",
+      "use_case_id": "uc_007",
+      "name": "Подтверждение отмены записи - single_utterance_correction - variation 6",
+      "description": "Test case for Подтверждение отмены записи with parameters: {'phrase_length': 'short', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'none', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "escalation_needed",
+        "user_aggression",
+        "punctuation_errors"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "none",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_007_single_utterance_correction_007",
+      "use_case_id": "uc_007",
+      "name": "Подтверждение отмены записи - single_utterance_correction - variation 7",
+      "description": "Test case for Подтверждение отмены записи with parameters: {'phrase_length': 'long', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "escalation_needed",
+        "slang_profanity_emoji",
+        "phrase_length"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_007_single_utterance_correction_008",
+      "use_case_id": "uc_007",
+      "name": "Подтверждение отмены записи - single_utterance_correction - variation 8",
+      "description": "Test case for Подтверждение отмены записи with parameters: {'phrase_length': 'short', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "punctuation_errors",
+        "slang_profanity_emoji",
+        "phrase_length"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_007_single_utterance_correction_009",
+      "use_case_id": "uc_007",
+      "name": "Подтверждение отмены записи - single_utterance_correction - variation 9",
+      "description": "Test case for Подтверждение отмены записи with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "punctuation_errors",
+        "medical_terms"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_007_single_utterance_correction_010",
+      "use_case_id": "uc_007",
+      "name": "Подтверждение отмены записи - single_utterance_correction - variation 10",
+      "description": "Test case for Подтверждение отмены записи with parameters: {'phrase_length': 'long', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "user_aggression",
+        "punctuation_errors",
+        "phrase_length"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_007_single_utterance_correction_011",
+      "use_case_id": "uc_007",
+      "name": "Подтверждение отмены записи - single_utterance_correction - variation 11",
+      "description": "Test case for Подтверждение отмены записи with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'angry', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "medical_terms",
+        "user_aggression"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "angry",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_007_single_utterance_correction_012",
+      "use_case_id": "uc_007",
+      "name": "Подтверждение отмены записи - single_utterance_correction - variation 12",
+      "description": "Test case for Подтверждение отмены записи with parameters: {'phrase_length': 'short', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "phrase_length",
+        "medical_terms",
+        "user_aggression"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_007_dialog_last_turn_correction_001",
+      "use_case_id": "uc_007",
+      "name": "Подтверждение отмены записи - dialog_last_turn_correction - variation 1",
+      "description": "Test case for Подтверждение отмены записи with parameters: {'phrase_length': 'short', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'none', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "none",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_007_dialog_last_turn_correction_002",
+      "use_case_id": "uc_007",
+      "name": "Подтверждение отмены записи - dialog_last_turn_correction - variation 2",
+      "description": "Test case for Подтверждение отмены записи with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_007_dialog_last_turn_correction_003",
+      "use_case_id": "uc_007",
+      "name": "Подтверждение отмены записи - dialog_last_turn_correction - variation 3",
+      "description": "Test case for Подтверждение отмены записи with parameters: {'phrase_length': 'long', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'present', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "present",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_007_dialog_last_turn_correction_004",
+      "use_case_id": "uc_007",
+      "name": "Подтверждение отмены записи - dialog_last_turn_correction - variation 4",
+      "description": "Test case for Подтверждение отмены записи with parameters: {'phrase_length': 'long', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'none', 'medical_terms': 'none', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "none",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_007_dialog_last_turn_correction_005",
+      "use_case_id": "uc_007",
+      "name": "Подтверждение отмены записи - dialog_last_turn_correction - variation 5",
+      "description": "Test case for Подтверждение отмены записи with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'none', 'user_aggression': 'frustrated', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "none",
+        "user_aggression": "frustrated",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_007_dialog_last_turn_correction_006",
+      "use_case_id": "uc_007",
+      "name": "Подтверждение отмены записи - dialog_last_turn_correction - variation 6",
+      "description": "Test case for Подтверждение отмены записи with parameters: {'phrase_length': 'short', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'none', 'user_aggression': 'angry', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "none",
+        "user_aggression": "angry",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_007_dialog_last_turn_correction_007",
+      "use_case_id": "uc_007",
+      "name": "Подтверждение отмены записи - dialog_last_turn_correction - variation 7",
+      "description": "Test case for Подтверждение отмены записи with parameters: {'phrase_length': 'long', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'moderate', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'yes'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "moderate",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "yes"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_007_dialog_last_turn_correction_008",
+      "use_case_id": "uc_007",
+      "name": "Подтверждение отмены записи - dialog_last_turn_correction - variation 8",
+      "description": "Test case for Подтверждение отмены записи with parameters: {'phrase_length': 'short', 'punctuation_errors': 'minor', 'slang_profanity_emoji': 'excessive', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "minor",
+        "slang_profanity_emoji": "excessive",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_007_dialog_last_turn_correction_009",
+      "use_case_id": "uc_007",
+      "name": "Подтверждение отмены записи - dialog_last_turn_correction - variation 9",
+      "description": "Test case for Подтверждение отмены записи with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'neutral', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "neutral",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_007_dialog_last_turn_correction_010",
+      "use_case_id": "uc_007",
+      "name": "Подтверждение отмены записи - dialog_last_turn_correction - variation 10",
+      "description": "Test case for Подтверждение отмены записи with parameters: {'phrase_length': 'long', 'punctuation_errors': 'severe', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "long",
+        "punctuation_errors": "severe",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_007_dialog_last_turn_correction_011",
+      "use_case_id": "uc_007",
+      "name": "Подтверждение отмены записи - dialog_last_turn_correction - variation 11",
+      "description": "Test case for Подтверждение отмены записи with parameters: {'phrase_length': 'medium', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'angry', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "medium",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "angry",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    },
+    {
+      "id": "tc_007_dialog_last_turn_correction_012",
+      "use_case_id": "uc_007",
+      "name": "Подтверждение отмены записи - dialog_last_turn_correction - variation 12",
+      "description": "Test case for Подтверждение отмены записи with parameters: {'phrase_length': 'short', 'punctuation_errors': 'none', 'slang_profanity_emoji': 'none', 'medical_terms': 'present', 'user_aggression': 'frustrated', 'escalation_needed': 'no'}",
+      "parameter_variation_axes": [
+        "default",
+        "default"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "operator_quality",
+      "parameters": {
+        "phrase_length": "short",
+        "punctuation_errors": "none",
+        "slang_profanity_emoji": "none",
+        "medical_terms": "present",
+        "user_aggression": "frustrated",
+        "escalation_needed": "no"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005",
+        "pol_006",
+        "pol_007"
+      ]
+    }
+  ]
+}

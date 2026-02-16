@@ -1,0 +1,25 @@
+{
+  "input_path": "example_input_raw_support_faq_and_tickets.md",
+  "out_path": "out/support",
+  "seed": 42,
+  "timestamp": "2026-02-16T18:33:30.406085+00:00",
+  "generator_version": "0.1.0",
+  "llm": {
+    "provider": "openai",
+    "model": "gpt-4o-mini",
+    "temperature": 0.0
+  },
+  "frameworks_used": [
+    "format_adapter"
+  ],
+  "counts": {
+    "use_cases": 5,
+    "policies": 5,
+    "test_cases": 60,
+    "dataset_examples": 60
+  },
+  "detected_case": "support_bot",
+  "detected_formats": [
+    "single_turn_qa"
+  ]
+}

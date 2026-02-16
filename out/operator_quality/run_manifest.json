@@ -1,0 +1,26 @@
+{
+  "input_path": "example_input_raw_operator_quality_checks.md",
+  "out_path": "out/operator_quality",
+  "seed": 42,
+  "timestamp": "2026-02-16T18:50:56.944882+00:00",
+  "generator_version": "0.1.0",
+  "llm": {
+    "provider": "openai",
+    "model": "gpt-4o-mini",
+    "temperature": 0.0
+  },
+  "frameworks_used": [
+    "format_adapter"
+  ],
+  "counts": {
+    "use_cases": 7,
+    "policies": 7,
+    "test_cases": 168,
+    "dataset_examples": 84
+  },
+  "detected_case": "operator_quality",
+  "detected_formats": [
+    "single_utterance_correction",
+    "dialog_last_turn_correction"
+  ]
+}
