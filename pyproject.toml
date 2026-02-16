@@ -21,6 +21,7 @@ dependencies = [
     "langchain>=0.2",
     "pandas>=2.0",
     "chromadb>=1.0",
+    "allpairspy",
 ]
 
 [project.optional-dependencies]
