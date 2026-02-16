@@ -1,14 +1,24 @@
 """Command-line interface for the dataset generator."""
 
+import logging
 import os
 import sys
 from pathlib import Path
 
 import typer
 from dotenv import load_dotenv
+from openai import OpenAIError
+
+from .pipeline import PipelineConfig, run_pipeline
 
 # Load environment variables from .env file
 load_dotenv()
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
 
 app = typer.Typer(help="Generate synthetic datasets from requirements documents")
 
@@ -57,15 +67,42 @@ def generate(
     # Create output directory if it doesn't exist
     out.mkdir(parents=True, exist_ok=True)
 
-    # Placeholder implementation
-    typer.echo(f"Input file: {input_file}")
-    typer.echo(f"Output directory: {out}")
-    typer.echo(f"Model: {model}")
-    typer.echo(f"Seed: {seed}")
-    typer.echo(f"Use cases: {n_use_cases}")
-    typer.echo(f"Test cases per UC: {n_test_cases_per_uc}")
-    typer.echo(f"Examples per TC: {n_examples_per_tc}")
-    typer.echo("\nNot yet implemented")
+    try:
+        # Create pipeline configuration
+        config = PipelineConfig(
+            input_file=input_file,
+            out_dir=out,
+            seed=seed,
+            model=model,
+            n_use_cases=n_use_cases,
+            n_test_cases_per_uc=n_test_cases_per_uc,
+            n_examples_per_tc=n_examples_per_tc
+        )
+
+        # Run the pipeline
+        result = run_pipeline(config)
+
+        # Print summary
+        typer.echo(f"\nGenerated {result.use_case_count} use cases, {result.policy_count} policies")
+
+        if result.evidence_invalid > 0:
+            typer.echo(
+                f"Warning: {result.evidence_invalid} evidence quotes failed validation",
+                err=True
+            )
+        else:
+            typer.echo(f"All {result.evidence_valid} evidence quotes validated successfully")
+
+        typer.echo(f"\nOutput files:")
+        typer.echo(f"  - {result.use_cases_path}")
+        typer.echo(f"  - {result.policies_path}")
+
+    except OpenAIError as e:
+        typer.echo(f"OpenAI API error: {e}", err=True)
+        sys.exit(1)
+    except Exception as e:
+        typer.echo(f"Error: {e}", err=True)
+        sys.exit(1)
 
 
 @app.command("validate")
