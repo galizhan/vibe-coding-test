@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-16)
 ## Current Position
 
 Phase: 3 of 8 (Test Dataset Generation)
-Plan: 1 of 4 in current phase (completed)
+Plan: 2 of 4 in current phase (completed)
 Status: Phase 3 in progress
-Last activity: 2026-02-16 — Completed 03-01-PLAN.md
+Last activity: 2026-02-16 — Completed 03-02-PLAN.md
 
-Progress: [█████░░░░░] 46%
+Progress: [█████░░░░░] 50%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 6
-- Average duration: 4 min
-- Total execution time: 0.40 hours
+- Total plans completed: 7
+- Average duration: 5 min
+- Total execution time: 0.63 hours
 
 **By Phase:**
 
@@ -29,11 +29,11 @@ Progress: [█████░░░░░] 46%
 |-------|-------|-------|----------|
 | 01-foundation | 3 | 9 min | 3 min |
 | 02-core-extraction | 2 | 8 min | 4 min |
-| 03-test-dataset-generation | 1 | 7 min | 7 min |
+| 03-test-dataset-generation | 2 | 16 min | 8 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-03 (3min), 02-01 (3min), 02-02 (5min), 03-01 (7min)
-- Trend: Slightly increasing (framework installation overhead)
+- Last 5 plans: 02-01 (3min), 02-02 (5min), 03-01 (7min), 03-02 (9min)
+- Trend: Slightly increasing (framework API adaptation overhead)
 
 *Updated after each plan completion*
 
@@ -73,6 +73,7 @@ Recent decisions affecting current work:
 - DatasetExample must have 3+ evaluation_criteria per DATA-07 (03-01) — ensures comprehensive evaluation
 - Message role validated as Literal['user', 'operator', 'assistant', 'system'] (03-01) — provides type safety for conversation structure
 - Framework dependencies use minimum version constraints (>=) (03-01) — allows patch updates while ensuring features
+- [Phase 03]: Updated Ragas generator for v0.4 API (TestsetGenerator.from_langchain with QueryDistribution)
 
 ### Pending Todos
 
@@ -89,5 +90,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-16 (plan execution)
-Stopped at: Completed 03-01-PLAN.md — Phase 3 in progress (test dataset generation models and framework dependencies)
+Stopped at: Completed 03-02-PLAN.md — Phase 3 in progress (framework generators and adapters)
 Resume file: None
