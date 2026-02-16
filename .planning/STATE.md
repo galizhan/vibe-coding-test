@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-16)
 ## Current Position
 
 Phase: 3 of 8 (Test Dataset Generation)
-Plan: 2 of 4 in current phase (completed)
+Plan: 3 of 4 in current phase (completed)
 Status: Phase 3 in progress
-Last activity: 2026-02-16 — Completed 03-02-PLAN.md
+Last activity: 2026-02-16 — Completed 03-03-PLAN.md
 
-Progress: [█████░░░░░] 50%
+Progress: [█████░░░░░] 53%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 7
-- Average duration: 5 min
-- Total execution time: 0.63 hours
+- Total plans completed: 8
+- Average duration: 6 min
+- Total execution time: 0.73 hours
 
 **By Phase:**
 
@@ -29,11 +29,11 @@ Progress: [█████░░░░░] 50%
 |-------|-------|-------|----------|
 | 01-foundation | 3 | 9 min | 3 min |
 | 02-core-extraction | 2 | 8 min | 4 min |
-| 03-test-dataset-generation | 2 | 16 min | 8 min |
+| 03-test-dataset-generation | 3 | 22 min | 7 min |
 
 **Recent Trend:**
-- Last 5 plans: 02-01 (3min), 02-02 (5min), 03-01 (7min), 03-02 (9min)
-- Trend: Slightly increasing (framework API adaptation overhead)
+- Last 5 plans: 02-02 (5min), 03-01 (7min), 03-02 (9min), 03-03 (6min)
+- Trend: Stabilizing (framework integration maturing)
 
 *Updated after each plan completion*
 
@@ -74,6 +74,7 @@ Recent decisions affecting current work:
 - Message role validated as Literal['user', 'operator', 'assistant', 'system'] (03-01) — provides type safety for conversation structure
 - Framework dependencies use minimum version constraints (>=) (03-01) — allows patch updates while ensuring features
 - [Phase 03]: Updated Ragas generator for v0.4 API (TestsetGenerator.from_langchain with QueryDistribution)
+- [Phase 03]: OpenAI function calling selects framework based on task context, fallback to direct OpenAI if all fail
 
 ### Pending Todos
 
@@ -90,5 +91,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-16 (plan execution)
-Stopped at: Completed 03-02-PLAN.md — Phase 3 in progress (framework generators and adapters)
+Stopped at: Completed 03-03-PLAN.md — Phase 3 in progress (orchestration and pipeline integration)
 Resume file: None
