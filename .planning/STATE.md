@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-16)
 
 **Core value:** From a single raw markdown document, produce a complete, validated chain of artifacts (use_cases → policies → test_cases → dataset) with full traceability back to source text
-**Current focus:** Phase 3: Test Dataset Generation (COMPLETE)
+**Current focus:** Phase 4: All Use Cases Support
 
 ## Current Position
 
-Phase: 3 of 8 (Test Dataset Generation)
-Plan: 4 of 4 in current phase (completed)
-Status: Phase 3 COMPLETE - Ready for Phase 4
-Last activity: 2026-02-16 — Completed 03-04-PLAN.md
+Phase: 4 of 8 (All Use Cases Support)
+Plan: 1 of 3 in current phase (completed)
+Status: Phase 4 in progress
+Last activity: 2026-02-16 — Completed 04-01-PLAN.md
 
-Progress: [██████░░░░] 59%
+Progress: [██████░░░░] 63%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 9
+- Total plans completed: 10
 - Average duration: 7 min
-- Total execution time: 1.61 hours
+- Total execution time: 1.66 hours
 
 **By Phase:**
 
@@ -30,10 +30,11 @@ Progress: [██████░░░░] 59%
 | 01-foundation | 3 | 9 min | 3 min |
 | 02-core-extraction | 2 | 8 min | 4 min |
 | 03-test-dataset-generation | 4 | 75 min | 19 min |
+| 04-all-use-cases | 1 | 3 min | 3 min |
 
 **Recent Trend:**
-- Last 5 plans: 03-01 (7min), 03-02 (9min), 03-03 (6min), 03-04 (53min)
-- Trend: Phase 3 complete - longer final plan due to end-to-end verification and auto-fixes
+- Last 5 plans: 03-02 (9min), 03-03 (6min), 03-04 (53min), 04-01 (3min)
+- Trend: Phase 4 started - model updates and detection module completed efficiently
 
 *Updated after each plan completion*
 
@@ -79,6 +80,9 @@ Recent decisions affecting current work:
 - OpenAI tool schemas require additionalProperties:false (03-04) — strict mode compatibility for function calling
 - DeepEval Synthesizer requires chromadb as direct dependency (03-04) — not provided transitively
 - FiltrationConfig uses synthetic_input_quality_threshold parameter (03-04) — DeepEval v1.x API naming
+- [Phase 04]: Data models updated with tz.md contract fields (case, target_message_index, statement, parameters, policy_ids) — all have defaults for backward compatibility
+- [Phase 04]: Case/format detection uses content-only classification (04-01) — no filename dependencies, ensures universality
+- [Phase 04]: model_validator(mode='after') for cross-field validation (04-01) — Pydantic v2 best practice for accessing multiple fields
 
 ### Pending Todos
 
@@ -97,7 +101,7 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-16 (plan execution)
-Stopped at: Completed 03-04-PLAN.md — Phase 3 COMPLETE (quality reporting and end-to-end verification)
+Stopped at: Completed 04-01-PLAN.md — Phase 4 in progress (data models and case detection)
 Resume file: None
 
 **Phase 3 Completion Notes:**
