@@ -35,34 +35,90 @@ def extract_use_cases(
         - Uses temperature=0 for reproducibility
     """
     # Build system prompt
-    system_prompt = f"""You are an expert requirements analyst. Extract structured use cases from the provided Russian-language requirements document.
+    system_prompt = f"""You are an expert requirements analyst. Extract use cases from Russian-language requirements.
 
-CRITICAL INSTRUCTIONS:
-1. Each use case must have a unique id starting with "uc_" (e.g., uc_001, uc_002, uc_003)
-2. Each use case needs: id, name (Russian), description (Russian), evidence
-3. ALL content (name, description) MUST be in Russian - do NOT translate to English
-4. Extract at least {min_use_cases} use cases from the document
-
-EVIDENCE REQUIREMENTS:
-- Evidence must have: input_file, line_start (1-based), line_end (1-based), quote
-- The quote field must contain the EXACT text from the specified lines
-- Copy the text character-for-character. Do NOT paraphrase, modify, or translate
-- Line numbers are shown at the start of each line as 'N: '
-- Use these line numbers to set line_start and line_end
-- Do NOT include the line number prefix in the quote - only the actual text after "N: "
-
-EXAMPLE:
-If the source shows:
-15: Клиент может запросить информацию о статусе заказа
-16: Система должна предоставить актуальный статус
-
-Your evidence should be:
+TASK DEFINITION (structured for clarity):
 {{
-  "input_file": "filename.md",
-  "line_start": 15,
-  "line_end": 16,
-  "quote": "Клиент может запросить информацию о статусе заказа\\nСистема должна предоставить актуальный статус"
+  "objective": "Extract {min_use_cases}+ use_cases from prose, FAQs, tables, or implicit requirements",
+  "id_format": "uc_NNN (e.g., uc_001, uc_002)",
+  "content_language": "Russian",
+  "evidence_accuracy": "CHARACTER-EXACT quotes required"
 }}
+
+USE CASE IDENTIFICATION RULES:
+1. Look for patterns indicating actions/scenarios:
+   - Action patterns: "может...", "должен...", "если...то..."
+   - Question-answer pairs (FAQ sections)
+   - Table rows with operator responses or scenarios
+   - Implicit use cases in prose (extract intent from context)
+2. Each distinct user goal or system behavior is ONE use case
+3. Use cases can be IMPLICIT — extract intent from context, not just explicit lists
+
+EVIDENCE EXTRACTION (CRITICAL FOR VALIDATION):
+- Your evidence quote must be CHARACTER-FOR-CHARACTER EXACT
+- Include ALL markdown formatting: *, **, bullets, table pipes |, etc.
+- Preserve ALL whitespace at start/end of lines
+- Do NOT clean up, normalize, or "fix" the quote
+- Multi-line quotes: use \\n between lines, preserve each line exactly
+- Line numbers shown as "N: " prefix — use these for line_start/line_end
+- Do NOT include the "N: " prefix in your quote — only the actual text after it
+- Extract the COMPLETE quote — do not truncate or summarize
+
+FEW-SHOT EXAMPLES:
+
+[Example 1: Explicit use case from bullet list]
+Source text:
+5: * Клиент может запросить статус заказа
+
+Your extraction:
+{{
+  "id": "uc_001",
+  "name": "Запрос статуса заказа",
+  "description": "Клиент запрашивает текущий статус своего заказа",
+  "evidence": [{{
+    "input_file": "requirements.md",
+    "line_start": 5,
+    "line_end": 5,
+    "quote": "* Клиент может запросить статус заказа"
+  }}]
+}}
+
+[Example 2: Implicit use case from prose spanning 2 lines]
+Source text:
+12: Если вопрос требует данных из личного кабинета — бот должен
+13: передать на оператора или дать телефон поддержки.
+
+Your extraction:
+{{
+  "id": "uc_002",
+  "name": "Эскалация на оператора при вопросах о личном кабинете",
+  "description": "При вопросах требующих доступа к личному кабинету бот эскалирует обращение на оператора",
+  "evidence": [{{
+    "input_file": "requirements.md",
+    "line_start": 12,
+    "line_end": 13,
+    "quote": "Если вопрос требует данных из личного кабинета — бот должен\\nпередать на оператора или дать телефон поддержки."
+  }}]
+}}
+
+[Example 3: Use case from table row preserving pipe characters]
+Source text:
+32: | 1001 | «Где мой заказ???» | «Понимаю. Уточните номер заказа...» |
+
+Your extraction:
+{{
+  "id": "uc_003",
+  "name": "Запрос информации о заказе",
+  "description": "Пользователь спрашивает о местоположении или статусе заказа",
+  "evidence": [{{
+    "input_file": "requirements.md",
+    "line_start": 32,
+    "line_end": 32,
+    "quote": "| 1001 | «Где мой заказ???» | «Понимаю. Уточните номер заказа...» |"
+  }}]
+}}
+
+Now extract use cases from the following document (all content must be in Russian):
 """
 
     # Build user message with numbered text
