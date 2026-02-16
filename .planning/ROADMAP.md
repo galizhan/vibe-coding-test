@@ -113,10 +113,12 @@ Plans:
   4. User can upload generated dataset to Langfuse as dataset items with experiment tracking
   5. Pre-generated output artifacts exist in out/support/ and out/operator_quality/ directories
   6. README provides complete setup instructions, dependencies, and environment variable configuration
-**Plans**: TBD
+**Plans:** 3 plans
 
 Plans:
-- [ ] TBD
+- [ ] 05-01-PLAN.md — Validation command with referential integrity checks and exit codes
+- [ ] 05-02-PLAN.md — Langfuse integration for dataset upload with experiment tracking
+- [ ] 05-03-PLAN.md — Pre-generated artifacts and comprehensive README documentation
 
 ## Progress
 
@@ -129,7 +131,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 2. Core Extraction | 0/2 | Planned | - |
 | 3. Test & Dataset Generation | 0/4 | Planned | - |
 | 4. All Use Cases | 0/3 | Planned | - |
-| 5. Validation & Delivery | 0/TBD | Not started | - |
+| 5. Validation & Delivery | 0/3 | Planned | - |
 
 ## Coverage
 
