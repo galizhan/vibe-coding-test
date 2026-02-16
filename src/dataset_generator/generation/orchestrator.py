@@ -241,17 +241,15 @@ def _build_tool_definitions() -> list[dict[str, Any]]:
                         "num_goldens": {
                             "type": "integer",
                             "description": "Number of golden test cases to generate",
-                            "default": 10,
                         },
                         "include_expected_output": {
                             "type": "boolean",
                             "description": "Whether to include expected outputs",
-                            "default": True,
                         },
                     },
                     "required": ["document_paths"],
+                    "additionalProperties": False,
                 },
-                "strict": True,
             },
         },
         {
@@ -269,17 +267,15 @@ def _build_tool_definitions() -> list[dict[str, Any]]:
                         "test_size": {
                             "type": "integer",
                             "description": "Number of test questions to generate",
-                            "default": 10,
                         },
                         "reasoning_ratio": {
                             "type": "number",
                             "description": "Ratio of reasoning-based questions (0.0-1.0)",
-                            "default": 0.4,
                         },
                     },
                     "required": [],
+                    "additionalProperties": False,
                 },
-                "strict": True,
             },
         },
         {
@@ -296,12 +292,11 @@ def _build_tool_definitions() -> list[dict[str, Any]]:
                         "num_questions": {
                             "type": "integer",
                             "description": "Number of questions to generate",
-                            "default": 20,
                         },
                     },
                     "required": [],
+                    "additionalProperties": False,
                 },
-                "strict": True,
             },
         },
     ]
