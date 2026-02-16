@@ -40,12 +40,23 @@ def orchestrate_generation(
     model: str = "gpt-4o-mini",
     seed: int | None = None,
     min_test_cases: int = 3,
+    case: str = "support_bot",
+    formats: list[str] | None = None,
 ) -> tuple[list[TestCase], list[DatasetExample]]:
-    """Orchestrate test case and dataset example generation using OpenAI function calling.
+    """Orchestrate test case and dataset example generation using format adapters.
 
-    Uses OpenAI function calling to dynamically route between DeepEval, Ragas, and
-    Giskard frameworks based on task context. Falls back to direct OpenAI generation
-    if all frameworks fail or insufficient results are produced.
+    This orchestrator uses format-specific adapters as the PRIMARY generation path,
+    with framework-based generation (DeepEval, Ragas, Giskard) as SUPPLEMENTARY.
+
+    Generation flow:
+    1. Generate parameter variations using variation router
+    2. For each format in formats, iterate all parameter combinations:
+       - Get format adapter
+       - Generate example using adapter
+       - Classify metadata.source for support_bot
+       - Validate format
+    3. Supplement with framework-based generation if needed to reach min_test_cases
+    4. Fall back to OpenAI direct generation if adapters fail
 
     Args:
         use_case: UseCase object to generate tests for
@@ -54,6 +65,8 @@ def orchestrate_generation(
         model: OpenAI model to use for orchestration (default: gpt-4o-mini)
         seed: Random seed for reproducibility (optional)
         min_test_cases: Minimum test cases required (default: 3)
+        case: Case identifier (support_bot, operator_quality, doctor_booking)
+        formats: List of formats to generate (e.g., ["single_turn_qa"])
 
     Returns:
         Tuple of (test_cases, dataset_examples)
@@ -61,122 +74,191 @@ def orchestrate_generation(
     Example:
         >>> from dataset_generator.models.use_case import UseCase
         >>> from dataset_generator.models.policy import Policy
-        >>> uc = UseCase(id="uc_001", name="Test", description="Test UC", evidence=[])
+        >>> uc = UseCase(id="uc_001", name="Test", description="Test UC", evidence=[], case="support_bot")
         >>> policies = [Policy(id="pol_001", name="Test", type="must", description="Test", evidence=[])]
-        >>> test_cases, examples = orchestrate_generation(uc, policies, "doc.md")
+        >>> test_cases, examples = orchestrate_generation(uc, policies, "doc.md", case="support_bot", formats=["single_turn_qa"])
     """
-    logger.info(f"Orchestrating generation for use case: {use_case.id}")
+    logger.info(f"Orchestrating generation for use case: {use_case.id} (case={case}, formats={formats})")
 
-    # Build tool definitions for OpenAI function calling
-    tools = _build_tool_definitions()
+    # Default formats if not provided
+    if formats is None:
+        if case == "operator_quality":
+            formats = ["single_utterance_correction", "dialog_last_turn_correction"]
+        else:  # support_bot, doctor_booking
+            formats = ["single_turn_qa"]
 
-    # Build orchestration messages
-    messages = _build_orchestration_messages(use_case, policies, document_path)
+    # Import format-specific modules
+    from dataset_generator.generation.format_adapters import get_adapter_for_format
+    from dataset_generator.generation.variation_router import generate_variations
+    from dataset_generator.generation.source_classifier import classify_source_type
 
-    # Call OpenAI with function calling
-    client = get_openai_client()
-
-    try:
-        response = client.chat.completions.create(
-            model=model,
-            messages=messages,
-            tools=tools,
-            tool_choice="auto",
-            temperature=0,
-            seed=seed,
-        )
-    except Exception as e:
-        logger.error(f"OpenAI orchestration call failed: {e}", exc_info=True)
-        # Fall back immediately if orchestration fails
-        return _generate_with_fallback_only(use_case, policies, min_test_cases, model, seed)
-
-    # Process tool calls and route to generators
     test_cases = []
     dataset_examples = []
-    frameworks_used = set()
+    policy_ids = [p.id for p in policies]
 
-    tool_calls = response.choices[0].message.tool_calls if response.choices[0].message.tool_calls else []
+    try:
+        # Step 1: Generate parameter variations using pairwise combinatorics
+        logger.info(f"Generating parameter variations for case={case}")
+        variations = generate_variations(
+            case=case,
+            use_case_description=use_case.description,
+            policies=policies,
+            min_test_cases=min_test_cases,
+        )
+        logger.info(f"Generated {len(variations)} parameter variations")
 
-    if not tool_calls:
-        logger.warning("No tool calls returned from OpenAI orchestrator, using fallback")
-        return _generate_with_fallback_only(use_case, policies, min_test_cases, model, seed)
+        # Step 2: For each format, generate examples for each parameter combination
+        for format_name in formats:
+            logger.info(f"Generating examples for format={format_name}")
 
-    # Prepare policy documents for framework consumption
-    policy_doc_path = prepare_policy_documents(policies, document_path)
+            try:
+                # Get adapter for this format
+                adapter = get_adapter_for_format(format_name, case)
 
-    for tool_call in tool_calls:
+                # Generate examples for each parameter variation
+                for idx, params in enumerate(variations, start=1):
+                    try:
+                        # Extract variation axes (will be 2-3 axes with non-default values)
+                        variation_axes = params.pop("_variation_axes", [])
+
+                        # Create test case ID
+                        tc_id = f"tc_{use_case.id.replace('uc_', '')}_{format_name}_{idx:03d}"
+
+                        # Create TestCase object
+                        tc = TestCase(
+                            id=tc_id,
+                            use_case_id=use_case.id,
+                            case=case,
+                            name=f"{use_case.name} - {format_name} - variation {idx}",
+                            description=f"Test case for {use_case.name} with parameters: {params}",
+                            parameter_variation_axes=variation_axes[:3] if len(variation_axes) >= 2 else variation_axes + ["default", "default"][:3-len(variation_axes)],
+                            parameters=params,
+                            policy_ids=policy_ids,
+                            metadata={"generator": "format_adapter"},
+                        )
+                        test_cases.append(tc)
+
+                        # Generate dataset example using adapter
+                        logger.debug(f"Generating example for test case {tc_id}")
+                        example = adapter.generate_example(
+                            use_case=use_case,
+                            policies=policies,
+                            test_case_id=tc_id,
+                            parameters=params,
+                            model=model,
+                        )
+
+                        # Set case field
+                        example.case = case
+
+                        # For support_bot, classify metadata.source
+                        if case == "support_bot":
+                            # Extract first user message content
+                            user_content = ""
+                            for msg in example.input.messages:
+                                if msg.role == "user":
+                                    user_content = msg.content
+                                    break
+
+                            source_type = classify_source_type(
+                                use_case_description=use_case.description,
+                                generated_input=user_content,
+                                parameters=params,
+                                model=model,
+                            )
+                            if not example.metadata:
+                                example.metadata = {}
+                            example.metadata["source"] = source_type
+                            logger.debug(f"Classified example {example.id} as source={source_type}")
+
+                        # Validate format
+                        validation_errors = adapter.validate_format(example)
+                        if validation_errors:
+                            logger.warning(f"Format validation errors for {example.id}: {validation_errors}")
+
+                        dataset_examples.append(example)
+
+                    except Exception as e:
+                        logger.warning(f"Failed to generate example for variation {idx} in format {format_name}: {e}", exc_info=True)
+                        continue
+
+            except Exception as e:
+                logger.warning(f"Failed to get adapter for format {format_name}: {e}", exc_info=True)
+                continue
+
+        logger.info(f"Format adapter generation: {len(test_cases)} test cases, {len(dataset_examples)} examples")
+
+    except Exception as e:
+        logger.error(f"Format adapter generation failed: {e}", exc_info=True)
+        # Fall back to OpenAI fallback
+        logger.warning("Falling back to OpenAI direct generation")
+        return _generate_with_fallback_only(use_case, policies, min_test_cases, model, seed, case, formats)
+
+    # Step 3: If we don't have enough test cases, supplement with framework-based generation
+    if len(test_cases) < min_test_cases:
+        logger.info(f"Supplementing with framework-based generation ({len(test_cases)}/{min_test_cases} generated)")
+
+        # Try framework-based generation as supplementary source
         try:
-            function_name = tool_call.function.name
-            arguments = json.loads(tool_call.function.arguments)
+            tools = _build_tool_definitions()
+            messages = _build_orchestration_messages(use_case, policies, document_path)
+            client = get_openai_client()
 
-            logger.info(f"Routing to {function_name} with arguments: {arguments}")
+            response = client.chat.completions.create(
+                model=model,
+                messages=messages,
+                tools=tools,
+                tool_choice="auto",
+                temperature=0,
+                seed=seed,
+            )
 
-            if function_name == "generate_with_deepeval":
-                tcs, exs = _invoke_deepeval(
-                    use_case=use_case,
-                    policies=policies,
-                    policy_doc_path=policy_doc_path,
-                    arguments=arguments,
-                    model=model,
-                )
-                test_cases.extend(tcs)
-                dataset_examples.extend(exs)
-                frameworks_used.add("deepeval")
+            tool_calls = response.choices[0].message.tool_calls if response.choices[0].message.tool_calls else []
 
-            elif function_name == "generate_with_ragas":
-                tcs, exs = _invoke_ragas(
-                    use_case=use_case,
-                    policies=policies,
-                    policy_doc_path=policy_doc_path,
-                    arguments=arguments,
-                    model=model,
-                )
-                test_cases.extend(tcs)
-                dataset_examples.extend(exs)
-                frameworks_used.add("ragas")
+            if tool_calls:
+                policy_doc_path = prepare_policy_documents(policies, document_path)
 
-            elif function_name == "generate_with_giskard":
-                tcs, exs = _invoke_giskard(
-                    use_case=use_case,
-                    policies=policies,
-                    policy_doc_path=policy_doc_path,
-                    arguments=arguments,
-                    model=model,
-                )
-                test_cases.extend(tcs)
-                dataset_examples.extend(exs)
-                frameworks_used.add("giskard")
+                for tool_call in tool_calls:
+                    try:
+                        function_name = tool_call.function.name
+                        arguments = json.loads(tool_call.function.arguments)
+
+                        if function_name == "generate_with_deepeval":
+                            tcs, exs = _invoke_deepeval(use_case, policies, policy_doc_path, arguments, model)
+                            test_cases.extend(tcs)
+                            dataset_examples.extend(exs)
+                        elif function_name == "generate_with_ragas":
+                            tcs, exs = _invoke_ragas(use_case, policies, policy_doc_path, arguments, model)
+                            test_cases.extend(tcs)
+                            dataset_examples.extend(exs)
+                        elif function_name == "generate_with_giskard":
+                            tcs, exs = _invoke_giskard(use_case, policies, policy_doc_path, arguments, model)
+                            test_cases.extend(tcs)
+                            dataset_examples.extend(exs)
+                    except Exception as e:
+                        logger.warning(f"Framework call {function_name} failed: {e}")
+                        continue
+
+                try:
+                    Path(policy_doc_path).unlink()
+                except Exception:
+                    pass
 
         except Exception as e:
-            logger.warning(f"Framework call {function_name} failed: {e}", exc_info=True)
-            # Continue to next tool call
-            continue
+            logger.warning(f"Framework-based supplementary generation failed: {e}")
 
-    # Clean up temporary policy document
-    try:
-        Path(policy_doc_path).unlink()
-    except Exception:
-        pass
-
-    # Check if we need fallback
-    if len(test_cases) == 0:
-        logger.warning("All framework calls failed, using OpenAI fallback")
-        return _generate_with_fallback_only(use_case, policies, min_test_cases, model, seed)
-
+    # Step 4: Final fallback if still insufficient
     if len(test_cases) < min_test_cases:
-        logger.warning(
-            f"Only {len(test_cases)} test cases generated, need {min_test_cases}. "
-            f"Adding {min_test_cases - len(test_cases)} via fallback."
-        )
+        logger.warning(f"Still insufficient test cases ({len(test_cases)}/{min_test_cases}), using OpenAI fallback")
         fallback_tcs, fallback_exs = _generate_with_fallback_only(
-            use_case, policies, min_test_cases - len(test_cases), model, seed
+            use_case, policies, min_test_cases - len(test_cases), model, seed, case, formats
         )
         test_cases.extend(fallback_tcs)
         dataset_examples.extend(fallback_exs)
 
     logger.info(
         f"Generated {len(test_cases)} test cases and {len(dataset_examples)} examples "
-        f"using frameworks: {sorted(frameworks_used)}"
+        f"for use case {use_case.id} (case={case}, formats={formats})"
     )
 
     return test_cases, dataset_examples
@@ -462,6 +544,8 @@ def _generate_with_fallback_only(
     num_test_cases: int,
     model: str,
     seed: int | None,
+    case: str = "support_bot",
+    formats: list[str] | None = None,
 ) -> tuple[list[TestCase], list[DatasetExample]]:
     """Generate using only the OpenAI fallback."""
     policy_dicts = [
@@ -481,4 +565,6 @@ def _generate_with_fallback_only(
         num_test_cases=num_test_cases,
         model=model,
         seed=seed,
+        case=case,
+        formats=formats,
     )

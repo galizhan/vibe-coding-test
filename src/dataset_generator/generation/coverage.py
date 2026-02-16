@@ -11,6 +11,102 @@ if TYPE_CHECKING:
 logger = logging.getLogger(__name__)
 
 
+def enforce_format_coverage(examples: list["DatasetExample"], case: str) -> list[str]:
+    """Ensure all required formats are present for the case.
+
+    Args:
+        examples: List of dataset examples
+        case: Case identifier (support_bot, operator_quality, doctor_booking)
+
+    Returns:
+        List of warning strings for missing formats
+
+    Example:
+        >>> from dataset_generator.models.dataset_example import DatasetExample, InputData, Message
+        >>> ex1 = DatasetExample(id='ex_001', case='operator_quality', format='single_utterance_correction', use_case_id='uc_001', test_case_id='tc_001', input=InputData(messages=[Message(role='operator', content='test')]), expected_output='test', evaluation_criteria=['a','b','c'], policy_ids=['pol_001'])
+        >>> warnings = enforce_format_coverage([ex1], 'operator_quality')
+        >>> len(warnings) > 0
+        True
+        >>> 'dialog_last_turn_correction' in warnings[0]
+        True
+    """
+    warnings = []
+
+    # Define required formats per case
+    required_formats = {
+        "operator_quality": ["single_utterance_correction", "dialog_last_turn_correction"],
+        "support_bot": ["single_turn_qa"],
+        "doctor_booking": ["single_turn_qa"],
+    }
+
+    # Get formats present in examples
+    present_formats = {ex.format for ex in examples}
+
+    # Check for missing required formats
+    required = required_formats.get(case, [])
+    missing_formats = set(required) - present_formats
+
+    if missing_formats:
+        warnings.append(
+            f"Case '{case}' missing required formats: {sorted(missing_formats)}. "
+            f"Present: {sorted(present_formats)}, Required: {sorted(required)}"
+        )
+        logger.warning(f"Format coverage: missing formats {sorted(missing_formats)} for case {case}")
+    else:
+        logger.info(f"Format coverage: all required formats present for case {case}")
+
+    return warnings
+
+
+def enforce_source_coverage(examples: list["DatasetExample"], case: str) -> list[str]:
+    """Ensure all required metadata.source types are present.
+
+    Only applies to support_bot case. Other cases don't have metadata.source requirements.
+
+    Args:
+        examples: List of dataset examples
+        case: Case identifier (support_bot, operator_quality, doctor_booking)
+
+    Returns:
+        List of warning strings for missing source types
+
+    Example:
+        >>> from dataset_generator.models.dataset_example import DatasetExample, InputData, Message
+        >>> ex1 = DatasetExample(id='ex_001', case='support_bot', format='single_turn_qa', use_case_id='uc_001', test_case_id='tc_001', input=InputData(messages=[Message(role='user', content='test')]), expected_output='test', evaluation_criteria=['a','b','c'], policy_ids=['pol_001'])
+        >>> warnings = enforce_source_coverage([ex1], 'support_bot')
+        >>> len(warnings) > 0
+        True
+    """
+    warnings = []
+
+    # Only support_bot requires metadata.source coverage
+    if case != "support_bot":
+        return warnings
+
+    # Define required source types
+    required_sources = ["tickets", "faq_paraphrase", "corner"]
+
+    # Get sources present in examples
+    present_sources = set()
+    for ex in examples:
+        if ex.metadata and "source" in ex.metadata:
+            present_sources.add(ex.metadata["source"])
+
+    # Check for missing required sources
+    missing_sources = set(required_sources) - present_sources
+
+    if missing_sources:
+        warnings.append(
+            f"Case 'support_bot' missing required metadata.source types: {sorted(missing_sources)}. "
+            f"Present: {sorted(present_sources)}, Required: {sorted(required_sources)}"
+        )
+        logger.warning(f"Source coverage: missing sources {sorted(missing_sources)} for support_bot")
+    else:
+        logger.info(f"Source coverage: all required source types present for support_bot")
+
+    return warnings
+
+
 def enforce_coverage(
     use_case_id: str,
     test_cases: list["TestCase"],
@@ -27,6 +123,8 @@ def enforce_coverage(
     - Minimum evaluation criteria per example (already enforced by Pydantic)
     - Minimum policy IDs per example (already enforced by Pydantic)
     - Each test case has at least one associated example
+    - Format coverage (via enforce_format_coverage)
+    - Source coverage for support_bot (via enforce_source_coverage)
 
     Args:
         use_case_id: Use case identifier to validate against
@@ -107,6 +205,16 @@ def enforce_coverage(
         warnings.append(
             f"Examples reference invalid test case IDs: {sorted(invalid_references)}"
         )
+
+    # Check 7: Format coverage (if examples have case field)
+    if examples and hasattr(examples[0], 'case') and examples[0].case:
+        case = examples[0].case
+        format_warnings = enforce_format_coverage(examples, case)
+        warnings.extend(format_warnings)
+
+        # Check 8: Source coverage for support_bot
+        source_warnings = enforce_source_coverage(examples, case)
+        warnings.extend(source_warnings)
 
     # Log coverage summary
     logger.info(
