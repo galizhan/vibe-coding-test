@@ -10,6 +10,7 @@ from dotenv import load_dotenv
 from openai import OpenAIError
 
 from .pipeline import PipelineConfig, run_pipeline
+from .models.dataset_example import DatasetExampleList
 
 # Load environment variables from .env file
 load_dotenv()
@@ -114,3 +115,82 @@ def generate(
 def validate() -> None:
     """Validate generated dataset files."""
     typer.echo("Not yet implemented")
+
+
+@app.command("upload")
+def upload(
+    out: Path = typer.Option(
+        ...,
+        "--out",
+        exists=True,
+        dir_okay=True,
+        file_okay=False,
+        help="Output directory with dataset.json",
+    ),
+    dataset_name: str = typer.Option(
+        ..., "--dataset-name", help="Name for the Langfuse dataset"
+    ),
+    host: str = typer.Option(
+        None, "--langfuse-host", help="Custom Langfuse host URL"
+    ),
+) -> None:
+    """Upload generated dataset to Langfuse for experiment tracking."""
+    # Check for Langfuse credentials
+    public_key = os.getenv("LANGFUSE_PUBLIC_KEY")
+    secret_key = os.getenv("LANGFUSE_SECRET_KEY")
+
+    if not public_key or not secret_key:
+        typer.echo(
+            "Error: Langfuse credentials not configured. "
+            "Set LANGFUSE_PUBLIC_KEY and LANGFUSE_SECRET_KEY in your .env file.",
+            err=True,
+        )
+        sys.exit(1)
+
+    # Use LANGFUSE_HOST env var as fallback if --langfuse-host not provided
+    if host is None:
+        host = os.getenv("LANGFUSE_HOST")
+
+    # Load dataset.json
+    dataset_path = out / "dataset.json"
+    if not dataset_path.exists():
+        typer.echo(
+            f"Error: dataset.json not found in {out}",
+            err=True,
+        )
+        sys.exit(1)
+
+    try:
+        dataset_json = dataset_path.read_text(encoding="utf-8")
+        dataset = DatasetExampleList.model_validate_json(dataset_json)
+    except Exception as e:
+        typer.echo(f"Error loading dataset.json: {e}", err=True)
+        sys.exit(1)
+
+    # Upload to Langfuse
+    try:
+        from .integration.langfuse_client import upload_to_langfuse
+
+        result = upload_to_langfuse(
+            dataset_name=dataset_name,
+            examples=dataset.examples,
+            public_key=public_key,
+            secret_key=secret_key,
+            host=host,
+        )
+
+        typer.echo(f"\nSuccessfully uploaded dataset to Langfuse:")
+        typer.echo(f"  Dataset name: {result['dataset_name']}")
+        typer.echo(f"  Items uploaded: {result['items_uploaded']}")
+        typer.echo(f"  Status: {result['status']}")
+
+    except ImportError as e:
+        typer.echo(f"Error: {e}", err=True)
+        typer.echo(
+            "\nTo use Langfuse integration, install with: pip install dataset-generator[langfuse]",
+            err=True,
+        )
+        sys.exit(1)
+    except Exception as e:
+        typer.echo(f"Error uploading to Langfuse: {e}", err=True)
+        sys.exit(1)
