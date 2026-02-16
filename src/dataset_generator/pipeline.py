@@ -64,6 +64,8 @@ class PipelineResult:
         evidence_valid: Number of valid evidence quotes
         evidence_invalid: Number of invalid evidence quotes
         frameworks_used: List of frameworks used for generation
+        case: Detected case identifier
+        formats: Detected format list
     """
     use_cases_path: Path
     policies_path: Path
@@ -77,6 +79,8 @@ class PipelineResult:
     evidence_valid: int
     evidence_invalid: int
     frameworks_used: list[str]
+    case: str
+    formats: list[str]
 
 
 def run_pipeline(config: PipelineConfig) -> PipelineResult:
@@ -150,6 +154,34 @@ def run_pipeline(config: PipelineConfig) -> PipelineResult:
     else:
         logger.info(f"Evidence validation: all {total_valid} quotes valid")
 
+    # Step 4.5: Auto-detect case and formats
+    logger.info("Step 4.5: Auto-detecting case and formats")
+    detected_case = "support_bot"
+    detected_formats = ["single_turn_qa"]
+
+    try:
+        from .generation.case_detector import detect_case_and_formats
+        detection = detect_case_and_formats(
+            use_cases=use_case_list.use_cases,
+            policies=policy_list.policies,
+            model=config.model
+        )
+        detected_case = detection.case
+        detected_formats = detection.formats
+        logger.info(f"Auto-detected case: {detected_case}, formats: {detected_formats}")
+        logger.info(f"Detection reasoning: {detection.reasoning}")
+    except Exception as e:
+        logger.warning(
+            f"Case detection failed: {e}. Defaulting to case='support_bot', formats=['single_turn_qa']"
+        )
+
+    # Populate case field on extracted artifacts
+    logger.info("Populating case field on extracted use cases and policies")
+    for uc in use_case_list.use_cases:
+        uc.case = detected_case
+    for pol in policy_list.policies:
+        pol.case = detected_case
+
     # Step 5: Generate test cases and dataset examples
     logger.info("Step 5: Generating test cases and dataset examples")
     all_test_cases = []
@@ -167,6 +199,8 @@ def run_pipeline(config: PipelineConfig) -> PipelineResult:
             model=config.model,
             seed=config.seed,
             min_test_cases=config.n_test_cases_per_uc,
+            case=detected_case,
+            formats=detected_formats,
         )
 
         # Enforce coverage per use case
@@ -200,6 +234,14 @@ def run_pipeline(config: PipelineConfig) -> PipelineResult:
     )
     for issue in integrity_issues:
         logger.warning(f"Integrity: {issue}")
+
+    # Step 6.5: Format and source coverage enforcement
+    logger.info("Step 6.5: Enforcing format and source coverage")
+    from .generation.coverage import enforce_format_coverage, enforce_source_coverage
+    format_warnings = enforce_format_coverage(all_examples, detected_case)
+    source_warnings = enforce_source_coverage(all_examples, detected_case)
+    for w in format_warnings + source_warnings:
+        logger.warning(f"Coverage: {w}")
 
     # Step 7: Write use_cases.json
     logger.info("Step 7: Writing use_cases.json")
@@ -255,11 +297,23 @@ def run_pipeline(config: PipelineConfig) -> PipelineResult:
         ),
     )
     manifest_path = config.out_dir / "run_manifest.json"
-    write_json_output(manifest, manifest_path)
+
+    # Write manifest with additional detection metadata
+    manifest_dict = manifest.model_dump()
+    manifest_dict['detected_case'] = detected_case
+    manifest_dict['detected_formats'] = detected_formats
+
+    import json
+    with open(manifest_path, 'w', encoding='utf-8') as f:
+        json.dump(manifest_dict, f, indent=2, ensure_ascii=False)
+
+    logger.info(f"Wrote run manifest to {manifest_path}")
 
     # Step 13: Print summary
     print(f"\n=== Pipeline Complete ===")
     print(f"Input: {config.input_file.name}")
+    print(f"Case: {detected_case}")
+    print(f"Formats: {', '.join(detected_formats)}")
     print(f"Extracted: {len(use_case_list.use_cases)} use cases, {len(policy_list.policies)} policies")
     print(f"Generated: {len(all_test_cases)} test cases, {len(all_examples)} dataset examples")
     print(f"Frameworks used: {', '.join(sorted(frameworks_used)) if frameworks_used else 'fallback only'}")
@@ -290,4 +344,6 @@ def run_pipeline(config: PipelineConfig) -> PipelineResult:
         evidence_valid=total_valid,
         evidence_invalid=total_invalid,
         frameworks_used=sorted(frameworks_used),
+        case=detected_case,
+        formats=detected_formats,
     )
