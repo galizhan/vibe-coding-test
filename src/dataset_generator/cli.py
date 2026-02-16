@@ -11,6 +11,7 @@ from openai import OpenAIError
 
 from .pipeline import PipelineConfig, run_pipeline
 from .models.dataset_example import DatasetExampleList
+from .validation import DatasetValidator
 
 # Load environment variables from .env file
 load_dotenv()
@@ -112,9 +113,42 @@ def generate(
 
 
 @app.command("validate")
-def validate() -> None:
-    """Validate generated dataset files."""
-    typer.echo("Not yet implemented")
+def validate(
+    out: Path = typer.Option(
+        ...,
+        "--out",
+        exists=True,
+        dir_okay=True,
+        file_okay=False,
+        help="Output directory to validate",
+    ),
+) -> None:
+    """Validate generated dataset files.
+
+    Checks:
+    - All required JSON files exist
+    - Schema compliance via Pydantic models
+    - Referential integrity across models
+    - Policy ID references point to actual policies
+
+    Exit codes:
+    - 0: All validation checks passed
+    - 1: Validation errors found
+    """
+    # Create validator and run checks
+    validator = DatasetValidator(out)
+    result = validator.validate()
+
+    # Print report
+    result.print_report()
+
+    # Exit with appropriate code
+    if result.is_valid:
+        typer.echo("\n✓ Validation passed")
+        raise typer.Exit(code=0)
+    else:
+        typer.echo(f"\n✗ Validation failed with {len(result.errors)} error(s)", err=True)
+        raise typer.Exit(code=1)
 
 
 @app.command("upload")
