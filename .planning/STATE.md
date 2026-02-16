@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-16)
 
 **Core value:** From a single raw markdown document, produce a complete, validated chain of artifacts (use_cases → policies → test_cases → dataset) with full traceability back to source text
-**Current focus:** Phase 4: All Use Cases Support
+**Current focus:** Phase 5: Validation & Delivery
 
 ## Current Position
 
-Phase: 4 of 8 (All Use Cases Support)
-Plan: 3 of 3 in current phase (completed)
-Status: Phase 4 complete
-Last activity: 2026-02-16 — Completed 04-03-PLAN.md
+Phase: 5 of 8 (Validation & Delivery)
+Plan: 2 of 3 in current phase (completed)
+Status: Phase 5 in progress
+Last activity: 2026-02-16 — Completed 05-02-PLAN.md
 
-Progress: [████████░░] 75%
+Progress: [████████░░] 78%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 12
+- Total plans completed: 13
 - Average duration: 7 min
-- Total execution time: 1.83 hours
+- Total execution time: 1.88 hours
 
 **By Phase:**
 
@@ -31,10 +31,11 @@ Progress: [████████░░] 75%
 | 02-core-extraction | 2 | 8 min | 4 min |
 | 03-test-dataset-generation | 4 | 75 min | 19 min |
 | 04-all-use-cases | 3 | 13 min | 4 min |
+| 05-validation-delivery | 2 | 6 min | 3 min |
 
 **Recent Trend:**
-- Last 5 plans: 03-04 (53min), 04-01 (3min), 04-02 (6min), 04-03 (4min)
-- Trend: Phase 4 COMPLETE - universal multi-case support with format/source coverage
+- Last 5 plans: 04-01 (3min), 04-02 (6min), 04-03 (4min), 05-01 (3min), 05-02 (3min)
+- Trend: Phase 5 in progress - validation and integration implementation
 
 *Updated after each plan completion*
 
@@ -85,6 +86,8 @@ Recent decisions affecting current work:
 - [Phase 04]: model_validator(mode='after') for cross-field validation (04-01) — Pydantic v2 best practice for accessing multiple fields
 - [Phase 04]: Format adapters as PRIMARY generation path (04-03) — frameworks supplement rather than lead, provides better format control
 - [Phase 04]: Pairwise combinatorial testing for parameter variations (04-03) — avoids exponential explosion while covering all 2-way interactions
+- [Phase 05]: Lazy import pattern for optional dependencies - langfuse imported inside function to allow core without package
+- [Phase 05]: Separate upload command from validate - different purposes and dependencies
 
 ### Pending Todos
 
@@ -103,13 +106,12 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-16 (plan execution)
-Stopped at: Completed 04-03-PLAN.md — Phase 4 COMPLETE (pipeline integration)
+Stopped at: Completed 05-02-PLAN.md — Langfuse integration with upload command
 Resume file: None
 
-**Phase 4 Complete Notes:**
-- All 3 plans completed: data models, format adapters, pipeline integration
-- Pipeline auto-detects case/formats from document content (no filename dependencies)
-- Format adapters as PRIMARY generation (frameworks as supplementary)
-- Format and source coverage enforcement active
-- All artifacts have case field populated
-- Universal multi-case support achieved (support_bot, operator_quality, doctor_booking)
+**Phase 5 Progress Notes:**
+- Plan 05-01: Validation command implemented (dataset structure validation)
+- Plan 05-02: Langfuse integration complete (upload command with optional dependency)
+- Remaining: Plan 05-03 (delivery/packaging)
+- Lazy import pattern established for optional dependencies
+- Integration package created for external services
