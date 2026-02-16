@@ -5,32 +5,33 @@
 See: .planning/PROJECT.md (updated 2026-02-16)
 
 **Core value:** From a single raw markdown document, produce a complete, validated chain of artifacts (use_cases → policies → test_cases → dataset) with full traceability back to source text
-**Current focus:** Phase 1: Foundation & Pipeline Setup
+**Current focus:** Phase 2: Core Extraction Enhancement
 
 ## Current Position
 
-Phase: 1 of 8 (Foundation & Pipeline Setup)
-Plan: 3 of 3 in current phase
-Status: Phase 1 complete
-Last activity: 2026-02-16 — Completed 01-03-PLAN.md
+Phase: 2 of 8 (Core Extraction Enhancement)
+Plan: 1 of 1 in current phase (completed)
+Status: Phase 2 plan 01 complete
+Last activity: 2026-02-16 — Completed 02-01-PLAN.md
 
-Progress: [███░░░░░░░] 30%
+Progress: [████░░░░░░] 35%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 3
+- Total plans completed: 4
 - Average duration: 3 min
-- Total execution time: 0.15 hours
+- Total execution time: 0.20 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-foundation | 3 | 9 min | 3 min |
+| 02-core-extraction | 1 | 3 min | 3 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (2min), 01-02 (4min), 01-03 (3min)
+- Last 5 plans: 01-01 (2min), 01-02 (4min), 01-03 (3min), 02-01 (3min)
 - Trend: Consistent execution
 
 *Updated after each plan completion*
@@ -58,6 +59,12 @@ Recent decisions affecting current work:
 - Use json.dumps with ensure_ascii=False for Russian text (01-03) — Pydantic v2 model_dump_json lacks this parameter
 - Check OPENAI_API_KEY before pipeline execution (01-03) — early failure with clear error message
 - Enhanced LLM prompts to preserve markdown formatting (01-03) — improves evidence validation accuracy
+- Use structured JSON task definition in prompts (02-01) — improves clarity and reduces ambiguity
+- Include 3 few-shot examples for use cases (02-01) — covers bullet, prose, and table patterns
+- Include 5 few-shot examples for policies (02-01) — one per type for clear classification
+- Prioritize must_not and escalate before generic must in decision tree (02-01) — reduces type classification ambiguity
+- Preserve ALL markdown formatting in evidence quotes (02-01) — CHARACTER-EXACT matching for validation
+- Use generic terms not document-specific references in prompts (02-01) — ensures generalization
 
 ### Pending Todos
 
@@ -74,5 +81,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-16 (plan execution)
-Stopped at: Completed 01-03-PLAN.md — Phase 1 Foundation complete, end-to-end CLI working
+Stopped at: Completed 02-01-PLAN.md — Phase 2 extraction prompt enhancements complete
 Resume file: None
