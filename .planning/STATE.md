@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-16)
 
 **Core value:** From a single raw markdown document, produce a complete, validated chain of artifacts (use_cases → policies → test_cases → dataset) with full traceability back to source text
-**Current focus:** Phase 2: Core Extraction Enhancement
+**Current focus:** Phase 3: Test Dataset Generation (COMPLETE)
 
 ## Current Position
 
 Phase: 3 of 8 (Test Dataset Generation)
-Plan: 3 of 4 in current phase (completed)
-Status: Phase 3 in progress
-Last activity: 2026-02-16 — Completed 03-03-PLAN.md
+Plan: 4 of 4 in current phase (completed)
+Status: Phase 3 COMPLETE - Ready for Phase 4
+Last activity: 2026-02-16 — Completed 03-04-PLAN.md
 
-Progress: [█████░░░░░] 53%
+Progress: [██████░░░░] 59%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 8
-- Average duration: 6 min
-- Total execution time: 0.73 hours
+- Total plans completed: 9
+- Average duration: 7 min
+- Total execution time: 1.61 hours
 
 **By Phase:**
 
@@ -29,11 +29,11 @@ Progress: [█████░░░░░] 53%
 |-------|-------|-------|----------|
 | 01-foundation | 3 | 9 min | 3 min |
 | 02-core-extraction | 2 | 8 min | 4 min |
-| 03-test-dataset-generation | 3 | 22 min | 7 min |
+| 03-test-dataset-generation | 4 | 75 min | 19 min |
 
 **Recent Trend:**
-- Last 5 plans: 02-02 (5min), 03-01 (7min), 03-02 (9min), 03-03 (6min)
-- Trend: Stabilizing (framework integration maturing)
+- Last 5 plans: 03-01 (7min), 03-02 (9min), 03-03 (6min), 03-04 (53min)
+- Trend: Phase 3 complete - longer final plan due to end-to-end verification and auto-fixes
 
 *Updated after each plan completion*
 
@@ -75,6 +75,10 @@ Recent decisions affecting current work:
 - Framework dependencies use minimum version constraints (>=) (03-01) — allows patch updates while ensuring features
 - [Phase 03]: Updated Ragas generator for v0.4 API (TestsetGenerator.from_langchain with QueryDistribution)
 - [Phase 03]: OpenAI function calling selects framework based on task context, fallback to direct OpenAI if all fail
+- Quality report generation is non-blocking (03-04) — pipeline continues if Evidently fails, ensures robustness
+- OpenAI tool schemas require additionalProperties:false (03-04) — strict mode compatibility for function calling
+- DeepEval Synthesizer requires chromadb as direct dependency (03-04) — not provided transitively
+- FiltrationConfig uses synthetic_input_quality_threshold parameter (03-04) — DeepEval v1.x API naming
 
 ### Pending Todos
 
@@ -84,12 +88,21 @@ None yet.
 
 - ✓ RESOLVED: Russian language generation quality validated with gpt-4o-mini in 01-03 (working correctly)
 - ✓ RESOLVED: OPENAI_API_KEY setup completed by user in 01-03
+- ✓ RESOLVED: Phase 3 end-to-end verification passed — 180 examples generated via DeepEval (03-04)
 - Evidence quoting implementation complete — validation warns but doesn't fail (strict mode deferred)
 - Known limitation: Markdown table trailing pipes sometimes truncated by LLM (affects ~20% of table-based evidence)
 - Official validator (official_validator.py) schema not yet available (may require Phase 7 adjustments)
+- Quality report shows 7.2% duplication rate in synthetic data — acceptable for test dataset generation
 
 ## Session Continuity
 
 Last session: 2026-02-16 (plan execution)
-Stopped at: Completed 03-03-PLAN.md — Phase 3 in progress (orchestration and pipeline integration)
+Stopped at: Completed 03-04-PLAN.md — Phase 3 COMPLETE (quality reporting and end-to-end verification)
 Resume file: None
+
+**Phase 3 Completion Notes:**
+- All 4 plans completed: data contracts, framework adapters, orchestration, quality reporting
+- End-to-end verification: 180 dataset examples generated from 6 use cases and 5 policies
+- DeepEval confirmed as primary generation engine (100% usage, 0% fallback)
+- All Phase 3 success criteria validated (coverage, integrity, conventions, tracking)
+- Ready for Phase 4: Validation Inference Integration
