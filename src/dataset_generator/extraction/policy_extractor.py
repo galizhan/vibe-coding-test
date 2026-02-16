@@ -35,46 +35,150 @@ def extract_policies(
         - Uses temperature=0 for reproducibility
     """
     # Build system prompt
-    system_prompt = f"""You are an expert requirements analyst. Extract policies/rules/constraints from the provided Russian-language requirements document.
+    system_prompt = f"""You are an expert requirements analyst. Extract policies with CORRECT type classification from Russian-language requirements.
 
-CRITICAL INSTRUCTIONS:
-1. Each policy must have a unique id starting with "pol_" (e.g., pol_001, pol_002, pol_003)
-2. Each policy needs: id, name (Russian), description (Russian), type, evidence
-3. ALL content (name, description) MUST be in Russian - do NOT translate to English
-4. Extract at least {min_policies} policies from the document
-
-POLICY TYPE CLASSIFICATION:
-Classify each policy by type:
-- "must": things the system must do (requirements, obligations)
-- "must_not": things the system must not do (prohibitions, restrictions)
-- "escalate": situations requiring escalation to a human agent
-- "style": tone, language, communication style rules
-- "format": output format requirements (structure, templates, formatting)
-
-EVIDENCE REQUIREMENTS:
-- Evidence must have: input_file, line_start (1-based), line_end (1-based), quote
-- The quote field must contain the EXACT text from the specified lines
-- Copy the text character-for-character INCLUDING all markdown formatting (*, **, bullets, etc.)
-- Do NOT paraphrase, modify, translate, or strip any characters
-- Line numbers are shown at the start of each line as 'N: '
-- Use these line numbers to set line_start and line_end
-- Do NOT include the line number prefix in the quote - only the actual text after "N: "
-- PRESERVE whitespace, bullet points (*, -), markdown bold (**text**), and all other formatting
-
-EXAMPLE:
-If the source shows:
-20: * Бот не должен давать **медицинские рекомендации**
-21: * При медицинских вопросах - переключить на врача
-
-Your evidence should be:
+TASK DEFINITION (structured for clarity):
 {{
-  "input_file": "filename.md",
-  "line_start": 20,
-  "line_end": 21,
-  "quote": "* Бот не должен давать **медицинские рекомендации**\\n* При медицинских вопросах - переключить на врача"
+  "objective": "Extract {min_policies}+ policies from document with accurate type classification",
+  "id_format": "pol_NNN (e.g., pol_001, pol_002)",
+  "content_language": "Russian",
+  "evidence_accuracy": "CHARACTER-EXACT quotes required"
 }}
 
-And the policy type might be "must_not" (no medical advice) or "escalate" (transfer to doctor).
+POLICY TYPE DECISION TREE (check in this order for disambiguation):
+
+Step 1: Is this a prohibition/restriction (MUST NOT do)?
+→ type: "must_not"
+Examples: "не должен давать медицинские рекомендации", "нельзя использовать капслок"
+
+Step 2: Does this trigger human escalation (escalate to agent/specialist)?
+→ type: "escalate"
+Examples: "при медицинских вопросах — переключить на врача", "если клиент сильно недоволен — эскалация"
+
+Step 3: Is this about communication tone/style (how to communicate)?
+→ type: "style"
+Examples: "сообщение должно быть вежливым", "избегать восклицательных знаков"
+
+Step 4: Is this about output format/structure/templates (how to format)?
+→ type: "format"
+Examples: "исправлять опечатки и пунктуацию", "использовать маркированные списки"
+
+Step 5: Otherwise (obligation/requirement to DO something)?
+→ type: "must"
+Examples: "система должна проверять корректность промокода", "бот отвечает на общие вопросы"
+
+CLASSIFICATION PROCESS:
+For each policy, analyze its nature and explain your reasoning in 1 sentence before assigning the type.
+The order matters: check must_not and escalate BEFORE must, since they're special cases that need priority.
+
+EVIDENCE EXTRACTION (CRITICAL FOR VALIDATION):
+- Your evidence quote must be CHARACTER-FOR-CHARACTER EXACT
+- Include ALL markdown formatting: *, **, bullets, table pipes |, etc.
+- Preserve ALL whitespace at start/end of lines
+- Do NOT clean up, normalize, or "fix" the quote
+- Multi-line quotes: use \\n between lines, preserve each line exactly
+- Line numbers shown as "N: " prefix — use these for line_start/line_end
+- Do NOT include the "N: " prefix in your quote — only the actual text after it
+- Extract the COMPLETE quote — do not truncate or summarize
+
+FEW-SHOT EXAMPLES WITH CLASSIFICATION REASONING:
+
+[Example 1: must_not type]
+Source text:
+20: * Бот не должен давать **медицинские рекомендации**
+
+Your extraction:
+{{
+  "id": "pol_001",
+  "name": "Запрет медицинских рекомендаций",
+  "description": "Бот не должен давать медицинские советы или рекомендации",
+  "type": "must_not",
+  "evidence": [{{
+    "input_file": "requirements.md",
+    "line_start": 20,
+    "line_end": 20,
+    "quote": "* Бот не должен давать **медицинские рекомендации**"
+  }}]
+}}
+Reasoning: This is a prohibition (not allowed to give medical advice).
+
+[Example 2: escalate type]
+Source text:
+21: * При медицинских вопросах - переключить на врача
+
+Your extraction:
+{{
+  "id": "pol_002",
+  "name": "Эскалация медицинских вопросов",
+  "description": "При вопросах медицинского характера необходимо переключить на врача",
+  "type": "escalate",
+  "evidence": [{{
+    "input_file": "requirements.md",
+    "line_start": 21,
+    "line_end": 21,
+    "quote": "* При медицинских вопросах - переключить на врача"
+  }}]
+}}
+Reasoning: This describes when to escalate to a human specialist (doctor).
+
+[Example 3: style type]
+Source text:
+15: Если пользователь матерится — оператор сохраняет нейтральный тон
+
+Your extraction:
+{{
+  "id": "pol_003",
+  "name": "Нейтральный тон при ненормативной лексике",
+  "description": "Оператор должен сохранять нейтральный тон даже если пользователь использует ненормативную лексику",
+  "type": "style",
+  "evidence": [{{
+    "input_file": "requirements.md",
+    "line_start": 15,
+    "line_end": 15,
+    "quote": "Если пользователь матерится — оператор сохраняет нейтральный тон"
+  }}]
+}}
+Reasoning: This is about communication style and tone rules.
+
+[Example 4: format type]
+Source text:
+8: Нужно исправлять явные опечатки и пунктуацию
+
+Your extraction:
+{{
+  "id": "pol_004",
+  "name": "Исправление опечаток",
+  "description": "Система должна автоматически исправлять очевидные опечатки и пунктуацию",
+  "type": "format",
+  "evidence": [{{
+    "input_file": "requirements.md",
+    "line_start": 8,
+    "line_end": 8,
+    "quote": "Нужно исправлять явные опечатки и пунктуацию"
+  }}]
+}}
+Reasoning: This is about output formatting and text correction.
+
+[Example 5: must type]
+Source text:
+12: Система должна проверять корректность промокода перед применением
+
+Your extraction:
+{{
+  "id": "pol_005",
+  "name": "Проверка промокода",
+  "description": "Система обязана проверять корректность промокода перед его применением к заказу",
+  "type": "must",
+  "evidence": [{{
+    "input_file": "requirements.md",
+    "line_start": 12,
+    "line_end": 12,
+    "quote": "Система должна проверять корректность промокода перед применением"
+  }}]
+}}
+Reasoning: This is a general requirement/obligation (not a prohibition, escalation, style, or format rule).
+
+Now extract policies from the following document (all content must be in Russian):
 """
 
     # Build user message with numbered text
