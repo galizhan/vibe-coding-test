@@ -115,61 +115,61 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| PIPE-01 | — | Pending |
-| PIPE-02 | — | Pending |
-| PIPE-03 | — | Pending |
-| PIPE-04 | — | Pending |
-| PIPE-05 | — | Pending |
-| PIPE-06 | — | Pending |
-| DATA-01 | — | Pending |
-| DATA-02 | — | Pending |
-| DATA-03 | — | Pending |
-| DATA-04 | — | Pending |
-| DATA-05 | — | Pending |
-| DATA-06 | — | Pending |
-| DATA-07 | — | Pending |
-| DATA-08 | — | Pending |
-| VALD-01 | — | Pending |
-| VALD-02 | — | Pending |
-| VALD-03 | — | Pending |
-| CLI-01 | — | Pending |
-| CLI-02 | — | Pending |
-| CLI-03 | — | Pending |
-| CLI-04 | — | Pending |
-| SUPP-01 | — | Pending |
-| SUPP-02 | — | Pending |
-| SUPP-03 | — | Pending |
-| SUPP-04 | — | Pending |
-| SUPP-05 | — | Pending |
-| SUPP-06 | — | Pending |
-| SUPP-07 | — | Pending |
-| SUPP-08 | — | Pending |
-| SUPP-09 | — | Pending |
-| OPER-01 | — | Pending |
-| OPER-02 | — | Pending |
-| OPER-03 | — | Pending |
-| OPER-04 | — | Pending |
-| OPER-05 | — | Pending |
-| OPER-06 | — | Pending |
-| OPER-07 | — | Pending |
-| BOOK-01 | — | Pending |
-| BOOK-02 | — | Pending |
-| BOOK-03 | — | Pending |
-| REPR-01 | — | Pending |
-| REPR-02 | — | Pending |
-| INTG-01 | — | Pending |
-| INTG-02 | — | Pending |
-| INTG-03 | — | Pending |
-| INTG-04 | — | Pending |
-| DLVR-01 | — | Pending |
-| DLVR-02 | — | Pending |
-| DLVR-03 | — | Pending |
+| PIPE-01 | Phase 1 | Pending |
+| PIPE-02 | Phase 2 | Pending |
+| PIPE-03 | Phase 2 | Pending |
+| PIPE-04 | Phase 3 | Pending |
+| PIPE-05 | Phase 3 | Pending |
+| PIPE-06 | Phase 2 | Pending |
+| DATA-01 | Phase 1 | Pending |
+| DATA-02 | Phase 1 | Pending |
+| DATA-03 | Phase 1 | Pending |
+| DATA-04 | Phase 1 | Pending |
+| DATA-05 | Phase 1 | Pending |
+| DATA-06 | Phase 1 | Pending |
+| DATA-07 | Phase 1 | Pending |
+| DATA-08 | Phase 1 | Pending |
+| VALD-01 | Phase 7 | Pending |
+| VALD-02 | Phase 7 | Pending |
+| VALD-03 | Phase 7 | Pending |
+| CLI-01 | Phase 1 | Pending |
+| CLI-02 | Phase 1 | Pending |
+| CLI-03 | Phase 1 | Pending |
+| CLI-04 | Phase 1 | Pending |
+| SUPP-01 | Phase 4 | Pending |
+| SUPP-02 | Phase 4 | Pending |
+| SUPP-03 | Phase 4 | Pending |
+| SUPP-04 | Phase 4 | Pending |
+| SUPP-05 | Phase 4 | Pending |
+| SUPP-06 | Phase 4 | Pending |
+| SUPP-07 | Phase 4 | Pending |
+| SUPP-08 | Phase 4 | Pending |
+| SUPP-09 | Phase 4 | Pending |
+| OPER-01 | Phase 5 | Pending |
+| OPER-02 | Phase 5 | Pending |
+| OPER-03 | Phase 5 | Pending |
+| OPER-04 | Phase 5 | Pending |
+| OPER-05 | Phase 5 | Pending |
+| OPER-06 | Phase 5 | Pending |
+| OPER-07 | Phase 5 | Pending |
+| BOOK-01 | Phase 6 | Pending |
+| BOOK-02 | Phase 6 | Pending |
+| BOOK-03 | Phase 6 | Pending |
+| REPR-01 | Phase 1 | Pending |
+| REPR-02 | Phase 1 | Pending |
+| INTG-01 | Phase 8 | Pending |
+| INTG-02 | Phase 8 | Pending |
+| INTG-03 | Phase 8 | Pending |
+| INTG-04 | Phase 8 | Pending |
+| DLVR-01 | Phase 8 | Pending |
+| DLVR-02 | Phase 8 | Pending |
+| DLVR-03 | Phase 1 | Pending |
 
 **Coverage:**
 - v1 requirements: 48 total
-- Mapped to phases: 0
-- Unmapped: 48 (will be mapped during roadmap creation)
+- Mapped to phases: 48
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-02-16*
-*Last updated: 2026-02-16 after initial definition*
+*Last updated: 2026-02-16 after roadmap creation*

@@ -4,24 +4,24 @@
 
 See: .planning/PROJECT.md (updated 2026-02-16)
 
-**Core value:** From a single raw markdown document, produce a complete, validated chain of artifacts (use_cases -> policies -> test_cases -> dataset) with full traceability back to source text
-**Current focus:** Phase 1: Foundation
+**Core value:** From a single raw markdown document, produce a complete, validated chain of artifacts (use_cases → policies → test_cases → dataset) with full traceability back to source text
+**Current focus:** Phase 1: Foundation & Pipeline Setup
 
 ## Current Position
 
-Phase: 1 of 6 (Foundation)
-Plan: 0 of 3 in current phase
+Phase: 1 of 8 (Foundation & Pipeline Setup)
+Plan: 0 of TBD in current phase
 Status: Ready to plan
-Last activity: 2026-02-16 -- Roadmap created with 6 phases covering 38 requirements
+Last activity: 2026-02-16 — Roadmap created
 
-Progress: [..........] 0%
+Progress: [░░░░░░░░░░] 0%
 
 ## Performance Metrics
 
 **Velocity:**
 - Total plans completed: 0
-- Average duration: -
-- Total execution time: 0 hours
+- Average duration: - min
+- Total execution time: 0.0 hours
 
 **By Phase:**
 
@@ -30,8 +30,8 @@ Progress: [..........] 0%
 | - | - | - | - |
 
 **Recent Trend:**
-- Last 5 plans: none
-- Trend: N/A
+- Last 5 plans: -
+- Trend: No data yet
 
 *Updated after each plan completion*
 
@@ -42,9 +42,11 @@ Progress: [..........] 0%
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
 
-- [Roadmap]: 6 phases derived from 38 requirements at standard depth
-- [Roadmap]: Phase 5 (Integrations) depends on Phase 2, can overlap with Phase 4
-- [Roadmap]: Case C (doctor booking) placed in Phase 4 as bonus validation
+- OpenAI as LLM provider (user preference) — affects Phase 1 integration setup
+- gpt-4o-mini as default model with gpt-4o override — affects CLI parameter design
+- All 4 integrations (Langfuse, DeepEval, Evidently, Giskard Hub) — deferred to Phase 8
+- Support all 3 input cases including doctor booking — validates algorithm generalization
+- Core only first, then integrations — influences phase ordering (1-6 core, 7-8 validation+integrations)
 
 ### Pending Todos
 
@@ -52,12 +54,12 @@ None yet.
 
 ### Blockers/Concerns
 
-- Russian language generation quality with gpt-4o-mini is unvalidated (test in Phase 1)
+- Russian language generation quality with gpt-4o-mini is unvalidated (test early in Phase 1)
 - Evidence quoting has no established implementation pattern (custom solution needed in Phase 1)
-- Official validator schema not yet available (may require Phase 6 adjustments)
+- Official validator (official_validator.py) schema not yet available (may require Phase 7 adjustments)
 
 ## Session Continuity
 
-Last session: 2026-02-16
-Stopped at: Roadmap and state files created, ready to plan Phase 1
+Last session: 2026-02-16 (roadmap creation)
+Stopped at: Roadmap and STATE.md written, ready for Phase 1 planning
 Resume file: None

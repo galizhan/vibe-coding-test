@@ -1,8 +1,8 @@
-# Roadmap: Synthetic Dataset Generator
+# Roadmap: Synthetic Dataset Generator for LLM Agent Testing
 
 ## Overview
 
-This roadmap delivers a Python CLI tool that transforms raw business requirement documents into validated synthetic datasets for LLM agent evaluation. The journey progresses from foundational infrastructure (parsing, extraction, data contracts) through two mandatory use case pipelines (support bot, operator quality checker), an optional third case with validation tooling, external platform integrations, and final delivery polish. Each phase delivers a complete, verifiable capability that builds on the previous.
+Transform raw markdown business requirements into validated synthetic test datasets through an 8-phase journey. Start with foundational pipeline infrastructure and data contracts (Phase 1), build core extraction and generation capabilities (Phases 2-3), implement three progressively complex use cases (Phases 4-6), add validation systems (Phase 7), and complete with external integrations and deliverables (Phase 8). Each phase delivers observable user value, building toward the core promise: full traceability from source markdown to evaluation-ready datasets.
 
 ## Phases
 
@@ -12,164 +12,171 @@ This roadmap delivers a Python CLI tool that transforms raw business requirement
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation** - Document ingestion, extraction pipeline, data contracts, CLI skeleton, and LLM client
-- [ ] **Phase 2: Support Bot Pipeline** - Test case and dataset generation for Case A with single_turn_qa format
-- [ ] **Phase 3: Operator Quality Checker** - Correction dataset formats and Case B end-to-end pipeline
-- [ ] **Phase 4: Doctor Booking + Validation** - Case C bonus pipeline and the validate CLI command
-- [ ] **Phase 5: External Integrations** - Langfuse, DeepEval, Evidently, and Giskard Hub connections
-- [ ] **Phase 6: Polish and Delivery** - README, pre-generated artifacts verification, final validation pass
+- [ ] **Phase 1: Foundation & Pipeline Setup** - Project structure, CLI scaffolding, data schemas, markdown parsing with line tracking
+- [ ] **Phase 2: Core Extraction** - Use case and policy extraction from unstructured text with evidence traceability
+- [ ] **Phase 3: Test & Dataset Generation** - Test case generation with parameter variation and dataset example synthesis
+- [ ] **Phase 4: Support Bot Case** - Complete implementation of single-turn Q&A for support bot use case
+- [ ] **Phase 5: Operator Quality Case** - Utterance correction and dialog correction datasets for quality checker
+- [ ] **Phase 6: Doctor Booking Case** - Third use case demonstrating algorithm generalization
+- [ ] **Phase 7: Validation System** - Built-in validation command with data contract compliance checks
+- [ ] **Phase 8: Integrations & Deliverables** - External platform integrations and final deliverables
 
 ## Phase Details
 
-### Phase 1: Foundation
-**Goal**: Users can ingest a markdown document, extract structured use cases and policies with evidence traceability, and see validated JSON output via the CLI
+### Phase 1: Foundation & Pipeline Setup
+**Goal**: User can invoke CLI to parse markdown documents and generate valid JSON output with strict schema compliance
 **Depends on**: Nothing (first phase)
-**Requirements**: INGEST-01, INGEST-02, INGEST-03, EXTRACT-01, EXTRACT-02, EXTRACT-03, EXTRACT-04, GEN-05, CONTRACT-01, CONTRACT-02, CONTRACT-03, CLI-01, CLI-02, CLI-03, CLI-04, CLI-05, CLI-07
+**Requirements**: PIPE-01, DATA-01, DATA-02, DATA-03, DATA-04, DATA-05, DATA-06, DATA-07, DATA-08, CLI-01, CLI-02, CLI-03, CLI-04, REPR-01, REPR-02, DLVR-03
 **Success Criteria** (what must be TRUE):
-  1. User can run the CLI with --input pointing to a markdown file and see structured use_cases.json and policies.json output in the --out directory
-  2. Each extracted use case and policy contains evidence fields (line_start, line_end, quote) that match the actual source document text
-  3. All output artifacts pass Pydantic schema validation with correct ID prefixes (uc_, pol_) and mandatory fields
-  4. Running with --seed produces structurally consistent extraction results across repeated runs
-  5. The CLI reads OPENAI_API_KEY from environment and supports --model to switch between gpt-4o-mini and gpt-4o
+  1. User can invoke `python -m dataset_generator generate --input <file> --out <dir> --seed <N>` and receive valid JSON output
+  2. All output files conform to strict JSON schemas with correct ID prefixes (uc_, pol_, tc_, ex_)
+  3. Evidence entries contain exact line ranges (1-based) that match source text character-for-character
+  4. Same input + seed produces structurally consistent output (stable IDs, coverage, validity)
+  5. API keys loaded from environment variables, never hardcoded or committed
 **Plans**: TBD
 
-**Risk flags:**
-- Evidence quoting implementation has no established pattern to copy -- will need custom solution (research confidence: MEDIUM)
-- Russian language extraction quality with gpt-4o-mini is unvalidated -- test early
-- Chunking strategy for requirement documents may need experimentation
-
 Plans:
-- [ ] 01-01: TBD
-- [ ] 01-02: TBD
-- [ ] 01-03: TBD
+- [ ] TBD
 
-### Phase 2: Support Bot Pipeline
-**Goal**: Users can run the complete end-to-end pipeline for Case A (support bot) and receive a validated dataset in single_turn_qa format
+### Phase 2: Core Extraction
+**Goal**: User can extract structured use cases and policies from unstructured markdown with complete evidence traceability
 **Depends on**: Phase 1
-**Requirements**: GEN-01, GEN-02, GEN-03, GEN-04, GEN-06, CONTRACT-04, CONTRACT-05, CASE-01, DELIVER-01, DELIVER-04
+**Requirements**: PIPE-02, PIPE-03, PIPE-06
 **Success Criteria** (what must be TRUE):
-  1. User can run the CLI against the support bot markdown document and receive four output files: use_cases.json, policies.json, test_cases.json, dataset.json
-  2. Test cases have tc_ prefix IDs with at least 3 test cases per use case, each containing parameter variation axes
-  3. Dataset examples have ex_ prefix IDs in single_turn_qa format with input message, expected output, and evaluation criteria fields
-  4. A run_manifest.json is generated containing seed, model, timestamp, and output file paths
-  5. Pre-generated artifacts exist in out/support/ and produce valid output when regenerated with the same seed
+  1. System identifies use cases from prose without requiring explicit list formatting
+  2. System extracts policies with correct type classification (must, must_not, escalate, style, format)
+  3. Every extracted use case and policy has evidence with verbatim quote matching source lines
+  4. System works on unseen inputs (not hardcoded to specific filenames or directory structures)
 **Plans**: TBD
 
-**Risk flags:**
-- Low risk -- single-turn Q&A generation is well-established pattern
-- Minimum coverage thresholds (5+ use cases, 3+ test cases per UC, 1+ example per TC) need enforcement
-
 Plans:
-- [ ] 02-01: TBD
-- [ ] 02-02: TBD
+- [ ] TBD
 
-### Phase 3: Operator Quality Checker
-**Goal**: Users can run the complete end-to-end pipeline for Case B (operator quality checker) and receive datasets in both correction formats
+### Phase 3: Test & Dataset Generation
+**Goal**: User can generate test cases and dataset examples from extracted use cases with parameter variation
 **Depends on**: Phase 2
-**Requirements**: GEN-07, GEN-08, CASE-02, DELIVER-02
+**Requirements**: PIPE-04, PIPE-05
 **Success Criteria** (what must be TRUE):
-  1. User can run the CLI against the operator quality checker markdown document and receive complete output including correction-format datasets
-  2. Dataset examples include single_utterance_correction format entries with original utterance, corrected utterance, and correction rationale
-  3. Dataset examples include dialog_last_turn_correction format entries with dialog context, last turn, and corrected version
-  4. Pre-generated artifacts exist in out/operator_quality/ and produce valid output when regenerated
+  1. Each use case produces minimum 3 test cases with 2-3 parameter variation axes
+  2. Each test case produces dataset examples with input messages, expected_output, and evaluation_criteria (3+)
+  3. Dataset examples reference policy_ids and maintain referential integrity
+  4. Generated messages use correct role conventions (user, operator, assistant, system)
 **Plans**: TBD
 
-**Risk flags:**
-- Medium risk -- multi-turn dialog correction generation is less documented than single-turn Q&A
-- Research recommends studying DeepEval evolution prompts and Evidently multi-turn patterns before implementation
-- May need prompt engineering experimentation for correction quality
-
 Plans:
-- [ ] 03-01: TBD
-- [ ] 03-02: TBD
+- [ ] TBD
 
-### Phase 4: Doctor Booking + Validation
-**Goal**: Users can run Case C (doctor booking) as a bonus pipeline and validate any generated output via the CLI validate command
+### Phase 4: Support Bot Case
+**Goal**: User can generate complete support bot test dataset in single_turn_qa format from FAQ + ticket markdown
 **Depends on**: Phase 3
-**Requirements**: CASE-03, CLI-06
+**Requirements**: SUPP-01, SUPP-02, SUPP-03, SUPP-04, SUPP-05, SUPP-06, SUPP-07, SUPP-08, SUPP-09
 **Success Criteria** (what must be TRUE):
-  1. User can run the CLI against a doctor booking markdown document and receive complete dataset output, proving the pipeline generalizes beyond the two mandatory cases
-  2. User can run `synth-data validate --out <dir>` and get exit code 0 for valid output or non-zero with error details for invalid output
-  3. The validate command checks schema compliance, ID conventions, evidence format, and minimum coverage thresholds
+  1. System extracts minimum 5 use cases and 5 policies (2+ types) from support bot input
+  2. Policies include "no account access → escalate" and "tone-of-voice on aggression" constraints
+  3. Dataset includes ticket examples (1 user message, constrained response), FAQ paraphrases (rephrased question + answer), and corner cases (garbage/profanity/injection with safe responses)
+  4. All examples use `single_turn_qa` format with `case = support_bot`
+  5. Examples have correct `metadata.source` values (tickets, faq_paraphrase, corner)
 **Plans**: TBD
 
-**Risk flags:**
-- Case C is an optional/bonus case -- validates algorithm generalizability but is not strictly required
-- Anti-hardcoding concern: pipeline must work on unseen inputs, not just the provided examples
-- Validate command must anticipate the official_validator.py schema that will be provided later
-
 Plans:
-- [ ] 04-01: TBD
+- [ ] TBD
 
-### Phase 5: External Integrations
-**Goal**: Users can push generated datasets to Langfuse, DeepEval, Evidently, and Giskard Hub for evaluation and quality analysis
-**Depends on**: Phase 2 (needs stable dataset output; can run in parallel with Phase 4 if needed)
-**Requirements**: INTEG-01, INTEG-02, INTEG-03, INTEG-04
+### Phase 5: Operator Quality Case
+**Goal**: User can generate operator quality checker datasets in both single_utterance_correction and dialog_last_turn_correction formats
+**Depends on**: Phase 4
+**Requirements**: OPER-01, OPER-02, OPER-03, OPER-04, OPER-05, OPER-06, OPER-07
 **Success Criteria** (what must be TRUE):
-  1. User can upload generated datasets to Langfuse for experiment tracking via a CLI command or flag
-  2. User can generate golden datasets using DeepEval Synthesizer from FAQ documents
-  3. User can generate Evidently data quality reports showing duplicate detection and distribution analysis
-  4. User can export generated test cases to Giskard Hub for document-based business test evaluation
+  1. System extracts minimum 5 use cases and 5 policies (2+ types) from operator quality input
+  2. Policies include "fix punctuation/typos", "no caps/!!!", "preserve medical terms", "no personal doctor phone", "escalate on complaint"
+  3. Dataset includes single_utterance_correction examples (1 operator message → corrected version)
+  4. Dataset includes dialog_last_turn_correction examples (multi-message dialog → corrected last operator reply)
+  5. For dialog corrections, target_message_index points to last message with role=operator
 **Plans**: TBD
 
-**Risk flags:**
-- Low implementation risk -- all platforms have documented SDKs and standard adapter patterns
-- Platform-specific schema requirements may need trial-and-error (exact field mappings not fully documented in research)
-- Each integration should be independently toggleable -- user may not have all platform credentials
-
 Plans:
-- [ ] 05-01: TBD
-- [ ] 05-02: TBD
+- [ ] TBD
 
-### Phase 6: Polish and Delivery
-**Goal**: The project is ready for handoff with documentation, verified pre-generated artifacts, and passing validation
+### Phase 6: Doctor Booking Case
+**Goal**: User can generate doctor booking test dataset, validating algorithm generalization to mixed document types
 **Depends on**: Phase 5
-**Requirements**: DELIVER-03
+**Requirements**: BOOK-01, BOOK-02, BOOK-03
 **Success Criteria** (what must be TRUE):
-  1. README contains setup instructions (Python version, dependencies, pip install), environment variable configuration (OPENAI_API_KEY, optional integration keys), and usage examples for all CLI commands
-  2. Running the full pipeline on both mandatory cases with default settings produces valid output that passes the validate command
-  3. All pre-generated artifacts in out/ directories are current and match what the pipeline produces with the documented seed
+  1. System processes doctor booking markdown (mixed memo/FAQ/instructions/tickets format) without failure
+  2. System extracts use cases and policies from doctor booking document with evidence
+  3. System generates test cases and dataset examples for doctor booking case
+  4. Generated artifacts pass same validation as support bot and operator quality cases
 **Plans**: TBD
 
-**Risk flags:**
-- Low risk -- documentation and verification work
-- Official validator (official_validator.py) may arrive during this phase and require adjustments
+Plans:
+- [ ] TBD
+
+### Phase 7: Validation System
+**Goal**: User can validate generated artifacts and receive actionable compliance reports
+**Depends on**: Phase 6
+**Requirements**: VALD-01, VALD-02, VALD-03
+**Success Criteria** (what must be TRUE):
+  1. User can invoke `python -m dataset_generator validate --out <dir>` to check data contract compliance
+  2. Validation command prints summary report (counts, errors, warnings) to console
+  3. Validation exits with code 0 on success, >0 on errors (CI/CD friendly)
+  4. Validation checks referential integrity (use_case_id, policy_ids, test_case_id links exist)
+  5. Validation reports evidence quote mismatches (quote doesn't match source lines)
+**Plans**: TBD
 
 Plans:
-- [ ] 06-01: TBD
+- [ ] TBD
+
+### Phase 8: Integrations & Deliverables
+**Goal**: User can export datasets to major evaluation platforms and receive complete project deliverables
+**Depends on**: Phase 7
+**Requirements**: INTG-01, INTG-02, INTG-03, INTG-04, DLVR-01, DLVR-02
+**Success Criteria** (what must be TRUE):
+  1. User can upload generated dataset to Langfuse as dataset items with experiment tracking
+  2. User can invoke DeepEval Synthesizer integration to generate goldens from FAQ documents with evolution types
+  3. User can generate Evidently data quality reports showing duplicates, distributions, and placeholder detection
+  4. User can import FAQ to Giskard Hub and generate document-based business tests
+  5. Pre-generated output artifacts exist in out/support/ and out/operator_quality/ directories
+  6. README provides complete setup instructions, dependencies, and environment variable configuration
+**Plans**: TBD
+
+Plans:
+- [ ] TBD
 
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
+Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/3 | Not started | - |
-| 2. Support Bot Pipeline | 0/2 | Not started | - |
-| 3. Operator Quality Checker | 0/2 | Not started | - |
-| 4. Doctor Booking + Validation | 0/1 | Not started | - |
-| 5. External Integrations | 0/2 | Not started | - |
-| 6. Polish and Delivery | 0/1 | Not started | - |
+| 1. Foundation & Pipeline Setup | 0/TBD | Not started | - |
+| 2. Core Extraction | 0/TBD | Not started | - |
+| 3. Test & Dataset Generation | 0/TBD | Not started | - |
+| 4. Support Bot Case | 0/TBD | Not started | - |
+| 5. Operator Quality Case | 0/TBD | Not started | - |
+| 6. Doctor Booking Case | 0/TBD | Not started | - |
+| 7. Validation System | 0/TBD | Not started | - |
+| 8. Integrations & Deliverables | 0/TBD | Not started | - |
 
 ## Coverage
 
-All 38 v1 requirements mapped to phases with zero orphans.
+All 48 v1 requirements mapped to phases with zero orphans.
 
 | Category | Count | Phase(s) |
 |----------|-------|----------|
-| INGEST (3) | 3 | Phase 1 |
-| EXTRACT (4) | 4 | Phase 1 |
-| GEN (8) | 8 | Phase 1 (GEN-05), Phase 2 (GEN-01 to GEN-04, GEN-06), Phase 3 (GEN-07, GEN-08) |
-| CONTRACT (5) | 5 | Phase 1 (CONTRACT-01 to CONTRACT-03), Phase 2 (CONTRACT-04, CONTRACT-05) |
-| CLI (7) | 7 | Phase 1 (CLI-01 to CLI-05, CLI-07), Phase 4 (CLI-06) |
-| CASE (3) | 3 | Phase 2 (CASE-01), Phase 3 (CASE-02), Phase 4 (CASE-03) |
-| INTEG (4) | 4 | Phase 5 |
-| DELIVER (4) | 4 | Phase 2 (DELIVER-01, DELIVER-04), Phase 3 (DELIVER-02), Phase 6 (DELIVER-03) |
+| PIPE (6) | 6 | Phase 1 (PIPE-01), Phase 2 (PIPE-02, PIPE-03, PIPE-06), Phase 3 (PIPE-04, PIPE-05) |
+| DATA (8) | 8 | Phase 1 (DATA-01 to DATA-08) |
+| VALD (3) | 3 | Phase 7 (VALD-01, VALD-02, VALD-03) |
+| CLI (4) | 4 | Phase 1 (CLI-01, CLI-02, CLI-03, CLI-04) |
+| SUPP (9) | 9 | Phase 4 (SUPP-01 to SUPP-09) |
+| OPER (7) | 7 | Phase 5 (OPER-01 to OPER-07) |
+| BOOK (3) | 3 | Phase 6 (BOOK-01, BOOK-02, BOOK-03) |
+| REPR (2) | 2 | Phase 1 (REPR-01, REPR-02) |
+| INTG (4) | 4 | Phase 8 (INTG-01, INTG-02, INTG-03, INTG-04) |
+| DLVR (3) | 3 | Phase 1 (DLVR-03), Phase 8 (DLVR-01, DLVR-02) |
 
-**Total: 38/38 mapped**
+**Total: 48/48 mapped**
 
 ---
 *Roadmap created: 2026-02-16*
-*Depth: standard (6 phases)*
+*Depth: standard (8 phases)*
 *Last updated: 2026-02-16*
