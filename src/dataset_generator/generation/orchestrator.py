@@ -96,6 +96,17 @@ def orchestrate_generation(
     dataset_examples = []
     policy_ids = [p.id for p in policies]
 
+    # Convert policies to dicts once for adapter calls
+    policy_dicts = []
+    for p in policies:
+        policy_dicts.append({
+            "id": p.id,
+            "name": p.name,
+            "type": p.type,
+            "description": p.description,
+            "statement": getattr(p, "statement", p.description),
+        })
+
     try:
         # Step 1: Generate parameter variations using pairwise combinatorics
         logger.info(f"Generating parameter variations for case={case}")
@@ -141,11 +152,12 @@ def orchestrate_generation(
                         # Generate dataset example using adapter
                         logger.debug(f"Generating example for test case {tc_id}")
                         example = adapter.generate_example(
-                            use_case=use_case,
-                            policies=policies,
+                            use_case_id=use_case.id,
                             test_case_id=tc_id,
                             parameters=params,
+                            policies=policy_dicts,
                             model=model,
+                            seed=seed,
                         )
 
                         # Set case field
