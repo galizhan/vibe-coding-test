@@ -13,6 +13,8 @@ from .evidence_validator import (
     validate_evidence_quote,
     validate_all_evidence,
 )
+from .use_case_extractor import extract_use_cases
+from .policy_extractor import extract_policies
 
 __all__ = [
     "ParsedMarkdown",
@@ -22,4 +24,6 @@ __all__ = [
     "call_openai_structured",
     "validate_evidence_quote",
     "validate_all_evidence",
+    "extract_use_cases",
+    "extract_policies",
 ]
