@@ -5,137 +5,170 @@
 
 ## v1 Requirements
 
-### Document Ingestion (INGEST)
+### Core Pipeline (PIPE)
 
-- [ ] **INGEST-01**: Read raw markdown documents and parse into structured sections with line number tracking
-- [ ] **INGEST-02**: Extract text chunks with configurable boundaries preserving paragraph/section context
-- [ ] **INGEST-03**: Maintain line-to-content mapping for evidence traceability throughout pipeline
+- [ ] **PIPE-01**: System reads a raw markdown document and parses it with line number tracking
+- [ ] **PIPE-02**: System extracts structured use cases from unstructured text (without explicit lists) with evidence traceability
+- [ ] **PIPE-03**: System extracts structured policies/rules/constraints from unstructured text with evidence traceability
+- [ ] **PIPE-04**: System generates test cases with 2-3 parameter variation axes per use case
+- [ ] **PIPE-05**: System generates dataset examples with input messages, expected_output, and evaluation_criteria for each test case
+- [ ] **PIPE-06**: System works on unseen inputs (anti-hardcoding — no dependency on specific filenames or directories)
 
-### Extraction (EXTRACT)
+### Data Contract (DATA)
 
-- [ ] **EXTRACT-01**: Extract structured use cases from unstructured text with evidence (line_start, line_end, quote)
-- [ ] **EXTRACT-02**: Extract policies/rules/constraints from unstructured text with evidence traceability
-- [ ] **EXTRACT-03**: Generate at least 5 use cases per input document (uc_ prefix IDs)
-- [ ] **EXTRACT-04**: Generate at least 5 policies per input document with 2+ policy types (pol_ prefix IDs)
+- [ ] **DATA-01**: All output files comply with strict JSON schema (use_cases.json, policies.json, test_cases.json, dataset.json)
+- [ ] **DATA-02**: IDs follow prefix conventions: uc_, pol_, tc_, ex_ — unique within their file
+- [ ] **DATA-03**: Evidence entries contain input_file, line_start (1-based), line_end (>=line_start), and verbatim quote
+- [ ] **DATA-04**: Evidence quotes exactly match source text at specified line range (after newline normalization)
+- [ ] **DATA-05**: Policy type is one of: must, must_not, escalate, style, format (extensible)
+- [ ] **DATA-06**: Message roles are one of: user, operator, assistant, system
+- [ ] **DATA-07**: Each dataset example has: id, case, format, use_case_id, test_case_id, input.messages[], expected_output, evaluation_criteria (3+), policy_ids (1+)
+- [ ] **DATA-08**: run_manifest.json generated per run with: input_path, out_path, seed, timestamp, generator_version, llm block
 
-### Generation (GEN)
+### Validation (VALD)
 
-- [ ] **GEN-01**: Generate test cases with parameter variation axes per use case (tc_ prefix IDs)
-- [ ] **GEN-02**: Generate at least 3 test cases per use case
-- [ ] **GEN-03**: Generate dataset examples with input messages, expected output, and evaluation criteria (ex_ prefix IDs)
-- [ ] **GEN-04**: Generate at least 1 example per test case
-- [ ] **GEN-05**: All generated content must be in Russian (matching input documents)
-- [ ] **GEN-06**: Support single_turn_qa format for support bot case
-- [ ] **GEN-07**: Support single_utterance_correction format for operator quality checker case
-- [ ] **GEN-08**: Support dialog_last_turn_correction format for operator quality checker case
-
-### Data Contract (CONTRACT)
-
-- [ ] **CONTRACT-01**: Enforce ID conventions with prefixes (uc_, pol_, tc_, ex_) validated at generation time
-- [ ] **CONTRACT-02**: Enforce evidence format with exact quote matching (line_start, line_end, quote fields)
-- [ ] **CONTRACT-03**: Enforce all mandatory fields per artifact type via Pydantic schema validation
-- [ ] **CONTRACT-04**: Output valid JSON files: use_cases.json, policies.json, test_cases.json, dataset.json
-- [ ] **CONTRACT-05**: Generate run_manifest.json per run (seed, model, timestamp, file paths)
+- [ ] **VALD-01**: Built-in `validate` command checks data contract compliance and prints summary report
+- [ ] **VALD-02**: `validate` exits with code 0 on success, >0 on errors
+- [ ] **VALD-03**: Validation checks referential integrity (use_case_id, policy_ids, test_case_id links)
 
 ### CLI Interface (CLI)
 
-- [ ] **CLI-01**: Accept --input parameter for source markdown document path
-- [ ] **CLI-02**: Accept --out parameter for output directory path
-- [ ] **CLI-03**: Accept --seed parameter for reproducible generation
-- [ ] **CLI-04**: Accept --n-use-cases parameter to control extraction count
-- [ ] **CLI-05**: Accept --model parameter (default gpt-4o-mini, allow gpt-4o)
-- [ ] **CLI-06**: Provide `validate` command that exits code 0 on valid output, non-zero on failure
-- [ ] **CLI-07**: OpenAI API key via OPENAI_API_KEY environment variable (never hardcoded)
+- [ ] **CLI-01**: CLI supports `--input`, `--out`, `--seed` parameters
+- [ ] **CLI-02**: CLI supports `--n-use-cases`, `--n-test-cases-per-uc`, `--n-examples-per-tc` parameters
+- [ ] **CLI-03**: CLI supports `--model` parameter (default gpt-4o-mini, configurable to gpt-4o)
+- [ ] **CLI-04**: CLI invoked as `python -m dataset_generator` with generate and validate subcommands
 
-### Use Case Coverage (CASE)
+### Support Bot — Case A (SUPP)
 
-- [ ] **CASE-01**: Support Case A — support bot (FAQ + tickets) end-to-end pipeline producing single_turn_qa dataset
-- [ ] **CASE-02**: Support Case B — operator quality checker end-to-end pipeline producing correction datasets
-- [ ] **CASE-03**: Support Case C — doctor booking (bonus case) end-to-end pipeline for algorithm validation
+- [ ] **SUPP-01**: System processes FAQ + ticket export markdown and extracts minimum 5 use cases
+- [ ] **SUPP-02**: System extracts minimum 5 policies with at least 2 different types for support case
+- [ ] **SUPP-03**: Policies include (by meaning): "no account access → escalate/provide contacts" and "tone-of-voice on aggression"
+- [ ] **SUPP-04**: System generates minimum 3 test cases per use case with parameter variation
+- [ ] **SUPP-05**: Dataset uses `single_turn_qa` format with `case = support_bot`
+- [ ] **SUPP-06**: Dataset includes examples with `metadata.source` = tickets, faq_paraphrase, and corner
+- [ ] **SUPP-07**: Tickets examples: 1 user message, expected_output respects constraints (no fabricated account data)
+- [ ] **SUPP-08**: FAQ paraphrase examples: rephrased FAQ question with reference answer as expected_output
+- [ ] **SUPP-09**: Corner case examples: garbage/off-topic/profanity/injection with safe response as expected_output
 
-### Integrations (INTEG)
+### Operator Quality — Case B (OPER)
 
-- [ ] **INTEG-01**: Langfuse integration for dataset upload and experiment tracking
-- [ ] **INTEG-02**: DeepEval Synthesizer integration for golden dataset generation from FAQ docs
-- [ ] **INTEG-03**: Evidently integration for data quality reports (duplicates, distributions)
-- [ ] **INTEG-04**: Giskard Hub integration for document-based business test generation
+- [ ] **OPER-01**: System processes operator quality checks markdown and extracts minimum 5 use cases
+- [ ] **OPER-02**: System extracts minimum 5 policies with at least 2 different types for operator case
+- [ ] **OPER-03**: Policies include (by meaning): "fix punctuation/typos", "no caps/!!!", "preserve medical terms", "no personal doctor phone", "escalate on complaint"
+- [ ] **OPER-04**: System generates minimum 3 test cases per use case with parameter variation
+- [ ] **OPER-05**: Dataset includes `single_utterance_correction` format: 1 operator message → corrected version
+- [ ] **OPER-06**: Dataset includes `dialog_last_turn_correction` format: multi-message dialog → corrected last operator reply
+- [ ] **OPER-07**: For `dialog_last_turn_correction`: target_message_index points to last message, which has role=operator
 
-### Deliverables (DELIVER)
+### Doctor Booking — Case C (BOOK)
 
-- [ ] **DELIVER-01**: Pre-generated output artifacts in out/support/ directory
-- [ ] **DELIVER-02**: Pre-generated output artifacts in out/operator_quality/ directory
-- [ ] **DELIVER-03**: README with setup instructions, dependencies, and env configuration
-- [ ] **DELIVER-04**: Same input + seed produces structurally consistent output (reproducibility)
+- [ ] **BOOK-01**: System processes doctor booking markdown (mixed memo/FAQ/instructions/tickets) and extracts use cases
+- [ ] **BOOK-02**: System extracts policies from the doctor booking document with evidence
+- [ ] **BOOK-03**: System generates test cases and dataset for the doctor booking case
+
+### Reproducibility (REPR)
+
+- [ ] **REPR-01**: Same input + seed produces structurally consistent output (stable structure/validity/coverage)
+- [ ] **REPR-02**: LLM calls use temperature=0 for determinism
+
+### Integrations (INTG)
+
+- [ ] **INTG-01**: Langfuse integration: upload generated dataset as dataset items, support experiment tracking
+- [ ] **INTG-02**: DeepEval Synthesizer integration: generate goldens from FAQ documents with evolutions
+- [ ] **INTG-03**: Evidently integration: generate data quality reports (duplicates, distributions, placeholders)
+- [ ] **INTG-04**: Giskard Hub integration: import FAQ as knowledge base, generate document-based business tests
+
+### Deliverables (DLVR)
+
+- [ ] **DLVR-01**: Pre-generated output artifacts in out/support/ and out/operator_quality/ directories
+- [ ] **DLVR-02**: README with setup instructions, dependencies, and environment variable configuration
+- [ ] **DLVR-03**: API keys via environment variables only (OPENAI_API_KEY), never committed
 
 ## v2 Requirements
 
-### Advanced Capabilities
+### Enhanced Generation
 
-- **ADV-01**: Anti-hardcoding validation mode — verify generator works on unseen inputs
-- **ADV-02**: Evolution/complexity control — reasoning, comparative, hypothetical variations (DeepEval pattern)
-- **ADV-03**: Quality filtering pre-generation — clarity, relevance, depth scoring before LLM calls
-- **ADV-04**: Advanced quality scoring — multi-dimensional assessment of generated artifacts
-- **ADV-05**: Multi-format input support — PDF, DOCX, HTML ingestion beyond markdown
+- **EGEN-01**: Advanced quality scoring with multi-dimensional filtering (clarity, relevance, depth)
+- **EGEN-02**: DeepEval evolution types (reasoning, comparative, hypothetical complexity variations)
+- **EGEN-03**: Adversarial/edge-case focused generation mode
+- **EGEN-04**: CSV export option alongside JSON
+
+### Extended Validation
+
+- **EVAL-01**: Compatibility with official_validator.py (when provided)
+- **EVAL-02**: JSON Schema file validation using provided schema files
 
 ## Out of Scope
 
 | Feature | Reason |
 |---------|--------|
-| Building actual LLM agents | Only the test data pipeline, not the agents being tested |
-| Official validator (official_validator.py) | Provided separately later for acceptance testing |
-| Surge/Scale human review | Manual process, not automated in this tool |
+| Building actual LLM agents (support bot, quality checker) | Only the test data pipeline — agents are separate |
+| Official validator (official_validator.py) | Provided separately later by evaluators |
+| Surge/Scale human review integration | Manual process, not automated |
 | Patronus guardrails integration | Can add later if needed |
-| GUI/web interface | CLI-first, separate product if demand validates |
-| Built-in LLM model hosting | Support APIs, don't host models |
-| Built-in evaluation/scoring | Langfuse/DeepEval excel here — integrate, don't compete |
+| Mobile/web UI | CLI only per spec |
+| Real-time streaming generation | Batch mode sufficient for this use case |
+| Multi-format input (PDF, DOCX) | Markdown only per spec |
+| Built-in LLM model hosting | Use OpenAI API — don't host models |
 
 ## Traceability
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| INGEST-01 | Phase 1 | Pending |
-| INGEST-02 | Phase 1 | Pending |
-| INGEST-03 | Phase 1 | Pending |
-| EXTRACT-01 | Phase 1 | Pending |
-| EXTRACT-02 | Phase 1 | Pending |
-| EXTRACT-03 | Phase 1 | Pending |
-| EXTRACT-04 | Phase 1 | Pending |
-| GEN-01 | Phase 2 | Pending |
-| GEN-02 | Phase 2 | Pending |
-| GEN-03 | Phase 2 | Pending |
-| GEN-04 | Phase 2 | Pending |
-| GEN-05 | Phase 1 | Pending |
-| GEN-06 | Phase 2 | Pending |
-| GEN-07 | Phase 3 | Pending |
-| GEN-08 | Phase 3 | Pending |
-| CONTRACT-01 | Phase 1 | Pending |
-| CONTRACT-02 | Phase 1 | Pending |
-| CONTRACT-03 | Phase 1 | Pending |
-| CONTRACT-04 | Phase 2 | Pending |
-| CONTRACT-05 | Phase 2 | Pending |
-| CLI-01 | Phase 1 | Pending |
-| CLI-02 | Phase 1 | Pending |
-| CLI-03 | Phase 1 | Pending |
-| CLI-04 | Phase 1 | Pending |
-| CLI-05 | Phase 1 | Pending |
-| CLI-06 | Phase 4 | Pending |
-| CLI-07 | Phase 1 | Pending |
-| CASE-01 | Phase 2 | Pending |
-| CASE-02 | Phase 3 | Pending |
-| CASE-03 | Phase 4 | Pending |
-| INTEG-01 | Phase 5 | Pending |
-| INTEG-02 | Phase 5 | Pending |
-| INTEG-03 | Phase 5 | Pending |
-| INTEG-04 | Phase 5 | Pending |
-| DELIVER-01 | Phase 2 | Pending |
-| DELIVER-02 | Phase 3 | Pending |
-| DELIVER-03 | Phase 6 | Pending |
-| DELIVER-04 | Phase 2 | Pending |
+| PIPE-01 | — | Pending |
+| PIPE-02 | — | Pending |
+| PIPE-03 | — | Pending |
+| PIPE-04 | — | Pending |
+| PIPE-05 | — | Pending |
+| PIPE-06 | — | Pending |
+| DATA-01 | — | Pending |
+| DATA-02 | — | Pending |
+| DATA-03 | — | Pending |
+| DATA-04 | — | Pending |
+| DATA-05 | — | Pending |
+| DATA-06 | — | Pending |
+| DATA-07 | — | Pending |
+| DATA-08 | — | Pending |
+| VALD-01 | — | Pending |
+| VALD-02 | — | Pending |
+| VALD-03 | — | Pending |
+| CLI-01 | — | Pending |
+| CLI-02 | — | Pending |
+| CLI-03 | — | Pending |
+| CLI-04 | — | Pending |
+| SUPP-01 | — | Pending |
+| SUPP-02 | — | Pending |
+| SUPP-03 | — | Pending |
+| SUPP-04 | — | Pending |
+| SUPP-05 | — | Pending |
+| SUPP-06 | — | Pending |
+| SUPP-07 | — | Pending |
+| SUPP-08 | — | Pending |
+| SUPP-09 | — | Pending |
+| OPER-01 | — | Pending |
+| OPER-02 | — | Pending |
+| OPER-03 | — | Pending |
+| OPER-04 | — | Pending |
+| OPER-05 | — | Pending |
+| OPER-06 | — | Pending |
+| OPER-07 | — | Pending |
+| BOOK-01 | — | Pending |
+| BOOK-02 | — | Pending |
+| BOOK-03 | — | Pending |
+| REPR-01 | — | Pending |
+| REPR-02 | — | Pending |
+| INTG-01 | — | Pending |
+| INTG-02 | — | Pending |
+| INTG-03 | — | Pending |
+| INTG-04 | — | Pending |
+| DLVR-01 | — | Pending |
+| DLVR-02 | — | Pending |
+| DLVR-03 | — | Pending |
 
 **Coverage:**
-- v1 requirements: 38 total
-- Mapped to phases: 38
-- Unmapped: 0 ✓
+- v1 requirements: 48 total
+- Mapped to phases: 0
+- Unmapped: 48 (will be mapped during roadmap creation)
 
 ---
 *Requirements defined: 2026-02-16*
