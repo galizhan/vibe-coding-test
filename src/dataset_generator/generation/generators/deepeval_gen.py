@@ -64,7 +64,7 @@ def generate_with_deepeval(
         # Configure filtration for quality control
         filtration_config = FiltrationConfig(
             critic_model="gpt-4o",
-            quality_threshold=0.7,
+            synthetic_input_quality_threshold=0.7,
             max_quality_retries=3,
         )
 
