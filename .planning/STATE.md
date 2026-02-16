@@ -10,28 +10,28 @@ See: .planning/PROJECT.md (updated 2026-02-16)
 ## Current Position
 
 Phase: 2 of 8 (Core Extraction Enhancement)
-Plan: 1 of 1 in current phase (completed)
-Status: Phase 2 plan 01 complete
-Last activity: 2026-02-16 — Completed 02-01-PLAN.md
+Plan: 2 of 2 in current phase (completed)
+Status: Phase 2 complete
+Last activity: 2026-02-16 — Completed 02-02-PLAN.md
 
-Progress: [████░░░░░░] 35%
+Progress: [████░░░░░░] 40%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 4
+- Total plans completed: 5
 - Average duration: 3 min
-- Total execution time: 0.20 hours
+- Total execution time: 0.28 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-foundation | 3 | 9 min | 3 min |
-| 02-core-extraction | 1 | 3 min | 3 min |
+| 02-core-extraction | 2 | 8 min | 4 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (2min), 01-02 (4min), 01-03 (3min), 02-01 (3min)
+- Last 5 plans: 01-02 (4min), 01-03 (3min), 02-01 (3min), 02-02 (5min)
 - Trend: Consistent execution
 
 *Updated after each plan completion*
@@ -65,6 +65,9 @@ Recent decisions affecting current work:
 - Prioritize must_not and escalate before generic must in decision tree (02-01) — reduces type classification ambiguity
 - Preserve ALL markdown formatting in evidence quotes (02-01) — CHARACTER-EXACT matching for validation
 - Use generic terms not document-specific references in prompts (02-01) — ensures generalization
+- Exact match is ALWAYS tried first, fuzzy matching is fallback only at 90%+ similarity (02-02) — prevents masking prompt problems
+- Shared normalize_for_comparison function eliminates code duplication (02-02) — used by both exact and fuzzy matching
+- Evidence validator accepts enable_fuzzy and fuzzy_threshold parameters for flexibility (02-02) — allows control over matching behavior
 
 ### Pending Todos
 
@@ -81,5 +84,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-16 (plan execution)
-Stopped at: Completed 02-01-PLAN.md — Phase 2 extraction prompt enhancements complete
+Stopped at: Completed 02-02-PLAN.md — Phase 2 complete (fuzzy matching and generalization verification)
 Resume file: None
