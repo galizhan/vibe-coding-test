@@ -91,14 +91,16 @@ Plans:
   5. Operator Quality: for dialog corrections, target_message_index points to last message with role=operator
   6. Doctor Booking: processes mixed memo/FAQ/instructions/tickets markdown and generates complete dataset
   7. All generated artifacts pass same validation rules across all three cases
-**Plans**: TBD
+**Plans:** 3 plans
 
 **Risk flags:**
 - Operator Quality correction formats are less documented than single-turn Q&A — may need prompt experimentation
 - Doctor Booking validates algorithm generalization — pipeline must work on unseen inputs
 
 Plans:
-- [ ] TBD
+- [ ] 04-01-PLAN.md — Data model updates for tz.md contract and LLM-based case/format auto-detection
+- [ ] 04-02-PLAN.md — Format-specific generation adapters, pairwise variation routing, and source classification
+- [ ] 04-03-PLAN.md — Pipeline wiring with auto-detection, multi-format generation, and coverage enforcement
 
 ### Phase 5: Validation & Delivery
 **Goal**: User can validate generated artifacts, export to Langfuse, and receive complete project deliverables
@@ -126,7 +128,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 1. Foundation & Pipeline Setup | 3/3 | Complete | 2026-02-16 |
 | 2. Core Extraction | 0/2 | Planned | - |
 | 3. Test & Dataset Generation | 0/4 | Planned | - |
-| 4. All Use Cases | 0/TBD | Not started | - |
+| 4. All Use Cases | 0/3 | Planned | - |
 | 5. Validation & Delivery | 0/TBD | Not started | - |
 
 ## Coverage
