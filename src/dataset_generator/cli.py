@@ -83,7 +83,9 @@ def generate(
         result = run_pipeline(config)
 
         # Print summary
-        typer.echo(f"\nGenerated {result.use_case_count} use cases, {result.policy_count} policies")
+        typer.echo(f"\nExtracted: {result.use_case_count} use cases, {result.policy_count} policies")
+        typer.echo(f"Generated: {result.test_case_count} test cases, {result.dataset_example_count} dataset examples")
+        typer.echo(f"Frameworks used: {', '.join(result.frameworks_used) if result.frameworks_used else 'fallback only'}")
 
         if result.evidence_invalid > 0:
             typer.echo(
@@ -96,6 +98,9 @@ def generate(
         typer.echo(f"\nOutput files:")
         typer.echo(f"  - {result.use_cases_path}")
         typer.echo(f"  - {result.policies_path}")
+        typer.echo(f"  - {result.test_cases_path}")
+        typer.echo(f"  - {result.dataset_path}")
+        typer.echo(f"  - {result.manifest_path}")
 
     except OpenAIError as e:
         typer.echo(f"OpenAI API error: {e}", err=True)
