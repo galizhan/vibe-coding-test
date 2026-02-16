@@ -54,22 +54,24 @@ Classify each policy by type:
 EVIDENCE REQUIREMENTS:
 - Evidence must have: input_file, line_start (1-based), line_end (1-based), quote
 - The quote field must contain the EXACT text from the specified lines
-- Copy the text character-for-character. Do NOT paraphrase, modify, or translate
+- Copy the text character-for-character INCLUDING all markdown formatting (*, **, bullets, etc.)
+- Do NOT paraphrase, modify, translate, or strip any characters
 - Line numbers are shown at the start of each line as 'N: '
 - Use these line numbers to set line_start and line_end
 - Do NOT include the line number prefix in the quote - only the actual text after "N: "
+- PRESERVE whitespace, bullet points (*, -), markdown bold (**text**), and all other formatting
 
 EXAMPLE:
 If the source shows:
-20: Бот не должен давать медицинские рекомендации
-21: При медицинских вопросах - переключить на врача
+20: * Бот не должен давать **медицинские рекомендации**
+21: * При медицинских вопросах - переключить на врача
 
 Your evidence should be:
 {{
   "input_file": "filename.md",
   "line_start": 20,
   "line_end": 21,
-  "quote": "Бот не должен давать медицинские рекомендации\\nПри медицинских вопросах - переключить на врача"
+  "quote": "* Бот не должен давать **медицинские рекомендации**\\n* При медицинских вопросах - переключить на врача"
 }}
 
 And the policy type might be "must_not" (no medical advice) or "escalate" (transfer to doctor).
