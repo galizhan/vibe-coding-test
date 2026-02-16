@@ -1,7 +1,7 @@
 """Policy model for business rules and constraints."""
 
 from typing import Literal
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, Field, field_validator, model_validator
 
 from .evidence import Evidence
 
@@ -21,6 +21,20 @@ class Policy(BaseModel):
     evidence: list[Evidence] = Field(
         ..., description="Evidence references to source document"
     )
+    case: str = Field(
+        default="", description="Case identifier"
+    )
+    statement: str = Field(
+        default="",
+        description="Policy statement per tz.md contract (alias for description)",
+    )
+
+    @model_validator(mode="after")
+    def populate_statement_from_description(self) -> "Policy":
+        """Auto-populate statement from description if statement is empty."""
+        if not self.statement and self.description:
+            self.statement = self.description
+        return self
 
     @field_validator("id")
     @classmethod

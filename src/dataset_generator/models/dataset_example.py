@@ -1,7 +1,7 @@
 """Dataset example model for test data instances."""
 
-from typing import Literal
-from pydantic import BaseModel, Field, field_validator
+from typing import Literal, Optional
+from pydantic import BaseModel, Field, field_validator, model_validator
 
 
 class Message(BaseModel):
@@ -19,6 +19,29 @@ class InputData(BaseModel):
     messages: list[Message] = Field(
         ..., min_length=1, description="List of conversation messages"
     )
+    target_message_index: Optional[int] = Field(
+        default=None,
+        description="For dialog_last_turn_correction: index of operator message to correct",
+    )
+
+    @model_validator(mode="after")
+    def validate_target_message_index(self) -> "InputData":
+        """Validate target_message_index if set."""
+        if self.target_message_index is not None:
+            # Check it's within range
+            if not (0 <= self.target_message_index < len(self.messages)):
+                raise ValueError(
+                    f"target_message_index={self.target_message_index} is out of range "
+                    f"for messages list of length {len(self.messages)}"
+                )
+            # Check that the target message is from operator
+            target_msg = self.messages[self.target_message_index]
+            if target_msg.role != "operator":
+                raise ValueError(
+                    f"target_message_index must point to an operator message, "
+                    f"but messages[{self.target_message_index}].role={target_msg.role}"
+                )
+        return self
 
 
 class DatasetExample(BaseModel):

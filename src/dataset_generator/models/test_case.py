@@ -26,6 +26,16 @@ class TestCase(BaseModel):
         default_factory=dict,
         description="Additional metadata including generator field for framework tracking",
     )
+    case: str = Field(
+        default="", description="Case identifier"
+    )
+    parameters: dict = Field(
+        default_factory=dict,
+        description="Test case parameter values per tz.md (e.g., tone=negative, has_order_id=true)",
+    )
+    policy_ids: list[str] = Field(
+        default_factory=list, description="List of relevant policy IDs"
+    )
 
     @field_validator("id")
     @classmethod
@@ -53,6 +63,17 @@ class TestCase(BaseModel):
             raise ValueError(
                 f"TestCase must have 2-3 parameter_variation_axes, got: {len(v)}"
             )
+        return v
+
+    @field_validator("policy_ids")
+    @classmethod
+    def policy_ids_must_start_with_pol(cls, v: list[str]) -> list[str]:
+        """Ensure all policy_ids start with pol_ prefix (if list is non-empty)."""
+        for policy_id in v:
+            if not policy_id.startswith("pol_"):
+                raise ValueError(
+                    f"All policy_ids must start with 'pol_', got: {policy_id}"
+                )
         return v
 
 

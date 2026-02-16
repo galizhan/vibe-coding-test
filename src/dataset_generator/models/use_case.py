@@ -17,6 +17,10 @@ class UseCase(BaseModel):
     evidence: list[Evidence] = Field(
         ..., description="Evidence references to source document"
     )
+    case: str = Field(
+        default="",
+        description="Case identifier (e.g., support_bot, operator_quality, doctor_booking)",
+    )
 
     @field_validator("id")
     @classmethod
