@@ -3,6 +3,13 @@
 .gemini/
 .gsd/
 .claude/
+adapters/
+docs/
+scripts/
+*.pyc
+PROJECT_RULES.md
+GSD-STYLE.md
+model_capabilities.yaml
 __pycache__/
 *.py[cod]
 *$py.class
