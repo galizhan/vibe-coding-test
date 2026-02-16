@@ -10,27 +10,27 @@ See: .planning/PROJECT.md (updated 2026-02-16)
 ## Current Position
 
 Phase: 1 of 8 (Foundation & Pipeline Setup)
-Plan: 2 of 3 in current phase
-Status: In progress
-Last activity: 2026-02-16 — Completed 01-02-PLAN.md
+Plan: 3 of 3 in current phase
+Status: Phase 1 complete
+Last activity: 2026-02-16 — Completed 01-03-PLAN.md
 
-Progress: [██░░░░░░░░] 20%
+Progress: [███░░░░░░░] 30%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 2
+- Total plans completed: 3
 - Average duration: 3 min
-- Total execution time: 0.10 hours
+- Total execution time: 0.15 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 01-foundation | 2 | 6 min | 3 min |
+| 01-foundation | 3 | 9 min | 3 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (2min), 01-02 (4min)
+- Last 5 plans: 01-01 (2min), 01-02 (4min), 01-03 (3min)
 - Trend: Consistent execution
 
 *Updated after each plan completion*
@@ -55,6 +55,9 @@ Recent decisions affecting current work:
 - Whitespace normalization in evidence validation (01-02) — handles cross-platform differences
 - Temperature=0 always for LLM calls (01-02) — ensures reproducibility per REPR-02
 - Retry only RateLimitError (01-02) — other errors not transient
+- Use json.dumps with ensure_ascii=False for Russian text (01-03) — Pydantic v2 model_dump_json lacks this parameter
+- Check OPENAI_API_KEY before pipeline execution (01-03) — early failure with clear error message
+- Enhanced LLM prompts to preserve markdown formatting (01-03) — improves evidence validation accuracy
 
 ### Pending Todos
 
@@ -62,13 +65,14 @@ None yet.
 
 ### Blockers/Concerns
 
-- Russian language generation quality with gpt-4o-mini is unvalidated (test early in Phase 1 Plan 03)
+- ✓ RESOLVED: Russian language generation quality validated with gpt-4o-mini in 01-03 (working correctly)
+- ✓ RESOLVED: OPENAI_API_KEY setup completed by user in 01-03
 - Evidence quoting implementation complete — validation warns but doesn't fail (strict mode deferred)
+- Known limitation: Markdown table trailing pipes sometimes truncated by LLM (affects ~20% of table-based evidence)
 - Official validator (official_validator.py) schema not yet available (may require Phase 7 adjustments)
-- OPENAI_API_KEY required for CLI testing in 01-03
 
 ## Session Continuity
 
 Last session: 2026-02-16 (plan execution)
-Stopped at: Completed 01-02-PLAN.md — extraction pipeline core implemented
+Stopped at: Completed 01-03-PLAN.md — Phase 1 Foundation complete, end-to-end CLI working
 Resume file: None
