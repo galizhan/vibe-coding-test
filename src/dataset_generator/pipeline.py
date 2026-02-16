@@ -93,8 +93,9 @@ def run_pipeline(config: PipelineConfig) -> PipelineResult:
         8. Write policies.json
         9. Write test_cases.json
         10. Write dataset.json
-        11. Write run_manifest.json
-        12. Print summary and return results
+        11. Generate quality report (INTG-03)
+        12. Write run_manifest.json
+        13. Print summary and return results
 
     Args:
         config: PipelineConfig with all settings
@@ -222,8 +223,22 @@ def run_pipeline(config: PipelineConfig) -> PipelineResult:
     dataset_path = config.out_dir / "dataset.json"
     write_json_output(dataset_list, dataset_path)
 
-    # Step 11: Write run_manifest.json
-    logger.info("Step 11: Writing run_manifest.json")
+    # Step 11: Generate quality report (INTG-03)
+    logger.info("Step 11: Generating data quality report")
+    quality_summary = {}
+    quality_report_path = None
+    try:
+        from .generation.quality_report import generate_quality_report
+        quality_summary = generate_quality_report(all_examples, config.out_dir)
+        logger.info(f"Quality report: {quality_summary.get('total', 0)} examples analyzed, "
+                    f"{quality_summary.get('duplicates', 0)} potential duplicates")
+        quality_report_path = config.out_dir / "quality_report.html"
+    except Exception as e:
+        logger.warning(f"Quality report generation failed (non-blocking): {e}")
+        quality_summary = {}
+
+    # Step 12: Write run_manifest.json
+    logger.info("Step 12: Writing run_manifest.json")
     manifest = RunManifest(
         input_path=str(config.input_file),
         out_path=str(config.out_dir),
@@ -242,19 +257,24 @@ def run_pipeline(config: PipelineConfig) -> PipelineResult:
     manifest_path = config.out_dir / "run_manifest.json"
     write_json_output(manifest, manifest_path)
 
-    # Step 12: Print summary
+    # Step 13: Print summary
     print(f"\n=== Pipeline Complete ===")
     print(f"Input: {config.input_file.name}")
     print(f"Extracted: {len(use_case_list.use_cases)} use cases, {len(policy_list.policies)} policies")
     print(f"Generated: {len(all_test_cases)} test cases, {len(all_examples)} dataset examples")
     print(f"Frameworks used: {', '.join(sorted(frameworks_used)) if frameworks_used else 'fallback only'}")
     print(f"Evidence validation: {total_valid} valid, {total_invalid} invalid")
+    if quality_summary:
+        print(f"Quality analysis: {quality_summary.get('duplicates', 0)} duplicates, "
+              f"{quality_summary.get('placeholder_count', 0)} placeholders")
     print(f"\nOutput files:")
     print(f"  - {use_cases_path}")
     print(f"  - {policies_path}")
     print(f"  - {test_cases_path}")
     print(f"  - {dataset_path}")
     print(f"  - {manifest_path}")
+    if quality_report_path and quality_report_path.exists():
+        print(f"  - {quality_report_path}")
 
     # Return result
     return PipelineResult(
