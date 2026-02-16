@@ -66,7 +66,7 @@ Plans:
   7. Hardcoded adapters convert framework outputs to Pydantic data contracts
   8. Generated items include `generator` field in metadata tracking which framework produced them
   9. Fallback to direct OpenAI generation if a framework call fails
-**Plans**: TBD
+**Plans:** 4 plans
 
 **Risk flags:**
 - Framework API compatibility — DeepEval/Ragas/Giskard may have breaking changes
@@ -74,7 +74,10 @@ Plans:
 - Function calling routing logic needs clear tool definitions
 
 Plans:
-- [ ] TBD
+- [ ] 03-01-PLAN.md — Data contracts (TestCase, DatasetExample, RunManifest) and framework dependencies
+- [ ] 03-02-PLAN.md — Framework generators (DeepEval, Ragas, Giskard) with hardcoded adapters and fallback
+- [ ] 03-03-PLAN.md — OpenAI function-calling orchestrator, coverage enforcement, and pipeline integration
+- [ ] 03-04-PLAN.md — Evidently quality reports and end-to-end verification
 
 ### Phase 4: All Use Cases
 **Goal**: User can generate complete datasets for all three use cases (support bot, operator quality checker, doctor booking) using the framework-powered pipeline
@@ -122,7 +125,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 |-------|----------------|--------|-----------|
 | 1. Foundation & Pipeline Setup | 3/3 | Complete | 2026-02-16 |
 | 2. Core Extraction | 0/2 | Planned | - |
-| 3. Test & Dataset Generation | 0/TBD | Context captured | - |
+| 3. Test & Dataset Generation | 0/4 | Planned | - |
 | 4. All Use Cases | 0/TBD | Not started | - |
 | 5. Validation & Delivery | 0/TBD | Not started | - |
 
