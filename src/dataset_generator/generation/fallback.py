@@ -21,6 +21,8 @@ def generate_with_openai_fallback(
     num_test_cases: int = 3,
     model: str = "gpt-4o-mini",
     seed: int | None = None,
+    case: str = "support_bot",
+    formats: list[str] | None = None,
 ) -> tuple[list[TestCase], list[DatasetExample]]:
     """Generate test cases and dataset examples using direct OpenAI calls.
 
@@ -35,6 +37,8 @@ def generate_with_openai_fallback(
         num_test_cases: Number of test cases to generate (default: 3)
         model: Model name to use (default: gpt-4o-mini)
         seed: Random seed for reproducibility (optional)
+        case: Case identifier (default: support_bot)
+        formats: List of formats to generate (default: None -> single_turn_qa for support_bot)
 
     Returns:
         Tuple of (test_cases, dataset_examples)
@@ -48,13 +52,22 @@ def generate_with_openai_fallback(
         ...     use_case_id="uc_001",
         ...     use_case_description="Handle refund requests",
         ...     policies=policies,
-        ...     num_test_cases=3
+        ...     num_test_cases=3,
+        ...     case="support_bot",
+        ...     formats=["single_turn_qa"]
         ... )
     """
     try:
         logger.info(
-            f"Using OpenAI fallback to generate {num_test_cases} test cases for {use_case_id}"
+            f"Using OpenAI fallback to generate {num_test_cases} test cases for {use_case_id} (case={case}, formats={formats})"
         )
+
+        # Default formats if not provided
+        if formats is None:
+            if case == "operator_quality":
+                formats = ["single_utterance_correction", "dialog_last_turn_correction"]
+            else:
+                formats = ["single_turn_qa"]
 
         # Build system prompt
         system_prompt = _build_system_prompt(
@@ -62,6 +75,8 @@ def generate_with_openai_fallback(
             use_case_description=use_case_description,
             policies=policies,
             num_test_cases=num_test_cases,
+            case=case,
+            formats=formats,
         )
 
         # Get OpenAI client
@@ -97,6 +112,9 @@ def generate_with_openai_fallback(
                 parameter_variation_axes=tc_data.get(
                     "parameter_variation_axes", ["tone", "complexity"]
                 ),
+                case=case,
+                parameters=tc_data.get("parameters", {}),
+                policy_ids=tc_data.get("policy_ids", []),
                 metadata={
                     "generator": "openai_fallback",
                     "model": model,
@@ -114,15 +132,27 @@ def generate_with_openai_fallback(
                 for msg in messages_data
             ]
 
+            # Get format from LLM response or default to first format
+            example_format = ex_data.get("format", formats[0] if formats else "single_turn_qa")
+
+            # Get target_message_index if present in input
+            target_message_index = ex_data.get("input", {}).get("target_message_index")
+
+            # For correction formats, set target_message_index if not set by LLM
+            if example_format == "single_utterance_correction" and target_message_index is None:
+                target_message_index = 0
+            elif example_format == "dialog_last_turn_correction" and target_message_index is None:
+                target_message_index = len(messages) - 1
+
             ex = DatasetExample(
                 id=ex_data.get("id", f"ex_{use_case_id.replace('uc_', '')}{i:03d}"),
-                case=ex_data.get("case", "support_bot"),
-                format=ex_data.get("format", "single_turn_qa"),
+                case=case,
+                format=example_format,
                 use_case_id=use_case_id,
                 test_case_id=ex_data.get(
                     "test_case_id", test_cases[min(i - 1, len(test_cases) - 1)].id
                 ),
-                input=InputData(messages=messages),
+                input=InputData(messages=messages, target_message_index=target_message_index),
                 expected_output=ex_data.get("expected_output", ""),
                 evaluation_criteria=ex_data.get(
                     "evaluation_criteria",
@@ -154,6 +184,8 @@ def _build_system_prompt(
     use_case_description: str,
     policies: list[dict],
     num_test_cases: int,
+    case: str = "support_bot",
+    formats: list[str] | None = None,
 ) -> str:
     """Build system prompt for test case generation.
 
@@ -162,6 +194,8 @@ def _build_system_prompt(
         use_case_description: Description of the use case
         policies: List of policy dicts
         num_test_cases: Number of test cases to generate
+        case: Case identifier (support_bot, operator_quality, doctor_booking)
+        formats: List of formats to generate
 
     Returns:
         System prompt string
@@ -173,7 +207,17 @@ def _build_system_prompt(
         ]
     )
 
-    return f"""You are a test case generation assistant. Generate test cases and dataset examples for customer support scenarios.
+    # Default formats if not provided
+    if formats is None:
+        formats = ["single_turn_qa"]
+
+    # Build format-specific instructions
+    format_instructions = _build_format_instructions(formats, case)
+
+    return f"""You are a test case generation assistant. Generate test cases and dataset examples.
+
+CASE: {case}
+FORMATS: {', '.join(formats)}
 
 USE CASE:
 ID: {use_case_id}
@@ -185,6 +229,8 @@ POLICIES:
 TASK:
 Generate {num_test_cases} test cases and corresponding dataset examples.
 
+{format_instructions}
+
 OUTPUT FORMAT (JSON):
 {{
   "test_cases": [
@@ -193,21 +239,23 @@ OUTPUT FORMAT (JSON):
       "name": "Brief test case name",
       "description": "Detailed description of what this test covers",
       "parameter_variation_axes": ["axis1", "axis2"],  // MUST be 2-3 items
+      "parameters": {{"param1": "value1", "param2": "value2"}},  // Test parameters
+      "policy_ids": ["pol_XXX"],  // Relevant policy IDs
       "metadata": {{}}
     }}
   ],
   "dataset_examples": [
     {{
       "id": "ex_XXX",
-      "case": "support_bot",
-      "format": "single_turn_qa",
+      "case": "{case}",
+      "format": "{formats[0]}",
       "test_case_id": "tc_XXX",
       "input": {{
         "messages": [
-          {{"role": "user", "content": "Customer question here"}}
+          {{"role": "user", "content": "Message here"}}
         ]
       }},
-      "expected_output": "Expected support response",
+      "expected_output": "Expected response or corrected message",
       "evaluation_criteria": ["criterion1", "criterion2", "criterion3"],  // MUST be 3+ items
       "policy_ids": ["pol_XXX"],  // MUST be 1+ items, all starting with pol_
       "metadata": {{}}
@@ -217,12 +265,55 @@ OUTPUT FORMAT (JSON):
 
 REQUIREMENTS:
 1. Each test case must have 2-3 parameter_variation_axes
-2. Each dataset example must have 3+ evaluation_criteria
-3. Each dataset example must reference 1+ policy_ids (all starting with pol_)
-4. Create diverse scenarios covering different aspects of the use case
-5. Generate realistic customer support conversations in Russian
-6. Ensure expected outputs reference relevant policies
+2. Each test case must have parameters dict with test parameters
+3. Each test case must have policy_ids list
+4. Each dataset example must have 3+ evaluation_criteria
+5. Each dataset example must reference 1+ policy_ids (all starting with pol_)
+6. Each dataset example must have case="{case}"
+7. Create diverse scenarios covering different aspects of the use case
+8. Generate realistic conversations in Russian
+9. Ensure expected outputs reference relevant policies
 
 Generate the JSON output now."""
+
+
+def _build_format_instructions(formats: list[str], case: str) -> str:
+    """Build format-specific instructions for the prompt.
+
+    Args:
+        formats: List of format names
+        case: Case identifier
+
+    Returns:
+        Format instructions text
+    """
+    instructions = []
+
+    if "single_turn_qa" in formats:
+        instructions.append("""
+FORMAT: single_turn_qa (for support_bot)
+- input.messages: exactly 1 message with role="user"
+- expected_output: the support response
+- No target_message_index field
+""")
+
+    if "single_utterance_correction" in formats:
+        instructions.append("""
+FORMAT: single_utterance_correction (for operator_quality)
+- input.messages: exactly 1 message with role="operator" containing errors
+- input.target_message_index: 0
+- expected_output: the corrected operator message
+""")
+
+    if "dialog_last_turn_correction" in formats:
+        instructions.append("""
+FORMAT: dialog_last_turn_correction (for operator_quality)
+- input.messages: 2+ messages, last message has role="operator" and contains errors
+- input.target_message_index: index of last message (len(messages) - 1)
+- expected_output: the corrected last operator message
+- Example escalation response: "Понимаю ваше недовольство. Давайте отменим запись: подскажите, пожалуйста, вашу фамилию и время приёма. Если вам удобнее, могу передать диалог старшему специалисту."
+""")
+
+    return "\n".join(instructions)
 
 
