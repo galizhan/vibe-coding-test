@@ -172,11 +172,17 @@ def orchestrate_generation(
                                     user_content = msg.content
                                     break
 
+                            # Collect evidence quotes for context
+                            evidence_quotes = [
+                                ev.quote for ev in use_case.evidence
+                            ] if use_case.evidence else []
+
                             source_type = classify_source_type(
                                 use_case_description=use_case.description,
                                 generated_input=user_content,
                                 parameters=params,
                                 model=model,
+                                evidence_quotes=evidence_quotes,
                             )
                             if not example.metadata:
                                 example.metadata = {}

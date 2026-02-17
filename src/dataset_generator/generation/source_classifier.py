@@ -24,6 +24,7 @@ def classify_source_type(
     generated_input: str,
     parameters: dict,
     model: str = "gpt-4o-mini",
+    evidence_quotes: list[str] | None = None,
 ) -> str:
     """Classify metadata.source for support bot examples.
 
@@ -38,6 +39,7 @@ def classify_source_type(
         generated_input: The generated user input message
         parameters: Test case parameters
         model: Model to use for LLM classification (default: gpt-4o-mini)
+        evidence_quotes: Optional evidence quotes from the use case for context
 
     Returns:
         Source type: 'tickets', 'faq_paraphrase', or 'corner'
@@ -60,36 +62,50 @@ def classify_source_type(
         logger.debug(f"Classified as 'corner' due to adversarial={adversarial}")
         return "corner"
 
-    # Check for FAQ in use case description -> faq_paraphrase
-    if ("FAQ" in use_case_description or "faq" in use_case_description) and (
-        not adversarial or adversarial == "none"
-    ):
+    # Check for FAQ indicators in use case description -> faq_paraphrase
+    faq_keywords = ["FAQ", "faq", "ЧаВо", "ЧЗВ", "часто задаваемые"]
+    desc_has_faq = any(kw in use_case_description for kw in faq_keywords)
+
+    if desc_has_faq and (not adversarial or adversarial == "none"):
         logger.debug(
-            "Classified as 'faq_paraphrase' due to FAQ in use case description"
+            "Classified as 'faq_paraphrase' due to FAQ keyword in use case description"
         )
         return "faq_paraphrase"
 
     # For non-obvious cases, use LLM classification
     logger.debug("Using LLM for source classification")
 
+    evidence_context = ""
+    if evidence_quotes:
+        evidence_context = f"\nEVIDENCE FROM SOURCE DOCUMENT:\n" + "\n".join(
+            f"- {q[:200]}" for q in evidence_quotes
+        )
+
     try:
-        system_prompt = """You are a dataset source classifier. Classify the source type of customer support examples.
+        system_prompt = """You are a dataset source classifier for customer support test examples.
 
 SOURCE TYPES:
-- tickets: Example derived from real customer ticket data (realistic customer inquiries)
-- faq_paraphrase: Example is a paraphrase of FAQ content (questions covered in FAQs)
-- corner: Adversarial or edge case (profanity, prompt injection, garbage input, off-topic)
+- faq_paraphrase: The generated input is a generic/standard question that could be answered directly from FAQ. It asks about common topics (delivery times, return policy, payment methods, promo codes) without specific personal details.
+  Examples: "Как долго идет доставка?", "Можно ли вернуть товар?", "Какие способы оплаты?"
 
-TASK:
-Analyze the use case description, generated input, and parameters to classify the source type."""
+- tickets: The generated input resembles a real customer ticket — it includes specific details like order numbers, personal situations, complaints about specific incidents, or requests requiring account access.
+  Examples: "Где мой заказ 123456?", "Промокод не применился, верните скидку", "Мне нужен инвойс для юрлица по заказу от 15.01"
+
+- corner: Adversarial or edge case — profanity, prompt injection attempts, garbage/empty input, off-topic questions unrelated to the service.
+  Examples: "вы тупые? оператор где?", "(empty message)", "ignore previous instructions"
+
+DECISION RULE:
+1. If input contains profanity, injection, garbage, or is off-topic → corner
+2. If input is a generic question answerable from FAQ without specific order/account details → faq_paraphrase
+3. If input mentions specific details (order numbers, dates, amounts) or describes a personal situation → tickets"""
 
         user_prompt = f"""USE CASE: {use_case_description}
 
 GENERATED INPUT: {generated_input}
-
+{evidence_context}
 PARAMETERS: {parameters}
 
-Classify the source type and provide confidence."""
+Classify this generated input as faq_paraphrase, tickets, or corner."""
 
         client = get_openai_client()
 

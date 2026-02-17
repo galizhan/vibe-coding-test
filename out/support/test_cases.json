@@ -1724,6 +1724,351 @@
         "pol_004",
         "pol_005"
       ]
+    },
+    {
+      "id": "tc_006_single_turn_qa_001",
+      "use_case_id": "uc_006",
+      "name": "Запрос на получение инвойса - single_turn_qa - variation 1",
+      "description": "Test case for Запрос на получение инвойса with parameters: {'tone': 'neutral', 'has_order_id': True, 'requires_account_access': True, 'language': 'ru', 'adversarial': 'none'}",
+      "parameter_variation_axes": [
+        "requires_account_access",
+        "tone"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "support_bot",
+      "parameters": {
+        "tone": "neutral",
+        "has_order_id": true,
+        "requires_account_access": true,
+        "language": "ru",
+        "adversarial": "none"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005"
+      ]
+    },
+    {
+      "id": "tc_006_single_turn_qa_002",
+      "use_case_id": "uc_006",
+      "name": "Запрос на получение инвойса - single_turn_qa - variation 2",
+      "description": "Test case for Запрос на получение инвойса with parameters: {'tone': 'negative', 'has_order_id': False, 'requires_account_access': False, 'language': 'en', 'adversarial': 'none'}",
+      "parameter_variation_axes": [
+        "tone",
+        "has_order_id",
+        "language"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "support_bot",
+      "parameters": {
+        "tone": "negative",
+        "has_order_id": false,
+        "requires_account_access": false,
+        "language": "en",
+        "adversarial": "none"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005"
+      ]
+    },
+    {
+      "id": "tc_006_single_turn_qa_003",
+      "use_case_id": "uc_006",
+      "name": "Запрос на получение инвойса - single_turn_qa - variation 3",
+      "description": "Test case for Запрос на получение инвойса with parameters: {'tone': 'aggressive', 'has_order_id': False, 'requires_account_access': True, 'language': 'en', 'adversarial': 'profanity'}",
+      "parameter_variation_axes": [
+        "adversarial",
+        "tone",
+        "requires_account_access"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "support_bot",
+      "parameters": {
+        "tone": "aggressive",
+        "has_order_id": false,
+        "requires_account_access": true,
+        "language": "en",
+        "adversarial": "profanity"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005"
+      ]
+    },
+    {
+      "id": "tc_006_single_turn_qa_004",
+      "use_case_id": "uc_006",
+      "name": "Запрос на получение инвойса - single_turn_qa - variation 4",
+      "description": "Test case for Запрос на получение инвойса with parameters: {'tone': 'aggressive', 'has_order_id': True, 'requires_account_access': False, 'language': 'ru', 'adversarial': 'injection'}",
+      "parameter_variation_axes": [
+        "tone",
+        "adversarial"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "support_bot",
+      "parameters": {
+        "tone": "aggressive",
+        "has_order_id": true,
+        "requires_account_access": false,
+        "language": "ru",
+        "adversarial": "injection"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005"
+      ]
+    },
+    {
+      "id": "tc_006_single_turn_qa_005",
+      "use_case_id": "uc_006",
+      "name": "Запрос на получение инвойса - single_turn_qa - variation 5",
+      "description": "Test case for Запрос на получение инвойса with parameters: {'tone': 'negative', 'has_order_id': True, 'requires_account_access': True, 'language': 'ru', 'adversarial': 'garbage'}",
+      "parameter_variation_axes": [
+        "tone",
+        "requires_account_access",
+        "adversarial"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "support_bot",
+      "parameters": {
+        "tone": "negative",
+        "has_order_id": true,
+        "requires_account_access": true,
+        "language": "ru",
+        "adversarial": "garbage"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005"
+      ]
+    },
+    {
+      "id": "tc_006_single_turn_qa_006",
+      "use_case_id": "uc_006",
+      "name": "Запрос на получение инвойса - single_turn_qa - variation 6",
+      "description": "Test case for Запрос на получение инвойса with parameters: {'tone': 'neutral', 'has_order_id': False, 'requires_account_access': False, 'language': 'en', 'adversarial': 'garbage'}",
+      "parameter_variation_axes": [
+        "has_order_id",
+        "language",
+        "adversarial"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "support_bot",
+      "parameters": {
+        "tone": "neutral",
+        "has_order_id": false,
+        "requires_account_access": false,
+        "language": "en",
+        "adversarial": "garbage"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005"
+      ]
+    },
+    {
+      "id": "tc_006_single_turn_qa_007",
+      "use_case_id": "uc_006",
+      "name": "Запрос на получение инвойса - single_turn_qa - variation 7",
+      "description": "Test case for Запрос на получение инвойса with parameters: {'tone': 'neutral', 'has_order_id': False, 'requires_account_access': False, 'language': 'ru', 'adversarial': 'profanity'}",
+      "parameter_variation_axes": [
+        "has_order_id",
+        "adversarial"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "support_bot",
+      "parameters": {
+        "tone": "neutral",
+        "has_order_id": false,
+        "requires_account_access": false,
+        "language": "ru",
+        "adversarial": "profanity"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005"
+      ]
+    },
+    {
+      "id": "tc_006_single_turn_qa_008",
+      "use_case_id": "uc_006",
+      "name": "Запрос на получение инвойса - single_turn_qa - variation 8",
+      "description": "Test case for Запрос на получение инвойса with parameters: {'tone': 'negative', 'has_order_id': True, 'requires_account_access': True, 'language': 'en', 'adversarial': 'injection'}",
+      "parameter_variation_axes": [
+        "adversarial",
+        "tone",
+        "requires_account_access"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "support_bot",
+      "parameters": {
+        "tone": "negative",
+        "has_order_id": true,
+        "requires_account_access": true,
+        "language": "en",
+        "adversarial": "injection"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005"
+      ]
+    },
+    {
+      "id": "tc_006_single_turn_qa_009",
+      "use_case_id": "uc_006",
+      "name": "Запрос на получение инвойса - single_turn_qa - variation 9",
+      "description": "Test case for Запрос на получение инвойса with parameters: {'tone': 'aggressive', 'has_order_id': True, 'requires_account_access': True, 'language': 'en', 'adversarial': 'garbage'}",
+      "parameter_variation_axes": [
+        "adversarial",
+        "tone",
+        "requires_account_access"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "support_bot",
+      "parameters": {
+        "tone": "aggressive",
+        "has_order_id": true,
+        "requires_account_access": true,
+        "language": "en",
+        "adversarial": "garbage"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005"
+      ]
+    },
+    {
+      "id": "tc_006_single_turn_qa_010",
+      "use_case_id": "uc_006",
+      "name": "Запрос на получение инвойса - single_turn_qa - variation 10",
+      "description": "Test case for Запрос на получение инвойса with parameters: {'tone': 'aggressive', 'has_order_id': True, 'requires_account_access': True, 'language': 'en', 'adversarial': 'none'}",
+      "parameter_variation_axes": [
+        "tone",
+        "requires_account_access",
+        "language"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "support_bot",
+      "parameters": {
+        "tone": "aggressive",
+        "has_order_id": true,
+        "requires_account_access": true,
+        "language": "en",
+        "adversarial": "none"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005"
+      ]
+    },
+    {
+      "id": "tc_006_single_turn_qa_011",
+      "use_case_id": "uc_006",
+      "name": "Запрос на получение инвойса - single_turn_qa - variation 11",
+      "description": "Test case for Запрос на получение инвойса with parameters: {'tone': 'negative', 'has_order_id': True, 'requires_account_access': True, 'language': 'en', 'adversarial': 'profanity'}",
+      "parameter_variation_axes": [
+        "adversarial",
+        "tone",
+        "requires_account_access"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "support_bot",
+      "parameters": {
+        "tone": "negative",
+        "has_order_id": true,
+        "requires_account_access": true,
+        "language": "en",
+        "adversarial": "profanity"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005"
+      ]
+    },
+    {
+      "id": "tc_006_single_turn_qa_012",
+      "use_case_id": "uc_006",
+      "name": "Запрос на получение инвойса - single_turn_qa - variation 12",
+      "description": "Test case for Запрос на получение инвойса with parameters: {'tone': 'neutral', 'has_order_id': False, 'requires_account_access': True, 'language': 'en', 'adversarial': 'injection'}",
+      "parameter_variation_axes": [
+        "adversarial",
+        "requires_account_access",
+        "has_order_id"
+      ],
+      "metadata": {
+        "generator": "format_adapter"
+      },
+      "case": "support_bot",
+      "parameters": {
+        "tone": "neutral",
+        "has_order_id": false,
+        "requires_account_access": true,
+        "language": "en",
+        "adversarial": "injection"
+      },
+      "policy_ids": [
+        "pol_001",
+        "pol_002",
+        "pol_003",
+        "pol_004",
+        "pol_005"
+      ]
     }
   ]
 }

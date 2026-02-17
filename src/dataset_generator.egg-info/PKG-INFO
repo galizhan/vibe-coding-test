@@ -8,6 +8,17 @@ Requires-Dist: openai>=1.0
 Requires-Dist: typer[all]>=0.12
 Requires-Dist: python-dotenv>=1.0
 Requires-Dist: tenacity>=8.0
+Requires-Dist: rapidfuzz>=3.0
+Requires-Dist: deepeval>=3.0
+Requires-Dist: ragas>=0.4
+Requires-Dist: giskard[llm]>=2.0
+Requires-Dist: evidently>=0.4
+Requires-Dist: langchain>=0.2
+Requires-Dist: pandas>=2.0
+Requires-Dist: chromadb>=1.0
+Requires-Dist: allpairspy
 Provides-Extra: dev
 Requires-Dist: pytest>=7.0; extra == "dev"
 Requires-Dist: pytest-cov>=4.0; extra == "dev"
+Provides-Extra: langfuse
+Requires-Dist: langfuse>=2.0; extra == "langfuse"
